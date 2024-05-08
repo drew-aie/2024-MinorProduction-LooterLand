@@ -5,11 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class spawnManagerBehavior : MonoBehaviour
+public class SpawnManagerBehavior : MonoBehaviour
 {
-    [SerializeField]
     //the region the player is in.
-    private spawnArea_regionSO _currentRegion;
+    private SpawnArea_regionSO _currentRegion;
+
+    [SerializeField, Tooltip("The player.")]
+    private GameObject _player;
 
     [SerializeField, Tooltip("Group of common items.")]
     private collectable_collectionSO _common;
@@ -41,17 +43,14 @@ public class spawnManagerBehavior : MonoBehaviour
         _spawnedItems = new List<GameObject>();
     }
 
-    void Start()
-    {
-        //call the refresh function to instantialize our spawns locations and spawn items.
-        Refresh();
-    }
-
     public void Refresh()
     {
         //despawns items from the previous area.
         //does nothing if there are no items referenced.
         DespawnItems();
+
+        //sets the current region to the region the player is in.
+        SetCurrentRegion();
 
         //return if the player is not in a spawning region.
         if (!_currentRegion)
@@ -59,12 +58,6 @@ public class spawnManagerBehavior : MonoBehaviour
 
         //seed the random number generator.
         Seed();
-
-        //instantializes all _spawnAreas.
-        for (int i = 0; i < _currentRegion.SpawnAreas.Count; i++)
-        {
-            Instantiate(_currentRegion.SpawnAreas[i], _currentRegion.SpawnAreas[i].transform.position, _currentRegion.SpawnAreas[i].transform.rotation);
-        }
 
         //spawns new items.
         for (int i = 0; i < _currentRegion.SpawnAreas.Count; i++)
@@ -117,6 +110,21 @@ public class spawnManagerBehavior : MonoBehaviour
             //then destroy the item completely.
             Destroy(itemToDelete);
         }
+
+        //sets the Player's region to null if region data is not found.
+        SetCurrentRegion();
+    }
+
+    private void SetCurrentRegion()
+    {
+        PlayerRegion playerRegion = _player.GetComponent<PlayerRegion>();
+
+        //if the player's region exists, set the current region
+        if (playerRegion.Region)
+            _currentRegion = playerRegion.Region.RegionData;
+        //else set the region data to null.
+        else
+            _currentRegion = null;
     }
 
 
