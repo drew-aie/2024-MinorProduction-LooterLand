@@ -52,6 +52,16 @@ public class Input : MonoBehaviour
 
         //makes the player's velocity = to the vector 3 move direction * our speed value.
         _playerRigidbody.velocity = move * _speed;
+
+
+        //Find the direction the player should look towards
+        Vector3 lookDir = new Vector3(move.x, move.y, move.z);
+        //Create a rotation from the player's forward to the look direction
+        Quaternion rotation = Quaternion.LookRotation(lookDir);
+        //Set the rotation to be the new rotation found
+        _playerRigidbody.MoveRotation(rotation);
+
+
     }
 
 }
