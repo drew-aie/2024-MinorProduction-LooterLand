@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "spawnArea_region", menuName = "ScriptableObject/spawnArea_region")]
-public class spawnArea_regionSO : ScriptableObject
+[CreateAssetMenu(fileName = "SpawnArea_region", menuName = "ScriptableObject/SpawnArea_region")]
+public class SpawnArea_regionSO : ScriptableObject
 {
     [SerializeField, Tooltip("The areas in this region to spawn items.")]
     private List<GameObject> _spawnAreas;
 
-    //property for _spawnAreas. [Read-Only]
+    //property for _spawnAreas.
     public List<GameObject> SpawnAreas
     {
         get => _spawnAreas;
+        set => _spawnAreas = value;
     }
 }
