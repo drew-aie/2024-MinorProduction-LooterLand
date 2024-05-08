@@ -3,7 +3,12 @@ guid: fc542be97932c1543b4e6f963f98b5ad
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop_Static01_Mat
+    second: {fileID: 2100000, guid: e6673a5a89aad8740bfd70987a3facfe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -95,7 +100,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
