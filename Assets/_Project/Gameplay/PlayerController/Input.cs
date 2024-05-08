@@ -43,7 +43,8 @@ public class Input : MonoBehaviour
     {
 
         _locomotionInput = _playerActions.Locomotion.Move.ReadValue<Vector2>();
-        _playerRigidbody.velocity = _locomotionInput * _speed;
+        Vector3 move = new Vector3(_locomotionInput.x, 0, _locomotionInput.y);
+        _playerRigidbody.velocity = move * _speed;
     }
 
 }
