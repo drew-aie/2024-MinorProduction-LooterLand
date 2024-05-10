@@ -489,6 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1872896906}
+  - component: {fileID: 1872896907}
   m_Layer: 0
   m_Name: MANAGER_SPAWN
   m_TagString: Untagged
@@ -511,6 +512,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872896907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872896904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a018de625032f843a12a4f1389f9ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 19500097}
+  _common: {fileID: 11400000, guid: ce9366be6ee94d040896d75f352180fa, type: 2}
+  _uncommon: {fileID: 11400000, guid: fd19b1e94232dd841afc86365b48dce5, type: 2}
+  _rare: {fileID: 11400000, guid: a4bb7c1356e54ed45b1d74d8d4c70ae5, type: 2}
+  _uncommonChancePercentage: 39.3
+  _rareChancePercentage: 15.8
 --- !u!1001 &2144349400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,12 +616,12 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPlayerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1872896907}
     - target: {fileID: 8614351545177502646, guid: f33bbbfb43382c4458c63e7485971d47,
         type: 3}
       propertyPath: OnPlayerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1872896907}
     - target: {fileID: 8614351545177502646, guid: f33bbbfb43382c4458c63e7485971d47,
         type: 3}
       propertyPath: OnPlayerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -616,12 +635,12 @@ PrefabInstance:
     - target: {fileID: 8614351545177502646, guid: f33bbbfb43382c4458c63e7485971d47,
         type: 3}
       propertyPath: OnPlayerExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SpawnManagerBehavior, Assembly-CSharp
+      value: SpawnManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8614351545177502646, guid: f33bbbfb43382c4458c63e7485971d47,
         type: 3}
       propertyPath: OnPlayerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SpawnManagerBehavior, Assembly-CSharp
+      value: SpawnManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8614351545177502646, guid: f33bbbfb43382c4458c63e7485971d47,
         type: 3}
