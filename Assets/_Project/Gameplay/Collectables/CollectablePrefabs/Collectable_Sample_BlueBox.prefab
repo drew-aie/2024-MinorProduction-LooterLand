@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 4622708832327593407}
   - component: {fileID: 8218308051033040573}
   - component: {fileID: 4438695135811691564}
-  - component: {fileID: 7784323828352385332}
   m_Layer: 0
-  m_Name: BlueBox
+  m_Name: BlueBoxModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7784323828352385332
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839221450406694411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4333246425989578543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,3 +184,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4333246425989578543}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4766393365604690115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9081342799536953324, guid: 5f1116838e16d5542b6c40179f83c256,
+    type: 3}
+  m_PrefabInstance: {fileID: 4333246425989578543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8856968275758203042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4766393365604690115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.96, z: 0}
