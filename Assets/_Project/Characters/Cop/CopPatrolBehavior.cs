@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +16,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private EState _currentState = EState.IDLE;
 
     private int _navIter;
+    private float _time = 0;
 
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
@@ -69,21 +71,26 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         if (_currentState == EState.IDLE)
         {
-            TransitionTo(EState.PATROL);
+            _time += Time.deltaTime;
+
+            if (_time >= 2)
+                TransitionTo(EState.PATROL);
+
             return;
         }
         else if (_currentState == EState.PATROL)
         {
-            if (!_hasReachedPath)
+            _time = 0;
+
             PatrolPath();
+            MotionCheck();
+            
             return;
         }
         else if (_currentState == EState.WANDER)
             Wander();
         else
             return;
-
-
     }
 
     /// <summary>
@@ -97,26 +104,47 @@ public class CopPatrolBehavior : MonoBehaviour
             return;
 
         _currentState = state;
+    }
 
+    //Checks if agent has reached it's destination and isn't moving
+    private void MotionCheck()
+    {
+        //Guard Clause
+        if (!_hasReachedPath && _cop.velocity == Vector3.zero)
+        {
+            _hasReachedPath = true;
+
+            //Having agent idle after reaching point
+            TransitionTo(EState.IDLE);
+            Debug.Log("Test");
+        }
     }
 
     private void PatrolPath()
     {
+        //Checking if PatrolPath is being called for the first time
         if (!_patrolStarted)
         {
             _navIter = -1;
             _patrolStarted = true;
         }
-        _navIter++;
 
+        //Guard Clause
         if (!_hasReachedPath)
-            return;
+            return; 
+   
+        //Incrementing each time PatrolPath is called
+        _navIter++;
+        Debug.Log(_navIter);
+        
+        //Guard so iter so it doesn't exceed the bounds of the nav points array
+        if (_hasReachedPath && _navIter > _navPoints.Length)
+            _navIter = -1;
 
+        //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
 
-        if (_hasReachedPath)
-            TransitionTo(EState.IDLE);
-
+        _hasReachedPath = false;
     }
 
     private void Wander()
