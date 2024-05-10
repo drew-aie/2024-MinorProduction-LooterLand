@@ -8,6 +8,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CopPatrolBehavior : MonoBehaviour
 {
+    [Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders turned off.")]
     [SerializeField]
     private GameObject[] _navPoints;
 
@@ -72,6 +73,7 @@ public class CopPatrolBehavior : MonoBehaviour
         if (_currentState == EState.IDLE)
         {
             _time += Time.deltaTime;
+            Debug.Log("Waiting");
 
             if (_time >= 2)
                 TransitionTo(EState.PATROL);
