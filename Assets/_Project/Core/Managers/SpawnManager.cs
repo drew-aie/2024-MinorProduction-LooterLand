@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SpawnManagerBehavior : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     //the region the player is in.
     private SpawnArea_regionSO _currentRegion;
@@ -133,3 +133,4 @@ public class SpawnManagerBehavior : MonoBehaviour
         UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
     }
 }
+
