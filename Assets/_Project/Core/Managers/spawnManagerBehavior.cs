@@ -69,12 +69,12 @@ public class SpawnManagerBehavior : MonoBehaviour
             collectable_collectionSO collectionToSpawnFrom;
 
             //determine which group of objects to pull from based on our randomPercentage value.
-            if(randomPercentage <= _commonChancePercentage)
+            if (randomPercentage <= _commonChancePercentage)
             {
                 collectionToSpawnFrom = _common;
             }
             //combine our common chance and uncommon chance to get the threshold that the percentage will have to be within to pull from uncommon.
-            else if(randomPercentage <= _commonChancePercentage + _uncommonChancePercentage)
+            else if (randomPercentage <= _commonChancePercentage + _uncommonChancePercentage)
             {
                 collectionToSpawnFrom = _uncommon;
             }
@@ -101,7 +101,7 @@ public class SpawnManagerBehavior : MonoBehaviour
     public void DespawnItems()
     {
         //continue while there are items that still exist.
-        while(0 < _spawnedItems.Count)
+        while (0 < _spawnedItems.Count)
         {
             //get the first item in the array.
             GameObject itemToDelete = _spawnedItems[0];
