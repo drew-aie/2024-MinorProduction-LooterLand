@@ -513,8 +513,8 @@ MonoBehaviour:
   _common: {fileID: 11400000, guid: ce9366be6ee94d040896d75f352180fa, type: 2}
   _uncommon: {fileID: 11400000, guid: fd19b1e94232dd841afc86365b48dce5, type: 2}
   _rare: {fileID: 11400000, guid: a4bb7c1356e54ed45b1d74d8d4c70ae5, type: 2}
-  _uncommonChancePercentage: 45.1
-  _rareChancePercentage: 22.8
+  _uncommonChancePercentage: 34.8
+  _rareChancePercentage: 16.8
 --- !u!4 &1872896906
 Transform:
   m_ObjectHideFlags: 0
