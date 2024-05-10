@@ -34,6 +34,15 @@ public class RegionCreationManagerEditor : Editor
             //instantiate the prefab
             GameObject newArea = (GameObject)PrefabUtility.InstantiatePrefab(obj);
 
+            //create a new path to the new prefab variant
+            string localPath = "Assets/_Project/Gameplay/Collectables/SpawnRegions/" + newArea.name + ".prefab";
+
+            //generate a unique path to this prefab
+            localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+
+            //save this new prefab at the path location we generated.
+            PrefabUtility.SaveAsPrefabAsset(newArea, localPath);
+
             //add it to our list of areas
             region.RegionData.SpawnAreas.Add(newArea);
 
@@ -44,7 +53,7 @@ public class RegionCreationManagerEditor : Editor
             Undo.RegisterCreatedObjectUndo(newArea, "Created a new spawn area.");
 
             //change this object to be what is selected in the hierarchy
-            Selection.activeObject = newArea;
+            Selection.activeGameObject = newArea;
         }
     }
 }
