@@ -38,36 +38,6 @@ public class CopPatrolBehavior : MonoBehaviour
         END 
     };
 
-    void StateMachine()
-    {
-        //switch (_currentState)
-        //{
-        //    case EState.IDLE:
-        //        //Check state 
-        //        if (_currentState != EState.IDLE)
-        //            break;
-
-        //        break;
-
-        //    case EState.WANDER:
-        //        //Check state
-        //        if (_currentState != EState.WANDER)
-        //            break;
-
-        //        break;
-
-        //    case EState.END:
-        //        //Check state
-        //        if (_currentState != EState.END)
-        //            break;
-
-        //        break;
-
-        //    default:
-        //        break;
-        //}
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -150,7 +120,10 @@ public class CopPatrolBehavior : MonoBehaviour
         
         //Guard so iter so it doesn't exceed the bounds of the nav points array
         if (_hasReachedPath && _navIter > _navPoints.Length)
+        {
             _navIter = -1;
+            Debug.Log("Reset");
+        }
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
