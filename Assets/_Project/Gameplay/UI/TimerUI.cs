@@ -4,10 +4,9 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
-public class TimerBehavior : MonoBehaviour
+public class TimerUI : MonoBehaviour
 {
-    [Tooltip("The Textmesh that will display the timer countdown to the player.")]
-    [SerializeField]
+    [SerializeField, Tooltip("The Textmesh that will display the timer countdown to the player.")]
     private TextMeshProUGUI _timerDisplay;
 
     [Space]

@@ -8,14 +8,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CopPatrolBehavior : MonoBehaviour
 {
-    [Tooltip("What the cop will chase once it enters it's radius. (The Player)")]
-    [SerializeField]
+    [SerializeField, Tooltip("What the cop will chase once it enters it's radius. (The Player)")]
     private GameObject _target;
 
     [Space]
 
-    [Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders and colliders turned off.")]
-    [SerializeField]
+    [SerializeField, Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders and colliders turned off.")]
     private GameObject[] _navPoints;
 
     private NavMeshAgent _cop;
