@@ -156,6 +156,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collectable_Sample_GreenBox
       objectReference: {fileID: 0}
+    - target: {fileID: 9081342799536953324, guid: 5f1116838e16d5542b6c40179f83c256,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1116838e16d5542b6c40179f83c256, type: 3}
 --- !u!1 &3689869608977209220 stripped
