@@ -14,7 +14,7 @@ public class CopPatrolBehavior : MonoBehaviour
 
     [Space]
 
-    [Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders turned off.")]
+    [Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders and colliders turned off.")]
     [SerializeField]
     private GameObject[] _navPoints;
 
@@ -24,9 +24,11 @@ public class CopPatrolBehavior : MonoBehaviour
 
     private int _navIter;
     private float _idleTime = 0;
+    private float _bufferTime = 0;
 
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
+    private bool _inMotion = false;
 
     //Enum holding behavior states
     enum EState
@@ -50,7 +52,6 @@ public class CopPatrolBehavior : MonoBehaviour
         if (_currentState == EState.IDLE)
         {
             _idleTime += Time.deltaTime;
-            Debug.Log("Waiting");
 
             if (_idleTime >= 2)
                 TransitionTo(EState.PATROL);
@@ -59,6 +60,7 @@ public class CopPatrolBehavior : MonoBehaviour
         }
         else if (_currentState == EState.PATROL)
         {
+            //Resetting idle timer
             _idleTime = 0;
 
             PatrolPath();
@@ -90,17 +92,24 @@ public class CopPatrolBehavior : MonoBehaviour
     //Checks if agent has reached it's destination and isn't moving
     private void MotionCheck()
     {
+        //Setting boolean once the buffer has eclipsed 0.5
+        if (_bufferTime >= 0.5f)
+            _inMotion = false;
+
         //Guard Clause
-        if (!_hasReachedPath && _cop.velocity == Vector3.zero)
+        if (!_hasReachedPath && !_inMotion)
         {
             _hasReachedPath = true;
 
+            //Resetting timer
+            _bufferTime = 0;
+
             //Having agent idle after reaching point
             TransitionTo(EState.IDLE);
-            Debug.Log("Test");
         }
     }
 
+    //Handles the functionality for the agent's patrolling behavior
     private void PatrolPath()
     {
         //Checking if PatrolPath is being called for the first time
@@ -110,7 +119,11 @@ public class CopPatrolBehavior : MonoBehaviour
             _patrolStarted = true;
         }
 
-        //Guard Clause
+        //Creating a buffer once agent stops moving to not immediately skip idle
+        if (_cop.velocity == Vector3.zero)
+            _bufferTime += Time.deltaTime;
+
+        //Don't run if agent hasn't reached path
         if (!_hasReachedPath)
             return; 
    
@@ -120,14 +133,12 @@ public class CopPatrolBehavior : MonoBehaviour
         
         //Guard so iter so it doesn't exceed the bounds of the nav points array
         if (_hasReachedPath && _navIter > _navPoints.Length)
-        {
             _navIter = -1;
-            Debug.Log("Reset");
-        }
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
 
+        _inMotion = true;
         _hasReachedPath = false;
     }
 
