@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
+using static UnityEngine.Rendering.DebugUI.Table;
+using UnityEngine.TextCore.Text;
+using UnityEngine.Windows;
 public class Input : MonoBehaviour
 {
     //the main vector 2 for movement
     private Vector2 _locomotionInput;
 
-    
     //how many units a character moves per second of input in a direction
-    [SerializeField]
+    [SerializeField, Tooltip("The speed of the player.")]
     private float _speed;
+
+    //property for _speed.
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
 
     //the Action map used for input.cs
     private PlayerControls _playerActions;
