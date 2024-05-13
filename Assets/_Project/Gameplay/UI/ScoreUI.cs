@@ -19,6 +19,5 @@ public class ScoreUI : MonoBehaviour
             return;
 
         _scoreDisplay.text = "$" + _playerScore.CurrentScore;
-        Debug.Log(_playerScore.CurrentScore);
     }
 }
