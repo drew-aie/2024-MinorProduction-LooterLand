@@ -18,4 +18,9 @@ public class collectable_dataSO : ScriptableObject
 
     [SerializeField, Tooltip("The cash value of this item.")]
     private float _cashValue;
+
+    public float CashValue
+    {
+        get { return _cashValue; }
+    }
 }

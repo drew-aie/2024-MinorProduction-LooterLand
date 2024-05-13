@@ -54,6 +54,13 @@ public class Input : MonoBehaviour
         _playerRigidbody.velocity = move * _speed;
 
 
+        //dont update rotation if we arent moving.
+        if (move.magnitude < 0.1f)
+        {
+            return;
+        }
+
+
         //Find the direction the player should look towards
         Vector3 lookDir = new Vector3(move.x, move.y, move.z);
         //Create a rotation from the player's forward to the look direction
