@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Prop_Static01_Mat
+    second: {fileID: 2100000, guid: e6673a5a89aad8740bfd70987a3facfe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: store
     second: {fileID: 2100000, guid: e6673a5a89aad8740bfd70987a3facfe, type: 2}
   materials:
