@@ -5,18 +5,18 @@ using UnityEngine;
 public class ScoreSystem : MonoBehaviour
 {
     [SerializeField]
-    [TooltipAttribute("Player's Current Total Score")]
+    [Tooltip("Player's Current Total Score")]
    private float _currentScore;
 
     public float CurrentScore
     { get { return _currentScore; } set { _currentScore = value; } }
 
     [SerializeField]
-    [TooltipAttribute("Value The Player's score is redduced by")]
+    [Tooltip("Value The Player's score is reduced by")]
     private float _reduceScoreValue = 2;
 
-    //The Collectable the player has collided with.
-   private Collectable _collidedCollectable;
+
+
 
 
 
