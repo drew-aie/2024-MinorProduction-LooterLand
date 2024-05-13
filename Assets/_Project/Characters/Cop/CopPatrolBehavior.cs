@@ -8,16 +8,22 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CopPatrolBehavior : MonoBehaviour
 {
+    [Tooltip("What the cop will chase once it enters it's radius. (The Player)")]
+    [SerializeField]
+    private GameObject _target;
+
+    [Space]
+
     [Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders turned off.")]
     [SerializeField]
     private GameObject[] _navPoints;
 
     private NavMeshAgent _cop;
-    private NavMeshPath _path;
+
     private EState _currentState = EState.IDLE;
 
     private int _navIter;
-    private float _time = 0;
+    private float _idleTime = 0;
 
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
@@ -28,38 +34,9 @@ public class CopPatrolBehavior : MonoBehaviour
         IDLE,
         PATROL,
         WANDER,
+        PURSUE,
         END 
     };
-
-    void StateMachine()
-    {
-        //switch (_currentState)
-        //{
-        //    case EState.IDLE:
-        //        //Check state 
-        //        if (_currentState != EState.IDLE)
-        //            break;
-
-        //        break;
-
-        //    case EState.WANDER:
-        //        //Check state
-        //        if (_currentState != EState.WANDER)
-        //            break;
-
-        //        break;
-
-        //    case EState.END:
-        //        //Check state
-        //        if (_currentState != EState.END)
-        //            break;
-
-        //        break;
-
-        //    default:
-        //        break;
-        //}
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -72,25 +49,27 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         if (_currentState == EState.IDLE)
         {
-            _time += Time.deltaTime;
+            _idleTime += Time.deltaTime;
             Debug.Log("Waiting");
 
-            if (_time >= 2)
+            if (_idleTime >= 2)
                 TransitionTo(EState.PATROL);
 
             return;
         }
         else if (_currentState == EState.PATROL)
         {
-            _time = 0;
+            _idleTime = 0;
 
             PatrolPath();
             MotionCheck();
-            
+
             return;
         }
         else if (_currentState == EState.WANDER)
             Wander();
+        else if (_currentState == EState.PURSUE)
+            Pursue();
         else
             return;
     }
@@ -141,7 +120,10 @@ public class CopPatrolBehavior : MonoBehaviour
         
         //Guard so iter so it doesn't exceed the bounds of the nav points array
         if (_hasReachedPath && _navIter > _navPoints.Length)
+        {
             _navIter = -1;
+            Debug.Log("Reset");
+        }
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
@@ -152,5 +134,12 @@ public class CopPatrolBehavior : MonoBehaviour
     private void Wander()
     {
         //Wander
+    }
+
+    private void Pursue()
+    {
+        Rigidbody targetRigid = _target.GetComponent<Rigidbody>();
+
+        _cop.destination += _target.transform.position + targetRigid.velocity.normalized;
     }
 }
