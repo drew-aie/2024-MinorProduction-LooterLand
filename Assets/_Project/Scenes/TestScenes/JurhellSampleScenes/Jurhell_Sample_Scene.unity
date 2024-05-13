@@ -1293,21 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd3c51a3ab44cd43964f073c39c9c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreSystem: {fileID: 1903198952}
---- !u!114 &1903198952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903198943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76aec6d1bc1364693114cfafdaaa52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentScore: 0
-  _reduceScoreValue: 2
+  _scoreSystem: {fileID: 0}
 --- !u!1 &1929760101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,7 +1719,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _playerScore
       value: 
-      objectReference: {fileID: 1903198952}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc062238340b1248bbbe540064bed3d, type: 3}
 --- !u!1001 &7248308769548302933

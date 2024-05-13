@@ -556,4 +556,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreDisplay: {fileID: 1412057846646146792}
-  _scoreSystem: {fileID: 0}
+  _playerScore: {fileID: 5549609631265403128, guid: f943114e7c3786c46a91f93f48e90ff0,
+    type: 3}
