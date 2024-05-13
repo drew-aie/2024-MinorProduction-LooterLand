@@ -1301,6 +1301,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
         type: 3}
+      propertyPath: _navPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
       propertyPath: _navPoints.Array.data[0]
       value: 
       objectReference: {fileID: 383654830}
@@ -1319,6 +1324,11 @@ PrefabInstance:
       propertyPath: _navPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1603091644}
+    - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
+      propertyPath: _navPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4683214151847544445, guid: e46e80635d67bec4a90b6af74a1135af,
         type: 3}
       propertyPath: m_Name
