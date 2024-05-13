@@ -20,7 +20,8 @@ public class ScoreUI : MonoBehaviour
         if (!_scoreDisplay || !_playerScore)
             return;
 
-        _scoreDisplay.text = "$" + _playerScore.CurrentScore;
+        _playerScore.CurrentScore = (int)_playerScore.CurrentScore;
+        _scoreDisplay.text = "$" + _playerScore.CurrentScore + ".99";
         Debug.Log(_playerScore.CurrentScore);
     }
 }

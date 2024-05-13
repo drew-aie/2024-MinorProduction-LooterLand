@@ -20,19 +20,25 @@ public class ScoreSystem : MonoBehaviour
 
 
 
-    //so in player collision use trygetcomponent returns true or false and pops out ref to that component
 
+    /// <summary>
+    /// increases the current score value by whatever float is passed into this function.
+    /// </summary>
+    /// <param name="value">the amount being added to the current score</param>
     public void IncreaseScore(float value)
     {
         _currentScore = _currentScore + value;
- 
+        
         return;
     }
 
-
+    /// <summary>
+    /// divides the current score value by the reduce score value then rounds off at the 2 decimal points.
+    /// </summary>
     public void ReduceScore()
     {
         _currentScore /= _reduceScoreValue;
+        _currentScore = Mathf.Round(_currentScore * 100.0f) * 0.01f;
         return;
     }
  
