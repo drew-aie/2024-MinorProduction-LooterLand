@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6049986, y: 1.9197283, z: 1.858401}
-  m_Center: {x: -0.2653808, y: 0.959864, z: -0.9292005}
+  m_Size: {x: 0.6049986, y: 5.166373, z: 1.858401}
+  m_Center: {x: -0.2653808, y: 2.5831864, z: -0.9292005}
 --- !u!1 &6246757211850133315
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7035131889332458087}
   m_Layer: 0
-  m_Name: ClothesRackStraight (1)
+  m_Name: ClothesRackStraight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
