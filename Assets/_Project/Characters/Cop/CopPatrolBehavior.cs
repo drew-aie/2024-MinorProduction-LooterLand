@@ -127,7 +127,6 @@ public class CopPatrolBehavior : MonoBehaviour
    
         //Incrementing each time PatrolPath is called
         _navIter++;
-        Debug.Log(_navIter);
         
         //Guard so iter so it doesn't exceed the bounds of the nav points array
         if (_hasReachedPath && _navIter > _navPoints.Length)

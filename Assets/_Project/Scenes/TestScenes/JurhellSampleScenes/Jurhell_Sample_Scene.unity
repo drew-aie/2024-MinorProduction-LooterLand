@@ -1293,7 +1293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd3c51a3ab44cd43964f073c39c9c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreSystem: {fileID: 0}
+  _scoreSystem: {fileID: 5549609631265403128, guid: f943114e7c3786c46a91f93f48e90ff0,
+    type: 3}
 --- !u!1 &1929760101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,11 +1716,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7990441059044154210, guid: 6bc062238340b1248bbbe540064bed3d,
-        type: 3}
-      propertyPath: _playerScore
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc062238340b1248bbbe540064bed3d, type: 3}
 --- !u!1001 &7248308769548302933
@@ -1882,6 +1878,17 @@ PrefabInstance:
     - target: {fileID: 7586540420497076412, guid: e54a8e4724cd8674d8650a6de4bebfd5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586540420497076413, guid: e54a8e4724cd8674d8650a6de4bebfd5,
+        type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 0429881c51fbf9a4dba4b9925180fe37,
+        type: 2}
+    - target: {fileID: 7586540420497076414, guid: e54a8e4724cd8674d8650a6de4bebfd5,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
