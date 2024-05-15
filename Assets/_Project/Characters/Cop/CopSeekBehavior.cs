@@ -22,5 +22,4 @@ public class CopSeekBehavior : MonoBehaviour
     {
         _cop.destination = _target.transform.position;
     }
-
 }

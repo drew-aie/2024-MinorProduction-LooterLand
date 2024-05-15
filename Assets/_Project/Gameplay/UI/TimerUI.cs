@@ -21,6 +21,12 @@ public class TimerUI : MonoBehaviour
 
     private float _countDown;
 
+    private void TimesUp()
+    {
+        _timerDisplay.enabled = false;
+        //More stuff
+    }
+
     void Start()
     {
         //Guard clause that caps seconds at 60
@@ -38,8 +44,9 @@ public class TimerUI : MonoBehaviour
         if (!_timerDisplay)
             return;
 
-        //Countdown decrements with delta time each update call
-        _countDown -= Time.deltaTime;
+        //Countdown decrements with delta time each update call if above 0
+        if (_countDown > 0.0f)
+            _countDown -= Time.deltaTime;
 
         //Converts countdown value into minutes and seconds
         int minutes = Mathf.FloorToInt(_countDown / 60);
@@ -47,5 +54,10 @@ public class TimerUI : MonoBehaviour
 
         //Displays the minutes and seconds in the timer ui
         _timerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        if (_countDown <= 0.0f)
+        {
+            TimesUp();
+        }
     }
 }
