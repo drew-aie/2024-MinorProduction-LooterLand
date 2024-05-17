@@ -34,7 +34,7 @@ public class Effect_SpeedBoost : Effect
         _playerInput = _player.GetComponent<Input>();
 
         //stores the original speed of the player.
-        _startingSpeed = _playerInput.Speed;
+        _startingSpeed = _playerInput.MaxSpeed;
 
         //stores the set particle material.
         ParticleMaterial = _particleMaterial;
@@ -44,7 +44,7 @@ public class Effect_SpeedBoost : Effect
         if(!_applied)
         {
             //apply the speedboost effect.
-            _playerInput.Speed *= _effectData.SpeedMagnifier;
+            _playerInput.MaxSpeed *= _effectData.SpeedMagnifier;
 
             //set _applied to true.
             _applied = true;
@@ -59,7 +59,7 @@ public class Effect_SpeedBoost : Effect
     public override void Finish()
     {
         //returns the Player's speed to default. 
-        _playerInput.Speed = _startingSpeed;
+        _playerInput.MaxSpeed = _startingSpeed;
 
         //call the base function.
         base.Finish();
