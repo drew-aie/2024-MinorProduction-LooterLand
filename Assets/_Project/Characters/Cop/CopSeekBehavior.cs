@@ -6,8 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CopSeekBehavior : MonoBehaviour
 {
-    [Tooltip("What the cop will be chasing. (The Player)")]
-    [SerializeField]
+    [SerializeField, Tooltip("What the cop will be chasing. (The Player)")]
     private GameObject _target;
 
     private NavMeshAgent _cop;
