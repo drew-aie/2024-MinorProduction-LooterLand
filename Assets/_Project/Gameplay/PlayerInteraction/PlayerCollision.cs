@@ -10,10 +10,10 @@ public class PlayerCollision : MonoBehaviour
  
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
        //if the object that the player is colliding with is a collectable.
-        if(collision.gameObject.TryGetComponent<Collectable>(out Collectable item))
+        if(collider.gameObject.TryGetComponent<Collectable>(out Collectable item))
         {
             //then
             //increase the current score by the cash value of item
@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
         }
 
         //if the object that the player is colliding with is an enemy
-        else if(collision.gameObject.CompareTag("Enemy"))
+        else if(collider.gameObject.CompareTag("Enemy"))
         {
             //then
             //reduce the current score by the reduce score value.
