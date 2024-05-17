@@ -123,14 +123,14 @@ public class CopPatrolBehavior : MonoBehaviour
 
         //Don't run if agent hasn't reached path
         if (!_hasReachedPath)
-            return; 
-   
-        //Incrementing each time PatrolPath is called
-        _navIter++;
-        
-        //Guard so iter so it doesn't exceed the bounds of the nav points array
-        if (_hasReachedPath && _navIter > _navPoints.Length)
-            _navIter = -1;
+            return;
+
+        //Guard so iter doesn't exceed the bounds of the nav points array
+        if (_hasReachedPath && _navIter == _navPoints.Length - 1)
+            _navIter = 0;
+        else
+            //Incrementing each time PatrolPath is called
+            _navIter++;
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
