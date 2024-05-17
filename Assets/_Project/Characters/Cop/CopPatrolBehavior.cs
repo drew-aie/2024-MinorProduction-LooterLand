@@ -146,6 +146,7 @@ public class CopPatrolBehavior : MonoBehaviour
 
     private void Pursue()
     {
+        //One pleaseburger cheese
         Rigidbody targetRigid = _target.GetComponent<Rigidbody>();
 
         _cop.destination += _target.transform.position + targetRigid.velocity.normalized;
