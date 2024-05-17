@@ -68,6 +68,10 @@ public class Input : MonoBehaviour
         //Set the rotation to be the new rotation found
         _playerRigidbody.MoveRotation(rotation);
 
+        Vector3 spin = new Vector3(0, 0, 0);
+
+        _playerRigidbody.angularVelocity = spin;
+
 
     }
 
