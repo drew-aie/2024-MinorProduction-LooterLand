@@ -18,7 +18,6 @@ public class CopPatrolBehavior : MonoBehaviour
 
     private NavMeshAgent _cop;
     private NavMeshPath _patrolPath;
-    private NavMeshPath _seekPath;
 
     private EState _currentState = EState.IDLE;
 
@@ -29,6 +28,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
     private bool _inMotion = false;
+    private bool _agentIsSeeking = false;
 
     private Vector3 _velocity = Vector3.zero;
 
@@ -51,8 +51,23 @@ public class CopPatrolBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (_cop.)
+        //Check if player has moved far enough away from agent when seeking
+        if (_agentIsSeeking && _cop.remainingDistance > 15)
+        {
+            //Reset and transition agent path
+            _cop.ResetPath();
+            _cop.path = _patrolPath;
 
+            _agentIsSeeking = false;
+
+            TransitionTo(EState.WANDER);
+        }
+
+        //Checking if player is within agro range before seeking
+        if (RadiusCheck())
+            TransitionTo(EState.PURSUE);
+
+        //If statements that check agent's current state
         if (_currentState == EState.IDLE)
         {
             _idleTime += Time.deltaTime;
@@ -75,9 +90,19 @@ public class CopPatrolBehavior : MonoBehaviour
         else if (_currentState == EState.WANDER)
             Wander();
         else if (_currentState == EState.PURSUE)
-            Pursue();
+            return;
         else
             return;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!_agentIsSeeking)
+            return;
+
+        //Seeking 
+        _cop.destination = _target.transform.position;
+        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
     }
 
     /// <summary>
@@ -93,11 +118,21 @@ public class CopPatrolBehavior : MonoBehaviour
         _currentState = state;
     }
 
+    //Tells agent if the player has entered it's agro radius
     private bool RadiusCheck()
     {
+        float seekMagni = (_target.transform.position - _cop.transform.position).magnitude;
 
-
-        return false;
+        if (seekMagni >= _cop.radius)
+        {
+            _agentIsSeeking = true;
+            return true;
+        }
+        else
+        {
+            TransitionTo(EState.IDLE);
+            return false;
+        }
     }
 
     //Checks if agent has reached it's destination and isn't moving
@@ -158,13 +193,5 @@ public class CopPatrolBehavior : MonoBehaviour
     private void Wander()
     {
         //Wander
-    }
-
-    private void Pursue()
-    {
-        //One pleaseburger cheese
-        Rigidbody targetRigid = _target.GetComponent<Rigidbody>();
-
-        _cop.destination += _target.transform.position + targetRigid.velocity.normalized;
     }
 }
