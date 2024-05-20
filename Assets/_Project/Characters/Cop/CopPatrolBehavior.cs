@@ -17,6 +17,8 @@ public class CopPatrolBehavior : MonoBehaviour
     private GameObject[] _navPoints;
 
     private NavMeshAgent _cop;
+    private NavMeshPath _patrolPath;
+    private NavMeshPath _seekPath;
 
     private EState _currentState = EState.IDLE;
 
@@ -27,6 +29,8 @@ public class CopPatrolBehavior : MonoBehaviour
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
     private bool _inMotion = false;
+
+    private Vector3 _velocity = Vector3.zero;
 
     //Enum holding behavior states
     enum EState
@@ -47,6 +51,8 @@ public class CopPatrolBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (_cop.)
+
         if (_currentState == EState.IDLE)
         {
             _idleTime += Time.deltaTime;
@@ -85,6 +91,13 @@ public class CopPatrolBehavior : MonoBehaviour
             return;
 
         _currentState = state;
+    }
+
+    private bool RadiusCheck()
+    {
+
+
+        return false;
     }
 
     //Checks if agent has reached it's destination and isn't moving
@@ -134,6 +147,9 @@ public class CopPatrolBehavior : MonoBehaviour
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
+        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+
+        _patrolPath = _cop.path;
 
         _inMotion = true;
         _hasReachedPath = false;
