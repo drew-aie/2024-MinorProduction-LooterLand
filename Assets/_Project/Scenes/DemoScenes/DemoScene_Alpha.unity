@@ -160,6 +160,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreSystem: {fileID: 1152747286}
+  _itemDropSpeed: 35
+  _protectionPeriodDuration: 1.3
+  OnHitWithoutCash:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &36203081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,7 +720,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4566272521618832644, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+    - {fileID: 14881496702068609, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+    - {fileID: 7295601710737351453, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+    - {fileID: 3393253635452883257, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
 --- !u!1001 &274627666
 PrefabInstance:
