@@ -38,5 +38,9 @@ public class PlayerCollision : MonoBehaviour
             //reduce the current score by the reduce score value.
             _scoreSystem.ReduceScore();
         }
+
+        
+
     }
+
 }
