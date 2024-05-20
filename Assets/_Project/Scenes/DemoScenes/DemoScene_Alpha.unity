@@ -869,6 +869,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
         type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 19500097}
+    - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -949,8 +954,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719574892526739854, guid: e46e80635d67bec4a90b6af74a1135af,
         type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719574892526739854, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
       propertyPath: m_Acceleration
       value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719574892526739854, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e46e80635d67bec4a90b6af74a1135af, type: 3}
@@ -3736,6 +3751,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 19500097}
     - target: {fileID: 1483136062474551470, guid: e46e80635d67bec4a90b6af74a1135af,
         type: 3}
       propertyPath: m_Enabled
