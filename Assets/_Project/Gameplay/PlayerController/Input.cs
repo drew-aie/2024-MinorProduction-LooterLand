@@ -79,7 +79,7 @@ public class Input : MonoBehaviour
         
        _playerRigidbody.AddForce(force, ForceMode.VelocityChange);
 
-       // _playerRigidbody.MovePosition(_playerRigidbody.transform.position + (move * speedOffset) * Time.fixedDeltaTime);
+
 
 
        //dont update rotation if we arent moving.
