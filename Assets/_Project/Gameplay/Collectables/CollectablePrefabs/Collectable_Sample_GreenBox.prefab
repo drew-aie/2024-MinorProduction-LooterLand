@@ -111,7 +111,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280541732
+    rgba: 4280410658
   m_fontColor: {r: 0.13334967, g: 0.8867924, b: 0.12967247, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -351,7 +351,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3689869608977209220}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
