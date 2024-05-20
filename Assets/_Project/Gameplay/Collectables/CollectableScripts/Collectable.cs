@@ -19,6 +19,7 @@ public class Collectable : MonoBehaviour
     [SerializeField, Tooltip("The cash value of this item.")]
     private float _cashValue;
 
+    //property for _cashValue.
     public float CashValue
     {
         get { return _cashValue; }
