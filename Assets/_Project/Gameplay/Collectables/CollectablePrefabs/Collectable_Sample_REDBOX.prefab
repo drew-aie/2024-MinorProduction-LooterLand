@@ -268,6 +268,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0bb3bb148990051459ac6b6f30082ffc,
         type: 2}
+    - target: {fileID: 1775095289544107428, guid: 5f1116838e16d5542b6c40179f83c256,
+        type: 3}
+      propertyPath: _name
+      value: Red Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775095289544107428, guid: 5f1116838e16d5542b6c40179f83c256,
+        type: 3}
+      propertyPath: _cashValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3874916988424838683, guid: 5f1116838e16d5542b6c40179f83c256,
         type: 3}
       propertyPath: m_RootOrder
