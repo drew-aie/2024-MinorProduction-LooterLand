@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreSystem: {fileID: 1152747286}
   _itemDropSpeed: 35
-  _protectionPeriodDuration: 1.3
+  _protectionPeriodDuration: 1.5
   OnHitWithoutCash:
     m_PersistentCalls:
       m_Calls: []
@@ -657,6 +657,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 28667281dd54ae64a9119419e5775e01, type: 2}
+    - target: {fileID: 2700474406775268130, guid: 79e3e04756ef0b2469d2203f6c273220,
+        type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700474406775268130, guid: 79e3e04756ef0b2469d2203f6c273220,
+        type: 3}
+      propertyPath: ShapeModule.m_Rotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238021090391947318, guid: 79e3e04756ef0b2469d2203f6c273220,
+        type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.025
+      objectReference: {fileID: 0}
     - target: {fileID: 4350751843136854642, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: m_Name
@@ -742,7 +757,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 19500120, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
 --- !u!1001 &274627666
 PrefabInstance:
