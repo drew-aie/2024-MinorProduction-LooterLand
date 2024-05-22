@@ -660,6 +660,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 7466268928941657212, guid: 79e3e04756ef0b2469d2203f6c273220,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9012277366259680771, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: m_RootOrder
