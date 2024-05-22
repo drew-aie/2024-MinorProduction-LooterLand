@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    //the id of this item, set by the tiering ScriptableObject.
-    private float _id;
-    //property for _id
-    public float ID
+    [SerializeField, Tooltip("The ID of the effect this item applies. " +
+                             "0 for None, 1 for SpeedBoost.")]
+    private int _effectID;
+    //property for _effectID
+    public int EffectID
     {
-        get { return _id; }
-        set { _id = value; }
+        get { return _effectID; }
     }
     [SerializeField, Tooltip("The name of this item.")]
     private string _name;

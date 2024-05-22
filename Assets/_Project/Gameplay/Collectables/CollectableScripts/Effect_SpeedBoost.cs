@@ -42,6 +42,7 @@ public class Effect_SpeedBoost : Effect
         //sets active to true.
         _active = true;
 
+        //set the timer and invoke event.
         base.Apply();
     }
 
@@ -53,6 +54,7 @@ public class Effect_SpeedBoost : Effect
         //sets active to false.
         _active = false;
 
+        //invokes event.
         base.Finish();
     }
 }
