@@ -14,6 +14,9 @@ public class CopPatrolBehavior : MonoBehaviour
     [SerializeField, Min(0.5f), Tooltip("How big the patrolling cop's player detection radius is.")]
     private float _copDetectionRadius = 10;
 
+    [SerializeField, Min(0), Tooltip("How long the agent will idle at a patrol point.")]
+    private float _idleTime = 2;
+
     [Space]
 
     [SerializeField, Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders and colliders turned off.")]
@@ -25,7 +28,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private EState _currentState = EState.IDLE;
 
     private int _navIter;
-    private float _idleTime = 0;
+    private float _debugCounter = 0;
     private float _bufferTime = 0;
 
     private bool _patrolStarted = false;
@@ -54,71 +57,63 @@ public class CopPatrolBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_cop.enabled != false)
+        //Check if player has moved far enough away from agent when seeking
+        if (_agentIsSeeking && _cop.remainingDistance > 15)
         {
+            //Reset agent path back to patrol path
+            _cop.ResetPath();
+            _cop.path = _patrolPath;
 
-            //Check if player has moved far enough away from agent when seeking
-            if (_agentIsSeeking && _cop.remainingDistance > 15)
-            {
-                //Reset agent path back to patrol path
-                _cop.ResetPath();
-                _cop.path = _patrolPath;
+            //Tell console that agent is not seeking
+            _agentIsSeeking = false;
 
-                //Tell console that agent is not seeking
-                _agentIsSeeking = false;
-
-                //Reset idle time and have agent idle
-                _idleTime = 0;
-                TransitionTo(EState.IDLE);
-            }
-
-            //Checking if player is within agro range before seeking
-            if (RadiusCheck() && _patrolStarted)
-                TransitionTo(EState.PURSUE);
-
-            //If statements that check agent's current state
-            if (_currentState == EState.IDLE)
-            {
-                _idleTime += Time.deltaTime;
-
-                //Stop idling after 2 seconds
-                if (_idleTime >= 2)
-                    TransitionTo(EState.PATROL);
-
-                return;
-            }
-            else if (_currentState == EState.PATROL)
-            {
-                //Resetting idle timer
-                _idleTime = 0;
-
-                PatrolPath();
-                MotionCheck();
-
-                return;
-            }
-            else if (_currentState == EState.WANDER)
-                Wander();
-            else if (_currentState == EState.PURSUE)
-                return;
-            else
-                return;
+            //Reset idle time and have agent idle
+            _debugCounter = 0;
+            TransitionTo(EState.IDLE);
         }
+
+        //Checking if player is within agro range before seeking
+        if (RadiusCheck() && _patrolStarted)
+            TransitionTo(EState.PURSUE);
+
+        //If statements that check agent's current state
+        if (_currentState == EState.IDLE)
+        {
+            _debugCounter += Time.deltaTime;
+
+            //Stop idling after 2 seconds
+            if (_debugCounter >= _idleTime)
+                TransitionTo(EState.PATROL);
+
+            return;
+        }
+        else if (_currentState == EState.PATROL)
+        {
+            //Resetting idle timer
+            _debugCounter = 0;
+
+            PatrolPath();
+            MotionCheck();
+
+            return;
+        }
+        else if (_currentState == EState.WANDER)
+            Wander();
+        else if (_currentState == EState.PURSUE)
+            return;
+        else
+            return;
     }
 
     private void FixedUpdate()
     {
-        if (_cop.enabled != false)
-        {
+        if (!_agentIsSeeking)
+            return;
 
-            if (!_agentIsSeeking)
-                return;
+        Pursue();
 
-            Pursue();
-
-            //Smoothing agent's velocity
-            _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
-        }
+        //Smoothing agent's velocity
+        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
     }
 
     /// <summary>
