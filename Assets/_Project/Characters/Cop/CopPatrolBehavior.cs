@@ -14,6 +14,9 @@ public class CopPatrolBehavior : MonoBehaviour
     [SerializeField, Min(0.5f), Tooltip("How big the patrolling cop's player detection radius is.")]
     private float _copDetectionRadius = 10;
 
+    [SerializeField, Min(0), Tooltip("How long the agent will idle at a patrol point.")]
+    private float _idleTime = 2;
+
     [Space]
 
     [SerializeField, Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders and colliders turned off.")]
@@ -25,7 +28,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private EState _currentState = EState.IDLE;
 
     private int _navIter;
-    private float _idleTime = 0;
+    private float _debugCounter = 0;
     private float _bufferTime = 0;
 
     private bool _patrolStarted = false;
@@ -65,7 +68,7 @@ public class CopPatrolBehavior : MonoBehaviour
             _agentIsSeeking = false;
 
             //Reset idle time and have agent idle
-            _idleTime = 0;
+            _debugCounter = 0;
             TransitionTo(EState.IDLE);
         }
 
@@ -76,10 +79,10 @@ public class CopPatrolBehavior : MonoBehaviour
         //If statements that check agent's current state
         if (_currentState == EState.IDLE)
         {
-            _idleTime += Time.deltaTime;
+            _debugCounter += Time.deltaTime;
 
             //Stop idling after 2 seconds
-            if (_idleTime >= 2)
+            if (_debugCounter >= _idleTime)
                 TransitionTo(EState.PATROL);
 
             return;
@@ -87,7 +90,7 @@ public class CopPatrolBehavior : MonoBehaviour
         else if (_currentState == EState.PATROL)
         {
             //Resetting idle timer
-            _idleTime = 0;
+            _debugCounter = 0;
 
             PatrolPath();
             MotionCheck();
