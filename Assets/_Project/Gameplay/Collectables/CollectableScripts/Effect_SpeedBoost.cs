@@ -4,64 +4,60 @@ using UnityEngine;
 
 public class Effect_SpeedBoost : Effect
 {
+    //gets the Input component.
+    private Input _playerMovement;
 
-    [SerializeField, Tooltip("The player that this effect will modify.")]
-    private GameObject _player;
+    //the default speed of the player.
+    private float _originalSpeed;
 
+    [SerializeField, Tooltip("The modifier that will boost player speed.")]
+    private float _speedModifier;
 
-    [SerializeField, Tooltip("The material of the particles this effect will emmit.")]
-    private Material _particleMaterial;
+    //true if this effect is active.
+    private bool _active;
 
-    [SerializeField, Tooltip("The data container that stores the time duration and speed modifier values.")]
-    private Collectable_Effect_DataSO _effectData;
-
-    //the speed that the player started with.
-    private float _startingSpeed;
-
-    //the Input component of this player. 
-    //(used to modify the speed of the player)
-    private Input _playerInput;
-
-    //stores true if the speedboost effect has already been applied.
-    private bool _applied;
-
-    private void Awake()
+    //property for _active. [Read-Only]
+    public bool Active
     {
-        //sets the remaining time of this effect. 
-        TimeLeft = _effectData.EndTime;
+        get { return _active; }
+    }
 
-        //get the player's Input component.
-        _playerInput = _player.GetComponent<Input>();
+    public override void Awake()
+    {
+        //get the Input component.
+        _playerMovement = gameObject.GetComponent<Input>();
 
         //stores the original speed of the player.
-        _startingSpeed = _playerInput.MaxSpeed;
+        _originalSpeed = _playerMovement.MaxSpeed;
 
-        //stores the set particle material.
-        ParticleMaterial = _particleMaterial;
+        //stores false by default.
+        _active = false;
+
+        //gets particlehandler component.
+        base.Awake();
     }
+
     public override void Apply()
     {
-        if(!_applied)
-        {
-            //apply the speedboost effect.
-            _playerInput.MaxSpeed *= _effectData.SpeedMagnifier;
+        //modifies the speed of the player.
+        _playerMovement.MaxSpeed *= _speedModifier;
 
-            //set _applied to true.
-            _applied = true;
-        }
+        //sets active to true.
+        _active = true;
 
-        //call the base function.
+        //set the timer and invoke event.
         base.Apply();
-        
     }
 
-    //called upon the end of this effect.
     public override void Finish()
     {
-        //returns the Player's speed to default. 
-        _playerInput.MaxSpeed = _startingSpeed;
+        //returns the player speed to the original value.
+        _playerMovement.MaxSpeed = _originalSpeed;
 
-        //call the base function.
+        //sets active to false.
+        _active = false;
+
+        //invokes event.
         base.Finish();
     }
 }
