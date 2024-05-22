@@ -27,11 +27,16 @@ public class PlayerCollision : MonoBehaviour
     //event when the player collides with an enemy while having no cash.
     public UnityEvent OnHitWithoutCash;
 
+    //stores a reference to the EffectHandler component.
+    private EffectHandler _effectHandler;
 
     private void Awake()
     {
         //true by default.
         _canLoseCash = true;
+
+        //gets the EffectHandler component from the player.
+        _effectHandler = GetComponent<EffectHandler>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -42,6 +47,9 @@ public class PlayerCollision : MonoBehaviour
             //then
             //increase the current score by the cash value of item
             _scoreSystem.IncreaseScore(item.CashValue);
+
+            //shift the effect handler to the ID of this collectable.
+            _effectHandler.Shift(item.EffectID);
 
             //remove the item in the scene
             Destroy(item.gameObject);
