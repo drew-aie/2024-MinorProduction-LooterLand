@@ -48,6 +48,8 @@ public class PlayerCollision : MonoBehaviour
             //increase the current score by the cash value of item
             _scoreSystem.IncreaseScore(item.CashValue);
 
+
+            if(item.EffectID != 0)
             //shift the effect handler to the ID of this collectable.
             _effectHandler.Shift(item.EffectID);
 

@@ -20,13 +20,6 @@ public class Effect : MonoBehaviour
         get { return _timeLeft; }
     }
 
-    //event that occurs when an effect begins.
-    private UnityEvent OnEffectStart;
-
-    //event that occurs when an effect finishes.
-    private UnityEvent OnEffectFinish;
-
-
     private void Start()
     {
         //give the duration to the time left.
@@ -38,9 +31,6 @@ public class Effect : MonoBehaviour
     {
         //give the duration to the time left when we apply the effect.
         _timeLeft = _duration;
-
-        //invokes that should occur on the start of this effect.
-        OnEffectStart.Invoke();
     }
 
     private void Update()
@@ -52,7 +42,5 @@ public class Effect : MonoBehaviour
     //undoes the effect.
     public virtual void Finish()
     {
-        //invokes that should occur on the end of this effect.
-        OnEffectFinish.Invoke();
     }
 }

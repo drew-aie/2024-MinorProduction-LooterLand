@@ -26,12 +26,15 @@ public class EffectHandler : MonoBehaviour
         if (effectID > _effects.Length - 1 || effectID < 0)
             return;
 
+
+        if((int)_currentEffect != 0)
         //finish early the old effect.
         _effects[(int)_currentEffect].Finish();
 
         //change the current effect ID
         _currentEffect = (EffectID)effectID;
 
+        if((int)_currentEffect != 0)
         //apply the new effect.
         _effects[(int)_currentEffect].Apply();
     }
@@ -43,9 +46,6 @@ public class EffectHandler : MonoBehaviour
 
         //initialize a new array for effects.
         _effects = new Effect[_iDCount];
-
-        //create a default effect to put in None.
-        _effects[(int)EffectID.None] = new Effect();
 
         //store a reference to the Player's speedboost component.
         _effects[(int)EffectID.SpeedBoost] = gameObject.GetComponent<Effect_SpeedBoost>();
