@@ -19,6 +19,8 @@ public class Input : MonoBehaviour
     [Range(1, 100)]
     private float _speed;
 
+    private Vector3 _playerNextPosition;
+
     //property for _speed.
     public float MaxSpeed
     {
@@ -41,6 +43,8 @@ public class Input : MonoBehaviour
         _playerRigidbody = GetComponent<Rigidbody>();
         if (_playerRigidbody == null)
             Debug.LogError("Rigidbody is NULL");
+
+        _playerNextPosition = Vector3.zero;
     }
 
     private void OnEnable()
@@ -61,12 +65,18 @@ public class Input : MonoBehaviour
         //makes locomotion input = to whatever direction the action map says it is based on a 2D X,Y axis
         _locomotionInput = _playerActions.Locomotion.Move.ReadValue<Vector2>();
 
+    }
+
+
+    private void FixedUpdate()
+    {
+
 
         if (_playerRigidbody.velocity.y > 0.5f || _playerRigidbody.velocity.y < -0.5f)
-           return;
+            return;
 
         _playerRigidbody.angularVelocity = Vector3.zero;
-       
+
         float speedOffset = _speed * 2;
 
         //takes that Vector 2 we created previously and uses that information to make a vector 3 for our input direction. keeps y velocity from rigidbody.
@@ -76,10 +86,8 @@ public class Input : MonoBehaviour
 
         _playerRigidbody.AddForce(force, ForceMode.VelocityChange);
 
-      //  _playerRigidbody.transform.position = Vector3.SmoothDamp(_playerRigidbody.position, move + Vector3.forward, ref force, 0.05f);
 
-
-       //dont update rotation if we arent moving.
+        //dont update rotation if we arent moving.
         if (move.magnitude < 0.1f)
         {
             return;
@@ -93,10 +101,10 @@ public class Input : MonoBehaviour
         //Set the rotation to be the new rotation found
         _playerRigidbody.MoveRotation(rotation);
 
-       
+    }
 
         
 
     }
 
-}
+
