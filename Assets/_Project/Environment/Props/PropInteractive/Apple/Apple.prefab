@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1815104402981154510}
   - component: {fileID: 1691876760072096942}
   - component: {fileID: 1884010671978435117}
-  - component: {fileID: 2985317609876566131}
+  - component: {fileID: 5188445087747303725}
   m_Layer: 0
   m_Name: Apple_Mesh
   m_TagString: Untagged
@@ -58,8 +58,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3731994046192575056}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116,7 +116,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2985317609876566131
+--- !u!65 &5188445087747303725
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,5 +127,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09218017, y: 0.09453613, z: 0.09241247}
-  m_Center: {x: 0, y: 0, z: -0.0000000018626451}
+  m_Size: {x: 0.37862143, y: 0.3882979, z: 0.37957525}
+  m_Center: {x: 0, y: 0, z: 0}
