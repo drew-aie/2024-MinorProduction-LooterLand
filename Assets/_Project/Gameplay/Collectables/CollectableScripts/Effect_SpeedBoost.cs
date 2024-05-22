@@ -22,7 +22,7 @@ public class Effect_SpeedBoost : Effect
         get { return _active; }
     }
 
-    public void Awake()
+    public override void Awake()
     {
         //get the Input component.
         _playerMovement = gameObject.GetComponent<Input>();
@@ -32,6 +32,9 @@ public class Effect_SpeedBoost : Effect
 
         //stores false by default.
         _active = false;
+
+        //gets particlehandler component.
+        base.Awake();
     }
 
     public override void Apply()
