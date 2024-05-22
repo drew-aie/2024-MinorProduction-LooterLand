@@ -54,63 +54,71 @@ public class CopPatrolBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check if player has moved far enough away from agent when seeking
-        if (_agentIsSeeking && _cop.remainingDistance > 15)
+        if (_cop.enabled != false)
         {
-            //Reset agent path back to patrol path
-            _cop.ResetPath();
-            _cop.path = _patrolPath;
 
-            //Tell console that agent is not seeking
-            _agentIsSeeking = false;
+            //Check if player has moved far enough away from agent when seeking
+            if (_agentIsSeeking && _cop.remainingDistance > 15)
+            {
+                //Reset agent path back to patrol path
+                _cop.ResetPath();
+                _cop.path = _patrolPath;
 
-            //Reset idle time and have agent idle
-            _idleTime = 0;
-            TransitionTo(EState.IDLE);
+                //Tell console that agent is not seeking
+                _agentIsSeeking = false;
+
+                //Reset idle time and have agent idle
+                _idleTime = 0;
+                TransitionTo(EState.IDLE);
+            }
+
+            //Checking if player is within agro range before seeking
+            if (RadiusCheck() && _patrolStarted)
+                TransitionTo(EState.PURSUE);
+
+            //If statements that check agent's current state
+            if (_currentState == EState.IDLE)
+            {
+                _idleTime += Time.deltaTime;
+
+                //Stop idling after 2 seconds
+                if (_idleTime >= 2)
+                    TransitionTo(EState.PATROL);
+
+                return;
+            }
+            else if (_currentState == EState.PATROL)
+            {
+                //Resetting idle timer
+                _idleTime = 0;
+
+                PatrolPath();
+                MotionCheck();
+
+                return;
+            }
+            else if (_currentState == EState.WANDER)
+                Wander();
+            else if (_currentState == EState.PURSUE)
+                return;
+            else
+                return;
         }
-
-        //Checking if player is within agro range before seeking
-        if (RadiusCheck() && _patrolStarted)
-            TransitionTo(EState.PURSUE);
-
-        //If statements that check agent's current state
-        if (_currentState == EState.IDLE)
-        {
-            _idleTime += Time.deltaTime;
-
-            //Stop idling after 2 seconds
-            if (_idleTime >= 2)
-                TransitionTo(EState.PATROL);
-
-            return;
-        }
-        else if (_currentState == EState.PATROL)
-        {
-            //Resetting idle timer
-            _idleTime = 0;
-
-            PatrolPath();
-            MotionCheck();
-
-            return;
-        }
-        else if (_currentState == EState.WANDER)
-            Wander();
-        else if (_currentState == EState.PURSUE)
-            return;
-        else
-            return;
     }
 
     private void FixedUpdate()
     {
-        if (!_agentIsSeeking)
-            return;
+        if (_cop.enabled != false)
+        {
 
-        Pursue();
+            if (!_agentIsSeeking)
+                return;
 
-        //Smoothing agent's velocity
-        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+            Pursue();
+
+            //Smoothing agent's velocity
+            _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+        }
     }
 
     /// <summary>
