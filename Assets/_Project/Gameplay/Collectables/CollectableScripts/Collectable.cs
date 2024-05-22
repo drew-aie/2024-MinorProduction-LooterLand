@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Collectable : MonoBehaviour
@@ -12,5 +13,14 @@ public class Collectable : MonoBehaviour
     public collectable_dataSO Data
     {
         get { return _data; }
+    }
+
+    [SerializeField, Tooltip("The effect this collectable has. Empty if this has no Effect.")]
+    private Effect _effect;
+
+    //property for _effect.
+    public Effect CollectableEffect
+    {
+        get => _effect;
     }
 }
