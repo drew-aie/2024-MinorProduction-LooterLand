@@ -143,6 +143,9 @@ public class PlayerCollision : MonoBehaviour
             drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed * Time.deltaTime);
 
         }
+
+        
+
     }
 
     //disables being able to lose cash for a set time.

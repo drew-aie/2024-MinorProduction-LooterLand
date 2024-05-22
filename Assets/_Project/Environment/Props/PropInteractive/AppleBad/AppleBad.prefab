@@ -46,8 +46,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
         type: 3}
@@ -72,12 +87,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
         type: 3}
@@ -92,6 +107,11 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5b8a2d646a27794081f8d5340022322,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c5b8a2d646a27794081f8d5340022322,
@@ -113,8 +133,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1170632290623622663}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1593415188467235083
-BoxCollider:
+--- !u!136 &4394300508951237632
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,6 +143,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.073906705, y: 0.07893807, z: 0.08409579}
-  m_Center: {x: -0.00000007636845, y: -0.000000039115548, z: -0.0000000018626451}
+  m_Radius: 0.20037685
+  m_Height: 0.37617493
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

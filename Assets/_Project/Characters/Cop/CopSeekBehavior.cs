@@ -19,9 +19,9 @@ public class CopSeekBehavior : MonoBehaviour
     }
 
     // FixedUpdate is called once per fixed framerate frame
-    void FixedUpdate()
+    void Update()
     {
         _cop.destination = _target.transform.position;
-        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f) ;
     }
 }
