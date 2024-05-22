@@ -57,15 +57,12 @@ public class Input : MonoBehaviour
 
     private void Update()
     {
+
         //makes locomotion input = to whatever direction the action map says it is based on a 2D X,Y axis
         _locomotionInput = _playerActions.Locomotion.Move.ReadValue<Vector2>();
 
 
-    }
-
-    private void FixedUpdate()
-    {
-       if (_playerRigidbody.velocity.y > 0.5f || _playerRigidbody.velocity.y < -0.5f)
+        if (_playerRigidbody.velocity.y > 0.5f || _playerRigidbody.velocity.y < -0.5f)
            return;
 
         _playerRigidbody.angularVelocity = Vector3.zero;
@@ -75,11 +72,11 @@ public class Input : MonoBehaviour
         //takes that Vector 2 we created previously and uses that information to make a vector 3 for our input direction. keeps y velocity from rigidbody.
         Vector3 move = new Vector3(_locomotionInput.x, 0, _locomotionInput.y).normalized;
 
-        Vector3 force = move * speedOffset * Time.fixedDeltaTime;
-        
-       _playerRigidbody.AddForce(force, ForceMode.VelocityChange);
+        Vector3 force = move * speedOffset * Time.deltaTime;
 
+        _playerRigidbody.AddForce(force, ForceMode.VelocityChange);
 
+      //  _playerRigidbody.transform.position = Vector3.SmoothDamp(_playerRigidbody.position, move + Vector3.forward, ref force, 0.05f);
 
 
        //dont update rotation if we arent moving.
