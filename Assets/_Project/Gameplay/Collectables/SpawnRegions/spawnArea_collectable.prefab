@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698004188358025140}
   m_Layer: 0
-  m_Name: spawnArea_collectable
+  m_Name: SpawnArea_collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
