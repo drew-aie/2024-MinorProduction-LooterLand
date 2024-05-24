@@ -85,7 +85,7 @@ public class SpawnManager : MonoBehaviour
             }
 
             //gets a random item index.
-            int randomItemIndex = UnityEngine.Random.Range(0, collectionToSpawnFrom.CollectableItems.Count - 1);
+            int randomItemIndex = UnityEngine.Random.Range(0, collectionToSpawnFrom.CollectableItems.Count);
             //gets a random item in the collection we chose randomly.
             GameObject itemToInstantiate = collectionToSpawnFrom.CollectableItems[randomItemIndex];
 

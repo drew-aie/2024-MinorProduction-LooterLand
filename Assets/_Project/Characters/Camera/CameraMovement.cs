@@ -12,6 +12,12 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 _offset;
 
+    public Vector3 Offset
+    { 
+        get { return _offset; }
+        set { _offset = value; } 
+    }
+
     private void Start()
     {
         _offset = _target.position - transform.position;
