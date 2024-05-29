@@ -16,11 +16,13 @@ GameObject:
   - component: {fileID: 2700474406775268130}
   - component: {fileID: -7138361249872786017}
   - component: {fileID: 19500105}
-  - component: {fileID: 19500120}
   - component: {fileID: 19500121}
   - component: {fileID: 19500122}
   - component: {fileID: 4238021090391947318}
   - component: {fileID: 1083287154577232370}
+  - component: {fileID: 3391894130612891426}
+  - component: {fileID: 3216828818103235169}
+  - component: {fileID: 19500120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -110,7 +112,7 @@ Rigidbody:
   m_GameObject: {fileID: 4350751843136854642}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 5
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -752,7 +754,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 180, z: 0}
+    m_Rotation: {x: -90, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -4836,7 +4838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82cd22ec92fdd74e8f0ecc5eff8a395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6.3
+  _speed: 33
 --- !u!114 &19500105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4849,24 +4851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d5bfdd7bd2e154fb47e448fdf4e89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &19500120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4350751843136854642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd3c51a3ab44cd43964f073c39c9c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scoreSystem: {fileID: 0}
-  _itemDropSpeed: 35
-  _protectionPeriodDuration: 1.3
-  OnHitWithoutCash:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &19500121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4880,14 +4864,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effectMaterial: {fileID: 2100000, guid: 6c4a5aa977ae66c4680dca0c814ddeac, type: 2}
-  _duration: 1.3
+  _duration: 3
   OnEffectStart:
     m_PersistentCalls:
       m_Calls: []
   OnEffectFinish:
     m_PersistentCalls:
       m_Calls: []
-  _speedModifier: 1.3
+  _speedModifier: 2
 --- !u!114 &19500122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4946,7 +4930,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.015
+  m_MaxParticleSize: 0.025
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -4984,6 +4968,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6623469224dce148b12956044b68d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3391894130612891426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350751843136854642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1058a4e9557f184c80b3590ea7d2ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerModel: {fileID: 5774152971816735892}
+  _blinks: 10
+--- !u!114 &3216828818103235169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350751843136854642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d5bfdd7bd2e154fb47e448fdf4e89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &19500120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350751843136854642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd3c51a3ab44cd43964f073c39c9c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreSystem: {fileID: 0}
+  _itemDropSpeed: 35
+  _protectionPeriodDuration: 1.5
+  OnHitWithoutCash:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6692490166548441541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5173,6 +5201,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2be3e471fd8b7444394cc21c674ca7c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9afa98ae841273419294d78150b5b48, type: 3}
+--- !u!1 &5774152971816735892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9afa98ae841273419294d78150b5b48,
+    type: 3}
+  m_PrefabInstance: {fileID: 6692490166548441541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6587140233397489198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9afa98ae841273419294d78150b5b48,
