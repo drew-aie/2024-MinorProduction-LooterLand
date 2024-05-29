@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeatSteak
       objectReference: {fileID: 0}
+    - target: {fileID: 2040125643457530621, guid: 9378b7533c0fc1544b8a3bc20b5f4522,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9378b7533c0fc1544b8a3bc20b5f4522, type: 3}
 --- !u!1001 &6999438311487122852
@@ -148,25 +153,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1116838e16d5542b6c40179f83c256, type: 3}
---- !u!1 &2244034126376122952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9081342799536953324, guid: 5f1116838e16d5542b6c40179f83c256,
-    type: 3}
-  m_PrefabInstance: {fileID: 6999438311487122852}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2493372167839226827
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2244034126376122952}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.52, y: 0.82, z: 0.4}
-  m_Center: {x: 0, y: 0.34, z: 0}
 --- !u!4 &6117428124608328639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3874916988424838683, guid: 5f1116838e16d5542b6c40179f83c256,
