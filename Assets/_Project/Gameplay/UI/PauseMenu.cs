@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -10,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     private GameObject _pauseMenuUI;
 
     private PlayerControls _playerActions;
+    private InputAction _menu;
 
     public static bool _gameIsPaused = false;
 
@@ -23,15 +25,30 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //If escape or start is pressed
-        if (_playerActions.Pausing.Pause.ReadValue<bool>())
-        {
-            //Check if game is already paused
-            if (_gameIsPaused)
-                Resume();
-            else
-                Pause();
-        }
+
+    }
+
+    private void OnEnable()
+    {
+        //Storing and enabling pause action
+        _menu = _playerActions.Menu.Pause;
+        _menu.Enable();
+
+        _menu.performed += MenuCall;
+    }
+
+    private void OnDisable()
+    {
+        _menu.Disable();
+    }
+
+    public void MenuCall(InputAction.CallbackContext context)
+    {
+        //Check if game is already paused
+        if (_gameIsPaused)
+            Resume();
+        else
+            Pause();
     }
 
     private void Pause()

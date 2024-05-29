@@ -107,7 +107,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Pausing"",
+            ""name"": ""Menu"",
             ""id"": ""c4100cf2-0adc-43ef-947e-c36258e4b1f7"",
             ""actions"": [
                 {
@@ -151,9 +151,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Locomotion
         m_Locomotion = asset.FindActionMap("Locomotion", throwIfNotFound: true);
         m_Locomotion_Move = m_Locomotion.FindAction("Move", throwIfNotFound: true);
-        // Pausing
-        m_Pausing = asset.FindActionMap("Pausing", throwIfNotFound: true);
-        m_Pausing_Pause = m_Pausing.FindAction("Pause", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -243,29 +243,29 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public LocomotionActions @Locomotion => new LocomotionActions(this);
 
-    // Pausing
-    private readonly InputActionMap m_Pausing;
-    private IPausingActions m_PausingActionsCallbackInterface;
-    private readonly InputAction m_Pausing_Pause;
-    public struct PausingActions
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Pause;
+    public struct MenuActions
     {
         private @PlayerControls m_Wrapper;
-        public PausingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Pause => m_Wrapper.m_Pausing_Pause;
-        public InputActionMap Get() { return m_Wrapper.m_Pausing; }
+        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Menu_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PausingActions set) { return set.Get(); }
-        public void SetCallbacks(IPausingActions instance)
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
         {
-            if (m_Wrapper.m_PausingActionsCallbackInterface != null)
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
             {
-                @Pause.started -= m_Wrapper.m_PausingActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_PausingActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_PausingActionsCallbackInterface.OnPause;
+                @Pause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
             }
-            m_Wrapper.m_PausingActionsCallbackInterface = instance;
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Pause.started += instance.OnPause;
@@ -274,12 +274,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public PausingActions @Pausing => new PausingActions(this);
+    public MenuActions @Menu => new MenuActions(this);
     public interface ILocomotionActions
     {
         void OnMove(InputAction.CallbackContext context);
     }
-    public interface IPausingActions
+    public interface IMenuActions
     {
         void OnPause(InputAction.CallbackContext context);
     }
