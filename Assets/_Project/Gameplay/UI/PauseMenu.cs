@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     private void OnEnable()
     {
         //Storing and enabling pause action
-        _menu = _playerActions.Menu.Pause;
+        //_menu = _playerActions.Menu.Pause;
         _menu.Enable();
     }
 
