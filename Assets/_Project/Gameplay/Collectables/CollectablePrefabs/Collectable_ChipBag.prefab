@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 8785974973317158821, guid: ef984b26f2bb9db4db75e4c23f81072f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.015690729
+      value: 0.319
       objectReference: {fileID: 0}
     - target: {fileID: 8785974973317158821, guid: ef984b26f2bb9db4db75e4c23f81072f,
         type: 3}
@@ -171,7 +171,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.72, y: 0.7, z: 0.48}
-  m_Center: {x: 0, y: 0, z: 0.15}
+  m_Center: {x: 0, y: 0.3, z: 0.15}
 --- !u!4 &8466208216738706489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1220242092268842169, guid: 5f1116838e16d5542b6c40179f83c256,
