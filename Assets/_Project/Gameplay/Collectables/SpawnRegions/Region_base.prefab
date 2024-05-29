@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5266961279792501591}
   - component: {fileID: 1301445535486793604}
-  - component: {fileID: 2324405460062422606}
+  - component: {fileID: -9162862892688490783}
   m_Layer: 0
   m_Name: Region_base
   m_TagString: Untagged
@@ -53,8 +53,8 @@ MonoBehaviour:
   OnPlayerExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!135 &2324405460062422606
-SphereCollider:
+--- !u!65 &-9162862892688490783
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -64,5 +64,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

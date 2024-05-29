@@ -1,8 +1,10 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +32,9 @@ public class PlayerCollision : MonoBehaviour
     //stores a reference to the EffectHandler component.
     private EffectHandler _effectHandler;
 
+    //stores a reference to the PlayerBlink component.
+    private PlayerBlink _playerBlink;
+
     private void Awake()
     {
         //true by default.
@@ -37,6 +42,9 @@ public class PlayerCollision : MonoBehaviour
 
         //gets the EffectHandler component from the player.
         _effectHandler = GetComponent<EffectHandler>();
+
+        //gets the FadePlayer component from the player.
+        _playerBlink = GetComponent<PlayerBlink>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -60,7 +68,7 @@ public class PlayerCollision : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
 
         //if the object that the player is colliding with is an enemy
@@ -128,6 +136,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 drops[i] = Instantiate(dropAsset, transform.position, transform.rotation);
 
+                //gets the Collectable component of the asset we instantiated.
                 Collectable component = drops[i].GetComponent<Collectable>();
 
                 //give the item value. (1/3 of what was reduced from the score.)
@@ -142,11 +151,11 @@ public class PlayerCollision : MonoBehaviour
             drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed * Time.deltaTime);
             drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed * Time.deltaTime);
 
+            //activates fading the player at the protection duration.
+            _playerBlink.Activate(_protectionPeriodDuration);
         }
-
-        
-
     }
+
 
     //disables being able to lose cash for a set time.
     private void ProtectionPeriod()
