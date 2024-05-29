@@ -25,7 +25,11 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (_menu.WasPerformedThisFrame())
+        {
+            
+            
+        }
     }
 
     private void OnEnable()
@@ -33,8 +37,6 @@ public class PauseMenu : MonoBehaviour
         //Storing and enabling pause action
         _menu = _playerActions.Menu.Pause;
         _menu.Enable();
-
-        _menu.performed += MenuCall;
     }
 
     private void OnDisable()
@@ -44,6 +46,11 @@ public class PauseMenu : MonoBehaviour
 
     public void MenuCall(InputAction.CallbackContext context)
     {
+        if (!context.started)
+            return;
+
+        Debug.Log("Paused");
+
         //Check if game is already paused
         if (_gameIsPaused)
             Resume();
