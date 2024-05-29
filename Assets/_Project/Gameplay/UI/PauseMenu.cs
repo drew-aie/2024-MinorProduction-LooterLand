@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("The pause menu.")]
     private GameObject _pauseMenuUI;
 
     private PlayerControls _playerActions;
@@ -17,15 +17,27 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        //Grabbing Player Controller
-        _playerActions = GetComponent<PlayerControls>();
-        _playerActions.Enable();
+        //Deactivating pause menu before game starts
+        //_pauseMenuUI.SetActive(false);
+
+        //Creating Player Controller
+        _playerActions = new PlayerControls();
+        //_playerActions.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Debug.Log("Update call");
+
+            //Check if game is already paused
+            if (_gameIsPaused)
+                Resume();
+            else
+                Pause();
+        }
     }
 
     private void OnEnable()
@@ -44,6 +56,7 @@ public class PauseMenu : MonoBehaviour
 
     public void MenuCall(InputAction.CallbackContext context)
     {
+        Debug.Log("MenuCall");
         //Only running once while button is pressed
         if (!context.started)
             return;
@@ -79,16 +92,18 @@ public class PauseMenu : MonoBehaviour
 
     public void Retry()
     {
-
+        //Reloads the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OptionsMenu()
     {
-
+        //SetActive options UI
     }
 
     public void QuitMenu()
     {
+        //Restoring game time and loading main menu
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
