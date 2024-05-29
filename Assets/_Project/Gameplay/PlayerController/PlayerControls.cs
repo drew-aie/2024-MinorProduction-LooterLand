@@ -105,6 +105,45 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""f88efc9f-2c6d-488f-b8cd-403800b3a3ae"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a05dc4f-fb0b-4dd7-9c5a-9c33e257d7e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""82842245-5831-48dd-9afa-8722d9a84a6d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3384f5ae-d2bc-4bf4-b75e-194777135b36"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -112,6 +151,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Locomotion
         m_Locomotion = asset.FindActionMap("Locomotion", throwIfNotFound: true);
         m_Locomotion_Move = m_Locomotion.FindAction("Move", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -200,8 +242,45 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public LocomotionActions @Locomotion => new LocomotionActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Pause;
+    public struct MenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Menu_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface ILocomotionActions
     {
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }
