@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: collectable_collection_rare
   m_EditorClassIdentifier: 
   _collectableItems:
-  - {fileID: 1699391701737072368, guid: 2c95cac8b11b25b43916354abda20f2b, type: 3}
+  - {fileID: 4084626022604987487, guid: 7a63b6c9b04fa7d43b3e4c72cafcdc04, type: 3}
+  - {fileID: 2453353752283873172, guid: 1c82c0e155f6f6b40bbf9f39970d68d5, type: 3}
+  - {fileID: 2659857365176713521, guid: 0914a1aefedf08944a812221b9890188, type: 3}
+  - {fileID: 623223455019970732, guid: fa9afbe3197c26a4db011e746b51c80a, type: 3}
+  - {fileID: 753457136411096799, guid: e2e5e8a279f14054a948f5a2a1c20609, type: 3}

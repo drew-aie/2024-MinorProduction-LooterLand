@@ -15,7 +15,11 @@ public class ScoreSystem : MonoBehaviour
     [Tooltip("Value The Player's score is reduced by")]
     private float _reduceScoreValue = 2;
 
-
+    //the magnitude we will reduce the score.
+    public float ReduceScoreValue
+    {
+        get { return _reduceScoreValue; }
+    }
 
 
 
