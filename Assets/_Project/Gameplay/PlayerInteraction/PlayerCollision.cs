@@ -127,13 +127,6 @@ public class PlayerCollision : MonoBehaviour
             //reverse the forward vector.
             back = new Vector3(-back.x, 0, -back.z);
 
-<<<<<<< Updated upstream
-            //load the dropped item asset.
-            GameObject dropAsset =
-                (GameObject)AssetDatabase.LoadAssetAtPath("Assets/_Project/Gameplay/Collectables/CollectablePrefabs/Collectable_DroppedCash.prefab", typeof(GameObject));
-
-=======
->>>>>>> Stashed changes
             //create an array to store instantiated dropped items.
             GameObject[] drops = new GameObject[3];
 
