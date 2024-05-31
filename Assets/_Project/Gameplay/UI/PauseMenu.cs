@@ -17,27 +17,9 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        //Deactivating pause menu before game starts
-        //_pauseMenuUI.SetActive(false);
-
         //Creating Player Controller
         _playerActions = new PlayerControls();
         //_playerActions.Enable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            Debug.Log("Update call");
-
-            //Check if game is already paused
-            if (_gameIsPaused)
-                Resume();
-            else
-                Pause();
-        }
     }
 
     private void OnEnable()
@@ -51,17 +33,15 @@ public class PauseMenu : MonoBehaviour
 
     private void OnDisable()
     {
+        //Self explanatory
         _menu.Disable();
     }
 
     public void MenuCall(InputAction.CallbackContext context)
     {
-        Debug.Log("MenuCall");
         //Only running once while button is pressed
         if (!context.started)
             return;
-
-        Debug.Log("Paused");
 
         //Check if game is already paused
         if (_gameIsPaused)
@@ -75,11 +55,12 @@ public class PauseMenu : MonoBehaviour
         //Activating pause menu
         _pauseMenuUI.SetActive(true);
         //Freezing the game world
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0.0001f;
 
         _gameIsPaused = true;
     }
 
+    //Unpauses game
     public void Resume()
     {
         //Deactivating pause menu
@@ -90,10 +71,13 @@ public class PauseMenu : MonoBehaviour
         _gameIsPaused = false;
     }
 
+    //Reloads the current scene
     public void Retry()
     {
-        //Reloads the current scene
+        //Loading current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //Unfreezing game
+        Time.timeScale = 1.0f;
     }
 
     public void OptionsMenu()
