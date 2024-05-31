@@ -24,6 +24,12 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField, Tooltip("The amount of time until the player can lose cash again.")]
     private float _protectionPeriodDuration;
 
+    //property for _protectionPeriodDuration. [Read-Only]
+    public float ProtectionPeriodDuration
+    {
+        get => _protectionPeriodDuration;
+    }
+
     [Space]
 
     //event when the player collides with an enemy while having no cash.
