@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -126,7 +124,7 @@ public class PlayerCollision : MonoBehaviour
 
             //load the dropped item asset.
             GameObject dropAsset =
-                (GameObject)AssetDatabase.LoadAssetAtPath("Assets/_Project/Gameplay/Collectables/CollectablePrefabs/Collectable_DroppedCash.prefab", typeof(GameObject));
+                (GameObject)Resources.Load("Assets/_Project/Gameplay/Collectables/CollectablePrefabs/Collectable_DroppedCash.prefab", typeof(GameObject));
 
             //create an array to store instantiated dropped items.
             GameObject[] drops = new GameObject[3];
