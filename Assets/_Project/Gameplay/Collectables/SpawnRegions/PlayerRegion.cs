@@ -15,4 +15,9 @@ public class PlayerRegion : MonoBehaviour
         set => _currentRegions = value;
     }
 
+    private void Awake()
+    {
+        //create a new list to store regions.
+        _currentRegions = new List<Region>();
+    }
 }

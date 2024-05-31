@@ -98,6 +98,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f154966f-c2f1-4ae2-b479-b36ceddec918
     m_ActionName: Locomotion/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b997d6a3-eade-471f-849b-ef3b97a8403a
+    m_ActionName: Locomotion/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a05dc4f-fb0b-4dd7-9c5a-9c33e257d7e1
+    m_ActionName: Menu/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Locomotion
@@ -5012,6 +5020,8 @@ MonoBehaviour:
   OnHitWithoutCash:
     m_PersistentCalls:
       m_Calls: []
+  _dropPrefab: {fileID: 809441295618974744, guid: bdc308927ca532145abc75b2a3f2a7cf,
+    type: 3}
 --- !u!1001 &6692490166548441541
 PrefabInstance:
   m_ObjectHideFlags: 0
