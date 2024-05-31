@@ -18,8 +18,14 @@ public class ScoreUI : MonoBehaviour
         if (!_scoreDisplay || !_playerScore)
             return;
 
+        //Casting score to be an int
         _playerScore.CurrentScore = (int)_playerScore.CurrentScore;
-        _scoreDisplay.text = "$" + _playerScore.CurrentScore + ".99";
-        Debug.Log(_playerScore.CurrentScore);
+
+        //Making the displayed score 0 if less than 1
+        if (_playerScore.CurrentScore < 1.0f)
+            _scoreDisplay.text = "$0.00";
+        else
+            //Inserting score plus and other quirks into the text mesh
+            _scoreDisplay.text = "$" + _playerScore.CurrentScore + ".99";
     }
 }

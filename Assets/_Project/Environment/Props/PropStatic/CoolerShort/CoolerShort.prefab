@@ -107,32 +107,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5624923219614751078}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &4002554864175300510
-BoxCollider2D:
+--- !u!65 &3279991055602794884
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4814018201286796343}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.74434274, y: 0.48633128}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5114914, y: 0.97266304}
-  m_EdgeRadius: 0
+  m_Size: {x: 1.5114914, y: 5.047065, z: 0.81878686}
+  m_Center: {x: -0.74434274, y: 2.5235324, z: 0.39798683}
 --- !u!4 &5297645625255837325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab5aad95d916e1747949641f8864ce5d,

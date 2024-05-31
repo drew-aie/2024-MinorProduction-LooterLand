@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6765744278340281332
 Transform:
@@ -99,6 +99,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClothesRackRound_Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39310c1e4238c2b4eb88c21216f774b0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39310c1e4238c2b4eb88c21216f774b0, type: 3}
 --- !u!4 &1602593568166595428 stripped
@@ -124,6 +129,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.8057526
-  m_Height: 0
+  m_Height: 3.6619287
   m_Direction: 1
-  m_Center: {x: 0.00004863739, y: 0.78, z: -0.0028918982}
+  m_Center: {x: 0.00004863739, y: 1.8052118, z: -0.0028918982}

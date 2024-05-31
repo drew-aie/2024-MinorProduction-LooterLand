@@ -10,6 +10,7 @@ public class CopSeekBehavior : MonoBehaviour
     private GameObject _target;
 
     private NavMeshAgent _cop;
+    private Vector3 _velocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,13 @@ public class CopSeekBehavior : MonoBehaviour
         _cop = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    // FixedUpdate is called once per fixed framerate frame
     void Update()
     {
-        _cop.destination = _target.transform.position;
+        if (_cop.enabled != false)
+        {
+            _cop.destination = _target.transform.position;
+            _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+        }
     }
-
 }
