@@ -1189,9 +1189,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 19500120, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+      propertyPath: _dropPrefab
+      value: 
+      objectReference: {fileID: 809441295618974744, guid: bdc308927ca532145abc75b2a3f2a7cf,
+        type: 3}
+    - target: {fileID: 19500120, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
       propertyPath: _scoreSystem
       value: 
       objectReference: {fileID: 1135320778}
+    - target: {fileID: 19500121, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+      propertyPath: _effectMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 610700192573fbf4fab027fab6f064eb, type: 2}
     - target: {fileID: 4350751843136854642, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: m_Name
@@ -1314,6 +1323,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _regionData: {fileID: 11400000, guid: 2b907d1953a5af34c8cca67bb2f10262, type: 2}
   _player: {fileID: 1202359370}
+  _common: {fileID: 0}
+  _uncommon: {fileID: 0}
+  _rare: {fileID: 0}
+  _uncommonChancePercentage: 0
+  _rareChancePercentage: 0
   OnPlayerEnter:
     m_PersistentCalls:
       m_Calls:
@@ -2056,19 +2070,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 977191343}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &2028728712
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202359370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0828788, y: 1.8342696, z: 0.63606644}
-  m_Center: {x: -0.020864606, y: 0.08863956, z: -0.07809067}
 --- !u!1 &2029709029
 GameObject:
   m_ObjectHideFlags: 0
