@@ -43,6 +43,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6587140233397489198}
+  - {fileID: 4139800242031188150}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,10 +99,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f154966f-c2f1-4ae2-b479-b36ceddec918
     m_ActionName: Locomotion/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b997d6a3-eade-471f-849b-ef3b97a8403a
-    m_ActionName: Locomotion/Pause[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 0a05dc4f-fb0b-4dd7-9c5a-9c33e257d7e1
@@ -5020,8 +5017,46 @@ MonoBehaviour:
   OnHitWithoutCash:
     m_PersistentCalls:
       m_Calls: []
-  _dropPrefab: {fileID: 809441295618974744, guid: bdc308927ca532145abc75b2a3f2a7cf,
-    type: 3}
+--- !u!1 &6244950284390508639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4139800242031188150}
+  - component: {fileID: 8203817969153035854}
+  m_Layer: 0
+  m_Name: Directional Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4139800242031188150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244950284390508639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9012277366259680771}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8203817969153035854
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244950284390508639}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &6692490166548441541
 PrefabInstance:
   m_ObjectHideFlags: 0
