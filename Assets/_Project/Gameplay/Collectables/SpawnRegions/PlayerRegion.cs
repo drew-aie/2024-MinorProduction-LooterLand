@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class PlayerRegion : MonoBehaviour
 {
-    //the region the player is currently in.
-    private Region _currentRegion;
+    //the regions the player is currently in.
+    private List<Region> _currentRegions;
 
-    //property for _currentRegion.
-    public Region Region
+    //property for _currentRegions.
+    public List<Region> Regions
     {
-        get => _currentRegion;
-        set => _currentRegion = value;
+        get => _currentRegions;
+        set => _currentRegions = value;
     }
 
 }

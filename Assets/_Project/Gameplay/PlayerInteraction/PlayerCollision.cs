@@ -35,6 +35,9 @@ public class PlayerCollision : MonoBehaviour
     //stores a reference to the PlayerBlink component.
     private PlayerBlink _playerBlink;
 
+    [SerializeField, Tooltip("The prefab of the dropped item")]
+    private GameObject _dropPrefab;
+
     private void Awake()
     {
         //true by default.
@@ -124,17 +127,20 @@ public class PlayerCollision : MonoBehaviour
             //reverse the forward vector.
             back = new Vector3(-back.x, 0, -back.z);
 
+<<<<<<< Updated upstream
             //load the dropped item asset.
             GameObject dropAsset =
                 (GameObject)AssetDatabase.LoadAssetAtPath("Assets/_Project/Gameplay/Collectables/CollectablePrefabs/Collectable_DroppedCash.prefab", typeof(GameObject));
 
+=======
+>>>>>>> Stashed changes
             //create an array to store instantiated dropped items.
             GameObject[] drops = new GameObject[3];
 
             //instantiate prefabs of the dropped items
             for(int i = 0; i < drops.Length; i++)
             {
-                drops[i] = Instantiate(dropAsset, transform.position, transform.rotation);
+                drops[i] = Instantiate(_dropPrefab, transform.position, transform.rotation);
 
                 //gets the Collectable component of the asset we instantiated.
                 Collectable component = drops[i].GetComponent<Collectable>();
