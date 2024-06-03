@@ -171,5 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slushie
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6495159103555953997, guid: a19598bd07fc2e741bbaa8fe244b6e1a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a19598bd07fc2e741bbaa8fe244b6e1a, type: 3}

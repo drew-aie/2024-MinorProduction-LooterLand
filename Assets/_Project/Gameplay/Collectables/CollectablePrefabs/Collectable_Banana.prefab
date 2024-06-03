@@ -171,5 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4427263707975431326, guid: daaba69d8d2cc9c4aae81309a922ebc8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: daaba69d8d2cc9c4aae81309a922ebc8, type: 3}

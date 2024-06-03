@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanSlim
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8064701893779878697, guid: a936825eae20c4c48b59c57ad33e4f0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a936825eae20c4c48b59c57ad33e4f0a, type: 3}
 --- !u!1001 &4164374185791907690
 PrefabInstance:

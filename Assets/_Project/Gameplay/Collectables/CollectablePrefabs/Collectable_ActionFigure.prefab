@@ -171,5 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionFigure
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5016459660527478977, guid: d27ee477e29c388458e7e4a6651bad97, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d27ee477e29c388458e7e4a6651bad97, type: 3}

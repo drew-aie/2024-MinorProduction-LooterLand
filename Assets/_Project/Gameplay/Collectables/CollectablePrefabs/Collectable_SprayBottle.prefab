@@ -171,5 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SprayBottle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130935059837646958, guid: 084f11638e7baf94da8d9932487186f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 084f11638e7baf94da8d9932487186f1, type: 3}

@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SodaCan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1087121470516032437, guid: 3f26f8c00b2a11342b49f74d125589ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f26f8c00b2a11342b49f74d125589ea, type: 3}
 --- !u!1001 &5848867211580192924
 PrefabInstance:

@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LiquidSoap
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 868708500219693515, guid: ef6ddcd65d5ab544f90e99e22d8b2904, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef6ddcd65d5ab544f90e99e22d8b2904, type: 3}
 --- !u!1001 &8649124905310905221
 PrefabInstance:

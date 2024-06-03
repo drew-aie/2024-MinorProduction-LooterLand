@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TVOld
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2658866428346652009, guid: 3c51f62c33494fa4fb6b089d9400bd2f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c51f62c33494fa4fb6b089d9400bd2f, type: 3}
 --- !u!1001 &8548196337883785024
 PrefabInstance:

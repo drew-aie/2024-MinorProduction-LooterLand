@@ -146,7 +146,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bag
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6197013202510161925, guid: f5efbf95c2af2dc44bc4f8b21be560b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5efbf95c2af2dc44bc4f8b21be560b4, type: 3}
 --- !u!4 &8809794768313057309 stripped
 Transform:

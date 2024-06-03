@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeatBig
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5263166794253023670, guid: 62f9f2a39a3917a4a9d605411b684f7b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 62f9f2a39a3917a4a9d605411b684f7b, type: 3}
 --- !u!1001 &6898675580056581313
 PrefabInstance:

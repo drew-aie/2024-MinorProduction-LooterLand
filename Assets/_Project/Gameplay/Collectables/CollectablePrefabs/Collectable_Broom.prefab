@@ -171,5 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Broom
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1449845897913365324, guid: bf3e01e2cea2562499d825c746d03546, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf3e01e2cea2562499d825c746d03546, type: 3}

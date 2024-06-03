@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5183373093525618531, guid: 8a85e8f5b3aff274fba646e421d3b6b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a85e8f5b3aff274fba646e421d3b6b0, type: 3}
 --- !u!1001 &8391253318822240563
 PrefabInstance:
