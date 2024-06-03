@@ -26,6 +26,6 @@ public class EndState : MonoBehaviour
     {
         _endScreenUI.SetActive(true);
         Time.timeScale = 0f;
-        //Do more stuff
+        //Do more stuf
     }
 }
