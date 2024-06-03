@@ -5,7 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7932878704036813283}
+    m_TransformParent: {fileID: 5421890753493838657}
     m_Modifications:
     - target: {fileID: 4812125548158402418, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 6142042528688723766, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.56
+      value: 0.387
       objectReference: {fileID: 0}
     - target: {fileID: 6142042528688723766, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
@@ -40,17 +40,17 @@ PrefabInstance:
     - target: {fileID: 6142042528688723766, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6142042528688723766, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6142042528688723766, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6142042528688723766, guid: ff8edd9875cd5cf4791454687e5bd9b0,
         type: 3}
@@ -141,6 +141,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6459574442106882269, guid: 5f1116838e16d5542b6c40179f83c256,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9081342799536953324, guid: 5f1116838e16d5542b6c40179f83c256,
         type: 3}
       propertyPath: m_Name
@@ -166,10 +171,10 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.76, y: 0.82, z: 0.79}
-  m_Center: {x: 0, y: 0.58, z: 0}
---- !u!4 &7932878704036813283 stripped
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!4 &5421890753493838657 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3874916988424838683, guid: 5f1116838e16d5542b6c40179f83c256,
+  m_CorrespondingSourceObject: {fileID: 1220242092268842169, guid: 5f1116838e16d5542b6c40179f83c256,
     type: 3}
   m_PrefabInstance: {fileID: 6616147797530920952}
   m_PrefabAsset: {fileID: 0}
