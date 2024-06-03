@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58170a22c94a42b45afb42bf11f2ec40
+guid: 379d0067a9b63a144b2be58b61ddb3ea
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: 15b16012d07085d44957661d9a67bfe2, type: 2}
+    second: {fileID: 2100000, guid: 2be3e471fd8b7444394cc21c674ca7c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model_lambert2
+    second: {fileID: 2100000, guid: 0e711152591cfdc4b854d44fad847a96, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -80,10 +85,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 767ad7fd0b1d67f43aef852d73dcee15
-  - acb033f1137807e4bafaac0996833952
-  - 13030479680f7dd40b1dac11a68fa994
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -105,7 +107,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

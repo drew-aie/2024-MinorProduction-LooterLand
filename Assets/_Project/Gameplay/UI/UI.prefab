@@ -287,6 +287,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1741939990301110048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4681217391082069471}
+  m_Layer: 0
+  m_Name: --ScriptHolders--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4681217391082069471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741939990301110048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 13846898515322627}
+  - {fileID: 7450746009225596777}
+  m_Father: {fileID: 4127896053412892060}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768688258370800858
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +879,7 @@ RectTransform:
   - {fileID: 5143061071551901576}
   - {fileID: 2152938066757845551}
   - {fileID: 2434916783414611349}
-  - {fileID: 13846898515322627}
+  - {fileID: 4681217391082069471}
   - {fileID: 3894199855259018571}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1066,7 +1099,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerDisplay: {fileID: 4127896054622093237}
-  _timesUpDisplay: {fileID: 4277822907517026628}
   _minutes: 1
   _seconds: 30
 --- !u!1 &4127896055070878397
@@ -1347,6 +1379,52 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!1 &5307390245373472902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7450746009225596777}
+  - component: {fileID: 7598541835286573125}
+  m_Layer: 0
+  m_Name: TimesUpScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7450746009225596777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307390245373472902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4681217391082069471}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7598541835286573125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307390245373472902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea49c66e6de3a494abf271f46b636e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerDisplay: {fileID: 4127896054622093239}
+  _timesUp: {fileID: 7654579002346710061}
 --- !u!1 &5333495940903598248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,7 +1785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &198388434204769232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2002,12 +2080,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8774121759451311324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.86322, y: -56.41098, z: 3.1469533}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4127896053412892060}
-  m_RootOrder: 4
+  m_Father: {fileID: 4681217391082069471}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3247261173348820903
 MonoBehaviour:
@@ -2068,22 +2146,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0a05dc4f-fb0b-4dd7-9c5a-9c33e257d7e1
     m_ActionName: Menu/Pause[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3247261173348820903}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: MenuCall
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b997d6a3-eade-471f-849b-ef3b97a8403a
-    m_ActionName: Locomotion/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Menu
