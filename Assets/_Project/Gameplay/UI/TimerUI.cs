@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,9 @@ public class TimerUI : MonoBehaviour
 {
     [SerializeField, Tooltip("The Textmesh that will display the timer countdown to the player.")]
     private TextMeshProUGUI _timerDisplay;
+
+    [SerializeField, Tooltip("The display for the Time's Up prompt.")]
+    private TextMeshProUGUI _timesUpDisplay;
 
     [Space]
 
@@ -23,8 +27,12 @@ public class TimerUI : MonoBehaviour
 
     private void TimesUp()
     {
+        //Disabling and enabling timer and time's up display
         _timerDisplay.enabled = false;
-        //More stuff
+        _timesUpDisplay.enabled = true;
+
+        //Vector3 vec = new Vector3(1.0f, 0.0f, 0.0f);
+        //_timesUpDisplay.transform.DOPunchPosition(vec, 2);
     }
 
     void Start()
@@ -56,8 +64,6 @@ public class TimerUI : MonoBehaviour
         _timerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         if (_countDown <= 0.0f)
-        {
             TimesUp();
-        }
     }
 }
