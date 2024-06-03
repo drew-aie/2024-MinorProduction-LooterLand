@@ -9,6 +9,7 @@ public class EndState : MonoBehaviour
     [SerializeField, Tooltip("The UI canvas for the ending screen.")]
     private GameObject _endScreenUI;
 
+    [SerializeField, Tooltip("The UI prefab.")]
     private GameObject _ui;
 
     // Start is called before the first frame update
@@ -25,9 +26,12 @@ public class EndState : MonoBehaviour
 
     public void EndingCall()
     {
+        //Enabling endscreenUI and disabling UI prefab
         _endScreenUI.SetActive(true);
+        _ui.SetActive(false);
+
+        //Freezing game world
         Time.timeScale = 0f;
-        //Do more stuff
     }
 
     //Reloads the current scene
@@ -39,6 +43,7 @@ public class EndState : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    //Loads the first scene in the index (Main Menu)
     public void QuitMenu()
     {
         //Restoring game time and loading main menu
