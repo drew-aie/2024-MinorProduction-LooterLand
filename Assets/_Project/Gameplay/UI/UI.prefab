@@ -1504,6 +1504,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timerDisplay: {fileID: 4127896054622093239}
   _timesUp: {fileID: 7654579002346710061}
+  OnCountdownEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5333495940903598248
 GameObject:
   m_ObjectHideFlags: 0
