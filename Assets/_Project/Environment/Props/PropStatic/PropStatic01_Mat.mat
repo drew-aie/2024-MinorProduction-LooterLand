@@ -99,6 +99,7 @@ Material:
     - Boolean_8A2B8817: 1
     - _AlphaClip: 0
     - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -121,6 +122,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: -10
     - _ReceiveShadows: 1
+    - _SampleGI: 0
     - _Shades: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
