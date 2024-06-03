@@ -1453,6 +1453,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 19500121, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+      propertyPath: _speedModifier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19500121, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
       propertyPath: _effectMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 610700192573fbf4fab027fab6f064eb, type: 2}
