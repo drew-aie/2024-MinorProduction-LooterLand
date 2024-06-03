@@ -1962,12 +1962,12 @@ PrefabInstance:
     - target: {fileID: 4127896054622093243, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
       propertyPath: _minutes
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4127896054622093243, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
       propertyPath: _seconds
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4277822907517026628, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
