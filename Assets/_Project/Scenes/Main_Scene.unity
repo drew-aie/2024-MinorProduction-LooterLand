@@ -2747,8 +2747,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5526796811187437868, guid: 29ecff5e1e1a8ea4cafb522acc2c5876,
         type: 3}
+      propertyPath: m_Size.z
+      value: 34.574287
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526796811187437868, guid: 29ecff5e1e1a8ea4cafb522acc2c5876,
+        type: 3}
       propertyPath: m_Center.x
-      value: 11.707519
+      value: 11.70752
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526796811187437868, guid: 29ecff5e1e1a8ea4cafb522acc2c5876,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -18.088188
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ecff5e1e1a8ea4cafb522acc2c5876, type: 3}

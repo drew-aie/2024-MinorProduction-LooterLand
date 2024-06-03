@@ -5016,7 +5016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreSystem: {fileID: 0}
-  _itemDropSpeed: 100
+  _itemDropSpeed: 450
   _protectionPeriodDuration: 1.5
   OnHitWithoutCash:
     m_PersistentCalls:
