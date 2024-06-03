@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4178747544857895263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5638240790331475598}
+  - component: {fileID: 2296396624945265325}
+  - component: {fileID: 5911000841462721437}
+  m_Layer: 0
+  m_Name: Region_Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5638240790331475598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178747544857895263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2296396624945265325
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178747544857895263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 75.34114, y: 1, z: 70.97949}
+  m_Center: {x: -1.7168808, y: 0, z: 18.66018}
+--- !u!114 &5911000841462721437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178747544857895263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c735f91c18b06c74ca5d8856b91cfc2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _regionData: {fileID: 11400000, guid: 0ec15e1602689ec41aaef091cf03c8bd, type: 2}
+  _player: {fileID: 4350751843136854642, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+  _common: {fileID: 11400000, guid: ce9366be6ee94d040896d75f352180fa, type: 2}
+  _uncommon: {fileID: 11400000, guid: fd19b1e94232dd841afc86365b48dce5, type: 2}
+  _rare: {fileID: 11400000, guid: a4bb7c1356e54ed45b1d74d8d4c70ae5, type: 2}
+  _uncommonChancePercentage: 34.6
+  _rareChancePercentage: 4.8
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExit:
+    m_PersistentCalls:
+      m_Calls: []
