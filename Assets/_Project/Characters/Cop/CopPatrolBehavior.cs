@@ -14,7 +14,7 @@ public class CopPatrolBehavior : MonoBehaviour
     [SerializeField, Min(0.5f), Tooltip("How big the patrolling cop's player detection radius is.")]
     private float _copDetectionRadius = 10;
 
-    [SerializeField, Min(0), Tooltip("How long the agent will idle at a patrol point.")]
+    [SerializeField, Min(0), Tooltip("How long the cop will idle at a patrol point.")]
     private float _idleTime = 2;
 
     [Space]
@@ -43,7 +43,6 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         IDLE,
         PATROL,
-        WANDER,
         PURSUE,
         END 
     };
@@ -99,8 +98,6 @@ public class CopPatrolBehavior : MonoBehaviour
 
                 return;
             }
-            else if (_currentState == EState.WANDER)
-                Wander();
             else if (_currentState == EState.PURSUE)
                 return;
             else
@@ -138,9 +135,9 @@ public class CopPatrolBehavior : MonoBehaviour
     //Tells agent if the player has entered it's agro radius
     private bool RadiusCheck()
     {
-        float seekMagni = (_target.transform.position - _cop.transform.position).magnitude;
+        float seekMagnitude = (_target.transform.position - _cop.transform.position).magnitude;
 
-        if (seekMagni <= _cop.radius * _copDetectionRadius)
+        if (seekMagnitude <= _cop.radius * _copDetectionRadius)
         {
             _agentIsSeeking = true;
             return true;
@@ -227,10 +224,5 @@ public class CopPatrolBehavior : MonoBehaviour
 
         //Having agent pursue 
         _cop.destination = _target.transform.position + _target.transform.forward * lookAhead;
-    }
-
-    private void Wander()
-    {
-        //Wander
     }
 }
