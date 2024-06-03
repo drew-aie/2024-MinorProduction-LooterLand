@@ -14,7 +14,7 @@ public class CopPatrolBehavior : MonoBehaviour
     [SerializeField, Min(0.5f), Tooltip("How big the patrolling cop's player detection radius is.")]
     private float _copDetectionRadius = 10;
 
-    [SerializeField, Min(0), Tooltip("How long the agent will idle at a patrol point.")]
+    [SerializeField, Min(0), Tooltip("How long the cop will idle at a patrol point.")]
     private float _idleTime = 2;
 
     [Space]
@@ -43,7 +43,6 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         IDLE,
         PATROL,
-        WANDER,
         PURSUE,
         END 
     };
@@ -99,8 +98,6 @@ public class CopPatrolBehavior : MonoBehaviour
 
                 return;
             }
-            else if (_currentState == EState.WANDER)
-                Wander();
             else if (_currentState == EState.PURSUE)
                 return;
             else
@@ -138,9 +135,9 @@ public class CopPatrolBehavior : MonoBehaviour
     //Tells agent if the player has entered it's agro radius
     private bool RadiusCheck()
     {
-        float seekMagni = (_target.transform.position - _cop.transform.position).magnitude;
+        float seekMagnitude = (_target.transform.position - _cop.transform.position).magnitude;
 
-        if (seekMagni <= _cop.radius * _copDetectionRadius)
+        if (seekMagnitude <= _cop.radius * _copDetectionRadius)
         {
             _agentIsSeeking = true;
             return true;
@@ -229,8 +226,33 @@ public class CopPatrolBehavior : MonoBehaviour
         _cop.destination = _target.transform.position + _target.transform.forward * lookAhead;
     }
 
-    private void Wander()
+    /// <summary>
+    /// Disables the agent's collider for the entered amount of time after making contact with the player.
+    /// </summary>
+    /// <param name="safetyTime">How long the agent's collider will be disabled.</param>
+    public void DisableCopCollider(float safetyTime)
     {
-        //Wander
+        //Storing agent's collider
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+
+        if (!collider)
+            return;
+
+        //Disabling collider
+        collider.enabled = false;
+
+        //Starting a coroutine to reenable collider after safety time elapses
+        StartCoroutine(Delay(() => { collider.enabled = true; }, safetyTime));
+    }
+
+    private IEnumerator Delay(Action callback, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        callback();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        DisableCopCollider(3);
     }
 }
