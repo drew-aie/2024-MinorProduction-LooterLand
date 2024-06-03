@@ -103,6 +103,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0a05dc4f-fb0b-4dd7-9c5a-9c33e257d7e1
     m_ActionName: Menu/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b997d6a3-eade-471f-849b-ef3b97a8403a
+    m_ActionName: Locomotion/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Locomotion
@@ -4843,7 +4847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82cd22ec92fdd74e8f0ecc5eff8a395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 33
+  _speed: 20
 --- !u!114 &19500105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4868,7 +4872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e7e9266eed428449da42071db3b620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectMaterial: {fileID: 2100000, guid: 6c4a5aa977ae66c4680dca0c814ddeac, type: 2}
+  _effectMaterial: {fileID: 2100000, guid: 610700192573fbf4fab027fab6f064eb, type: 2}
   _duration: 3
   OnEffectStart:
     m_PersistentCalls:
@@ -5012,11 +5016,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreSystem: {fileID: 0}
-  _itemDropSpeed: 35
+  _itemDropSpeed: 100
   _protectionPeriodDuration: 1.5
   OnHitWithoutCash:
     m_PersistentCalls:
       m_Calls: []
+  _dropPrefab: {fileID: 809441295618974744, guid: bdc308927ca532145abc75b2a3f2a7cf,
+    type: 3}
 --- !u!1 &6244950284390508639
 GameObject:
   m_ObjectHideFlags: 0
