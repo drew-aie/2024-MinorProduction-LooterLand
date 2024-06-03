@@ -2216,6 +2216,16 @@ PrefabInstance:
       propertyPath: _playerScore
       value: 
       objectReference: {fileID: 1135320778}
+    - target: {fileID: 8227327453281061991, guid: 6bc062238340b1248bbbe540064bed3d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.2000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227327453281061991, guid: 6bc062238340b1248bbbe540064bed3d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.50001526
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc062238340b1248bbbe540064bed3d, type: 3}
 --- !u!1 &1886626914
