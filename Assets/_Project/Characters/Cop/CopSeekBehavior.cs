@@ -27,9 +27,4 @@ public class CopSeekBehavior : MonoBehaviour
             _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        _cop.GetComponent<CopPatrolBehavior>().DisableCopCollider(3);
-    }
 }

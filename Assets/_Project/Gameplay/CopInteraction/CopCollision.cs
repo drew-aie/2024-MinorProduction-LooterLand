@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,17 @@ public class CopCollision : MonoBehaviour
 
                 Invoke(nameof(ReEnableAgent), _timeToWait);
             }
-        }
+        }   
+    }
+
+    //Using OnCollisionStay because Enter causes issues with PlayerCollision script
+    private void OnCollisionStay(Collision collision)
+    {
+        //Storing player's Player Collision component
+        PlayerCollision targetCollide = collision.gameObject.GetComponent<PlayerCollision>();
+
+        //Disabling cop's collider for the length of the protection period duration
+        DisableCopCollider(targetCollide.ProtectionPeriodDuration);
     }
 
     private void ReEnableAgent()
@@ -28,5 +39,30 @@ public class CopCollision : MonoBehaviour
         {
             agent.enabled = true;
         }
+    }
+
+    /// <summary>
+    /// Disables the agent's collider for the entered amount of time after making contact with the player.
+    /// </summary>
+    /// <param name="safetyTime">How long the agent's collider will be disabled.</param>
+    public void DisableCopCollider(float safetyTime)
+    {
+        //Storing agent's collider
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+
+        if (!collider)
+            return;
+
+        //Disabling collider
+        collider.enabled = false;
+
+        //Starting a coroutine to reenable collider after safety time elapses
+        StartCoroutine(Delay(() => { collider.enabled = true; }, safetyTime));
+    }
+
+    private IEnumerator Delay(Action callback, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        callback();
     }
 }
