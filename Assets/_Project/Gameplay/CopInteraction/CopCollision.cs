@@ -10,6 +10,8 @@ public class CopCollision : MonoBehaviour
     [Tooltip("This is the amount of time in Seconds to wait.")]
     float _timeToWait = 3;
 
+    private bool _collided = false;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -26,6 +28,9 @@ public class CopCollision : MonoBehaviour
     //Using OnCollisionStay because Enter causes issues with PlayerCollision script
     private void OnCollisionStay(Collision collision)
     {
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
+
         //Storing player's Player Collision component
         PlayerCollision targetCollide = collision.gameObject.GetComponent<PlayerCollision>();
 
