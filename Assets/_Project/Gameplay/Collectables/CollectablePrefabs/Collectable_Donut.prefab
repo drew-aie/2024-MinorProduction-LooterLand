@@ -176,5 +176,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donut
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2341382181819921097, guid: 5783c8a8bf77e394f8746f16a4b4c0a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5783c8a8bf77e394f8746f16a4b4c0a5, type: 3}

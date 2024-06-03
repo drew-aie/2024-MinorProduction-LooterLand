@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatCowboy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3839501948460199961, guid: 70e8d0f25268c4944ac2e6ee2707f896, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 70e8d0f25268c4944ac2e6ee2707f896, type: 3}
 --- !u!1001 &4109130556752162205
 PrefabInstance:

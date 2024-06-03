@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanWide
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1220975948319211312, guid: 8b3dd82d990d7a74b9b056adf64adf16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8b3dd82d990d7a74b9b056adf64adf16, type: 3}
 --- !u!1001 &8453278745547804231
 PrefabInstance:
