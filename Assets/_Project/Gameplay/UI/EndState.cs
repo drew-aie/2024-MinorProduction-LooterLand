@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndState : MonoBehaviour
 {
@@ -26,6 +27,22 @@ public class EndState : MonoBehaviour
     {
         _endScreenUI.SetActive(true);
         Time.timeScale = 0f;
-        //Do more stuf
+        //Do more stuff
+    }
+
+    //Reloads the current scene
+    public void Retry()
+    {
+        //Loading current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //Unfreezing game
+        Time.timeScale = 1.0f;
+    }
+
+    public void QuitMenu()
+    {
+        //Restoring game time and loading main menu
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
     }
 }
