@@ -481,7 +481,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignWetFloor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8107379547469506829, guid: ee43767575960a6439857ada82f94dd4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2717754767083964264, guid: ee43767575960a6439857ada82f94dd4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ee43767575960a6439857ada82f94dd4, type: 3}
 --- !u!4 &182277132 stripped
 Transform:
