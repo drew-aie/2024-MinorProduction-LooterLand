@@ -152,9 +152,9 @@ public class PlayerCollision : MonoBehaviour
             }
 
             //add directional force to the dropped items to spread them out.
-            drops[0].GetComponent<Rigidbody>().AddForce(left * _itemDropSpeed * Time.deltaTime);
-            drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed * Time.deltaTime);
-            drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed * Time.deltaTime);
+            drops[0].GetComponent<Rigidbody>().AddForce(left * _itemDropSpeed);
+            drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed);
+            drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed);
 
             //activates fading the player at the protection duration.
             _playerBlink.Activate(_protectionPeriodDuration);

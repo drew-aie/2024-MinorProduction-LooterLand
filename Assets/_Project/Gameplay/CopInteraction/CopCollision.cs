@@ -26,6 +26,9 @@ public class CopCollision : MonoBehaviour
     //Using OnCollisionStay because Enter causes issues with PlayerCollision script
     private void OnCollisionStay(Collision collision)
     {
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
+
         //Storing player's Player Collision component
         PlayerCollision targetCollide = collision.gameObject.GetComponent<PlayerCollision>();
 
