@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burger
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 153463684053055576, guid: fd305c346153f5f4bb19a1190fcc68b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd305c346153f5f4bb19a1190fcc68b5, type: 3}
 --- !u!1001 &7280825898851047769
 PrefabInstance:

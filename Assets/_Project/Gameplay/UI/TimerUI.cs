@@ -10,9 +10,6 @@ public class TimerUI : MonoBehaviour
     [SerializeField, Tooltip("The Textmesh that will display the timer countdown to the player.")]
     private TextMeshProUGUI _timerDisplay;
 
-    [SerializeField, Tooltip("The display for the Time's Up prompt.")]
-    private TextMeshProUGUI _timesUpDisplay;
-
     [Space]
 
     [Tooltip("The length of the countdown in minutes")]
