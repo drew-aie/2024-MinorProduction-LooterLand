@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4112350475184739230}
   - component: {fileID: 3446689169602620274}
   - component: {fileID: 804249375662813256}
+  - component: {fileID: 2025648260169159161}
   m_Layer: 0
   m_Name: Collectable_DroppedCash
   m_TagString: Untagged
@@ -79,6 +80,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.76, z: 0.69}
   m_Center: {x: 0, y: 0.37, z: 0}
+--- !u!65 &2025648260169159161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809441295618974744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.37, y: 0.11, z: 0.17}
+  m_Center: {x: 0, y: -0.04, z: 0}
 --- !u!1001 &8742099499517472823
 PrefabInstance:
   m_ObjectHideFlags: 0
