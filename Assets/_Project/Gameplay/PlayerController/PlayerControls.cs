@@ -35,6 +35,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""b997d6a3-eade-471f-849b-ef3b97a8403a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -103,27 +112,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Menu"",
-            ""id"": ""c4100cf2-0adc-43ef-947e-c36258e4b1f7"",
-            ""actions"": [
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""002b9a68-2f38-41b3-b63c-d33589677421"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""9ca8affc-3ceb-4945-9688-33518057808f"",
+                    ""id"": ""40d4af01-f88e-4758-a614-79868a5ae8ca"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -134,7 +126,46 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e57f31af-80b0-4c55-8082-81ce87fbe26e"",
+                    ""id"": ""b5a9b88c-65e7-46a9-8290-a9b6eddb7870"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""f88efc9f-2c6d-488f-b8cd-403800b3a3ae"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a05dc4f-fb0b-4dd7-9c5a-9c33e257d7e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""82842245-5831-48dd-9afa-8722d9a84a6d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3384f5ae-d2bc-4bf4-b75e-194777135b36"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -151,6 +182,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Locomotion
         m_Locomotion = asset.FindActionMap("Locomotion", throwIfNotFound: true);
         m_Locomotion_Move = m_Locomotion.FindAction("Move", throwIfNotFound: true);
+        m_Locomotion_Pause = m_Locomotion.FindAction("Pause", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -214,11 +246,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Locomotion;
     private ILocomotionActions m_LocomotionActionsCallbackInterface;
     private readonly InputAction m_Locomotion_Move;
+    private readonly InputAction m_Locomotion_Pause;
     public struct LocomotionActions
     {
         private @PlayerControls m_Wrapper;
         public LocomotionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Locomotion_Move;
+        public InputAction @Pause => m_Wrapper.m_Locomotion_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Locomotion; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -231,6 +265,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_LocomotionActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_LocomotionActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_LocomotionActionsCallbackInterface.OnMove;
+                @Pause.started -= m_Wrapper.m_LocomotionActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_LocomotionActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_LocomotionActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_LocomotionActionsCallbackInterface = instance;
             if (instance != null)
@@ -238,6 +275,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -278,6 +318,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface ILocomotionActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

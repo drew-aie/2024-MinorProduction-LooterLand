@@ -2,11 +2,10 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TextScrolling : MonoBehaviour
 {
-    [SerializeField, Tooltip("The Rect Transform the textmesh.")]
+    [SerializeField, Tooltip("The Rect Transform of the textmesh.")]
     private RectTransform _text;
 
     // Start is called before the first frame update
