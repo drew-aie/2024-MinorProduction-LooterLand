@@ -10,8 +10,6 @@ public class CopCollision : MonoBehaviour
     [Tooltip("This is the amount of time in Seconds to wait.")]
     float _timeToWait = 3;
 
-    private bool _collided = false;
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
