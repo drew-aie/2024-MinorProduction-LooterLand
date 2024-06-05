@@ -44,7 +44,7 @@ public class CharacterHazardBehavior : MonoBehaviour
 
             if (_isSlippery)
                 //apply the last velocity had before becoming slippery
-                _body.AddForce(_slipDirection);
+                _body.AddForce(_slipDirection * Time.fixedDeltaTime);
         }
     }
 
@@ -59,7 +59,7 @@ public class CharacterHazardBehavior : MonoBehaviour
         _isSlippery = isSlippery;
 
         //get the characters current velocity, magnified.
-        _slipDirection = _body.velocity * slipStrengthMagnifier;
+        _slipDirection = _body.velocity.normalized * slipStrengthMagnifier * 10000 /*offset*/;
 
         GetComponent<CapsuleCollider>().material = newPhysics;
     }

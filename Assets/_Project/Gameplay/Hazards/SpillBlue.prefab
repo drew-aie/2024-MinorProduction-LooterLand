@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _physics: {fileID: 13400000, guid: 2efa5836417ca6547bba174902627305, type: 2}
-  _duration: 1
+  _duration: 0.5
   _isSlippery: 1
-  _slipperyMagnifier: 10
+  _slipperyMagnifier: 12
 --- !u!65 &2089204144531509936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61,8 +61,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0228221, y: 1.1831466, z: 0.2637116}
-  m_Center: {x: 0.47769496, y: 0.6610581, z: -0.1}
+  m_Size: {x: 1.0228221, y: 1.1831466, z: 0.37115338}
+  m_Center: {x: 0.47769493, y: 0.66105807, z: -0.15372092}
 --- !u!1001 &1651110242810224010
 PrefabInstance:
   m_ObjectHideFlags: 0
