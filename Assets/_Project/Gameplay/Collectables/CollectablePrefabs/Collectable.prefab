@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3874916988424838683}
   - component: {fileID: 1775095289544107428}
+  - component: {fileID: -7466179581373863172}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Untagged
@@ -48,6 +49,19 @@ MonoBehaviour:
   _effectID: 0
   _name: 
   _cashValue: 0
+--- !u!65 &-7466179581373863172
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9081342799536953324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9157076641667847513
 PrefabInstance:
   m_ObjectHideFlags: 0
