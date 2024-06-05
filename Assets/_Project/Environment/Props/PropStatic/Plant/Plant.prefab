@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8353369417778205178}
   - component: {fileID: 3759535796827431230}
+  - component: {fileID: 4918950665860288557}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -49,6 +50,22 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &4918950665860288557
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642901460730982128}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &3367412750508472429
 PrefabInstance:
   m_ObjectHideFlags: 0
