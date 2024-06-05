@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3446689169602620274}
   - component: {fileID: 804249375662813256}
   - component: {fileID: 2025648260169159161}
+  - component: {fileID: 1529184882121269868}
   m_Layer: 0
   m_Name: Collectable_DroppedCash
   m_TagString: Untagged
@@ -93,6 +94,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.37, y: 0.11, z: 0.17}
   m_Center: {x: 0, y: -0.04, z: 0}
+--- !u!114 &1529184882121269868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809441295618974744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd908e913c8b0a94caa04e0104539ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemModel: {fileID: 1291430577125304034}
+  _duration: 6
+  _blinks: 7
 --- !u!1001 &8742099499517472823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,6 +179,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6197013202510161925, guid: f5efbf95c2af2dc44bc4f8b21be560b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5efbf95c2af2dc44bc4f8b21be560b4, type: 3}
+--- !u!1 &1291430577125304034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7547532052807702229, guid: f5efbf95c2af2dc44bc4f8b21be560b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8742099499517472823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8809794768313057309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 220817699163271210, guid: f5efbf95c2af2dc44bc4f8b21be560b4,
