@@ -42,12 +42,6 @@ public class Region : MonoBehaviour
     //items that have be instantialized.
     private List<GameObject> _spawnedItems;
 
-    //spawns items when player arrives
-    public UnityEvent OnPlayerEnter;
-
-    //despawns items when player leaves
-    public UnityEvent OnPlayerExit;
-
     private void Awake()
     {
         //find the percent value leftover for common items after uncommon and rare item chance has been set.
@@ -129,8 +123,6 @@ public class Region : MonoBehaviour
             Refresh();
             //add this region to the list of regions the player is in
             playerRegion.Regions.Add(this);
-            //invoke OnPlayerEnter
-            OnPlayerEnter.Invoke();
         }
     }
 
@@ -143,8 +135,6 @@ public class Region : MonoBehaviour
             DespawnItems();
             //remove this region to the player's region list
             playerRegion.Regions.Remove(this);
-            //invoke OnPlayerExit
-            OnPlayerExit.Invoke();
         }
     }
 
