@@ -2414,6 +2414,16 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0.9056604
       objectReference: {fileID: 0}
+    - target: {fileID: 5143061071551901576, guid: 6bc062238340b1248bbbe540064bed3d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -28.899902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143061071551901576, guid: 6bc062238340b1248bbbe540064bed3d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 7598541835286573125, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
       propertyPath: OnCountdownEnd.m_PersistentCalls.m_Calls.Array.size
