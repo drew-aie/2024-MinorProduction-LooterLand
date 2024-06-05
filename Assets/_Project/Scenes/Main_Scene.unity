@@ -1656,7 +1656,7 @@ PrefabInstance:
     - target: {fileID: 3635516393972728936, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4350751843136854642, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
@@ -2144,6 +2144,11 @@ PrefabInstance:
     - target: {fileID: 5454335534424198703, guid: 3ca914ce195669742bb67b75c81ba9ca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027755744995422983, guid: 3ca914ce195669742bb67b75c81ba9ca,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
