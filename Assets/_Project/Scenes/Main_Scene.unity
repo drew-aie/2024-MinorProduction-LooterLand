@@ -1656,7 +1656,7 @@ PrefabInstance:
     - target: {fileID: 3635516393972728936, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4350751843136854642, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
@@ -2788,6 +2788,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.39
       objectReference: {fileID: 0}
+    - target: {fileID: 4260674090137833078, guid: 03c48f574a2c8d2429f281caf0518fa8,
+        type: 3}
+      propertyPath: _duration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4302478221496295899, guid: 03c48f574a2c8d2429f281caf0518fa8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2838,6 +2843,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.98
       objectReference: {fileID: 0}
+    - target: {fileID: 4303798689993576687, guid: 03c48f574a2c8d2429f281caf0518fa8,
+        type: 3}
+      propertyPath: _duration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8868229523017758780, guid: 03c48f574a2c8d2429f281caf0518fa8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2848,7 +2858,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.39
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8722992569578501983, guid: 03c48f574a2c8d2429f281caf0518fa8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 03c48f574a2c8d2429f281caf0518fa8, type: 3}
 --- !u!1001 &2832730111962063629
 PrefabInstance:
