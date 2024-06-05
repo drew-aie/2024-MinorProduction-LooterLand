@@ -71,9 +71,10 @@ public class CopSeekBehavior : MonoBehaviour
     private void FollowTarget()
     {
         Vector3 agentPosition = _cop.transform.position;
-        Quaternion quatPos = Quaternion.Euler(agentPosition.x, agentPosition.y, agentPosition.z);
 
+        Quaternion quatPos = Quaternion.Euler(agentPosition.x, agentPosition.y, agentPosition.z);
         Quaternion targetFollow = Quaternion.LookRotation(_cop.desiredVelocity);
+
         _cop.transform.rotation = Quaternion.RotateTowards(quatPos, targetFollow, _cop.angularSpeed * Time.deltaTime);
     }
 
