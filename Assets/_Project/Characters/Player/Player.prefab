@@ -238,7 +238,20 @@ MonoBehaviour:
   _protectionPeriodDuration: 1.5
   OnHitWithoutCash:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2322642555780154141, guid: 3ca914ce195669742bb67b75c81ba9ca,
+          type: 3}
+        m_TargetAssemblyTypeName: EndState, Assembly-CSharp
+        m_MethodName: EndingCall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _dropPrefab: {fileID: 809441295618974744, guid: bdc308927ca532145abc75b2a3f2a7cf,
     type: 3}
 --- !u!114 &2900827153589419005

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: be77e95503f30724f88a5aabee7b48e8
+guid: 937635c0022d3bd4ea48e11b31edea95
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,22 +36,22 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 1636, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -151,18 +151,76 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UIEndScreen_Siren_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2607
+        height: 3552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb780afb6a193a4c90dc82ad722bdd2
+      internalID: -754156922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIEndScreen_Siren_13
+      rect:
+        serializedVersion: 2
+        x: 2612
+        y: 16
+        width: 2844
+        height: 3536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58af54470a328d64fb10dac9ca1f281a
+      internalID: -1484404602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UIEndScreen_Siren_6: 2092157599
+      UIEndScreen_Siren_8: 865555319
+      UIEndScreen_Siren_0: -754156922
+      UIEndScreen_Siren_13: -1484404602
+      UIEndScreen_Siren_4: -1251797464
+      UIEndScreen_Siren_7: -1972278847
+      UIEndScreen_Siren_9: 1055012477
+      UIEndScreen_Siren_5: 461685628
+      UIEndScreen_Siren_15: 1387998784
+      UIEndScreen_Siren_12: -2071364958
+      UIEndScreen_Siren_10: 1901873002
+      UIEndScreen_Siren_11: 808454351
+      UIEndScreen_Siren_2: -1746308270
+      UIEndScreen_Siren_1: 1343027415
+      UIEndScreen_Siren_14: -1808678544
+      UIEndScreen_Siren_3: -532586135
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
