@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ParticleHandler : MonoBehaviour
 {
-    //holds the particle system of this gameObject.
+    [SerializeField, Tooltip("The Particle system this will modify.")]
     private ParticleSystem _particles;
-
-    private void Awake()
-    {
-        //gets a reference to the player's particle system.
-        _particles = GetComponent<ParticleSystem>();
-    }
 
     public void ChangeMaterial(Material material)
     {
         //changes the particle material.
         _particles.GetComponent<ParticleSystemRenderer>().material = material;
+    }
+
+    private void Update()
+    {
+        //lock rotation.
+        _particles.gameObject.transform.rotation = Quaternion.identity;
     }
 }
