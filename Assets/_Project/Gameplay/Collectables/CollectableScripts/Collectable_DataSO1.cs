@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Collectable_Data", menuName = "ScriptableObject/Collectable_DataSO")]
 public class Collectable_DataSO : ScriptableObject
 {
+
     //the id of this item, set by the tiering ScriptableObject.
     private float _id;
     //property for _id
