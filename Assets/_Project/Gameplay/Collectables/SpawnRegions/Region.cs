@@ -22,11 +22,11 @@ public class Region : MonoBehaviour
 
 
     [SerializeField, Tooltip("Group of common items.")]
-    private collectable_collectionSO _common;
+    private Collectable_CollectionSO _common;
     [SerializeField, Tooltip("Group of uncommon items.")]
-    private collectable_collectionSO _uncommon;
+    private Collectable_CollectionSO _uncommon;
     [SerializeField, Tooltip("Group of rare items.")]
-    private collectable_collectionSO _rare;
+    private Collectable_CollectionSO _rare;
 
     [Space]
 
@@ -63,7 +63,7 @@ public class Region : MonoBehaviour
             int randomPercentage = UnityEngine.Random.Range(0, 100);
 
             //creates a container to store the collection we will chose.
-            collectable_collectionSO collectionToSpawnFrom;
+            Collectable_CollectionSO collectionToSpawnFrom;
 
             //determine which group of objects to pull from based on our randomPercentage value.
             if (randomPercentage <= _commonChancePercentage)

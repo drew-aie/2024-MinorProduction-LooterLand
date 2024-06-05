@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43eece48fb3249f4ab96d20e911b82ca, type: 3}
-  m_Name: collectable_collection_common
+  m_Name: Collectable_Collection_CommonSO
   m_EditorClassIdentifier: 
   _collectableItems:
   - {fileID: 2622987246971010546, guid: 9d0f404878de35d4b9536ce085d9d606, type: 3}

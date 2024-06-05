@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43eece48fb3249f4ab96d20e911b82ca, type: 3}
-  m_Name: collectable_collection_rare
+  m_Name: Collectable_Collection_RareSO
   m_EditorClassIdentifier: 
   _collectableItems:
   - {fileID: 4084626022604987487, guid: 7a63b6c9b04fa7d43b3e4c72cafcdc04, type: 3}
