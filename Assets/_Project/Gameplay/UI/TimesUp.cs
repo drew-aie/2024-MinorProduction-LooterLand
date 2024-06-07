@@ -35,7 +35,7 @@ public class TimesUp : MonoBehaviour
         //Activating times up display
         _timesUp.SetActive(true);
         //Shaking the display
-        _timesUp.transform.DOShakePosition(1f);
+        //_timesUp.transform.DOShakePosition(1f);
 
         //Using coroutine to making having a buffer easier
         StartCoroutine(Buffer(OnCountdownEnd.Invoke, 3f));
