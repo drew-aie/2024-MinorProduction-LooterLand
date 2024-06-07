@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6704546720141141353}
   - component: {fileID: 1342028408327821266}
   - component: {fileID: 5837740673574763793}
+  - component: {fileID: 3603708388509237639}
   m_Layer: 0
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -73,9 +74,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
-  m_Acceleration: 15
+  m_Acceleration: 1
   avoidancePriority: 50
-  m_AngularSpeed: 70
+  m_AngularSpeed: 500
   m_StoppingDistance: 0.8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -125,6 +126,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b738bee745d84e54284637eab9e0baab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3603708388509237639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683214151847544445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7768fa766fc01964d8d613bce4470de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 5866666020188376708}
 --- !u!1001 &753642709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,6 +301,12 @@ PrefabInstance:
 --- !u!4 &543450651847496958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90ca9b4766f3cb540b2734021b1d8142,
+    type: 3}
+  m_PrefabInstance: {fileID: 1861120789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5866666020188376708 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 90ca9b4766f3cb540b2734021b1d8142,
     type: 3}
   m_PrefabInstance: {fileID: 1861120789}
   m_PrefabAsset: {fileID: 0}
