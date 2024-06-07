@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43760335, g: 0.48545647, b: 0.5657329, a: 1}
+  m_IndirectSpecularColor: {r: 0.44305605, g: 0.48556393, b: 0.53588766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -811,7 +811,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_ShadowAngle: 83.8
 --- !u!1 &379772588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832575517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.030000001, z: 1.6100998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2403,6 +2403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _seconds
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127896055070878396, guid: 6bc062238340b1248bbbe540064bed3d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.800049
       objectReference: {fileID: 0}
     - target: {fileID: 4277822907517026628, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
