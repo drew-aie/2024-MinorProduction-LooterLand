@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7143786483704373553
+--- !u!114 &-8692964996315706191
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UncommonitemOutline_MAT
+  m_Name: CharacterOutline_Mat
   m_Shader: {fileID: -6465566751694194690, guid: 2cf1291f1a125294f881a9dfedad8f64,
     type: 3}
   m_ValidKeywords: []
@@ -50,7 +50,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 1.06
+    - _Scale: 1.03
     m_Colors:
-    - _Color: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
