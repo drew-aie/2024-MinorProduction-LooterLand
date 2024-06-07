@@ -30,6 +30,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private int _navIter;
     private float _debugCounter = 0;
     private float _bufferTime = 0;
+    private float _angularSpeed;
 
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
@@ -51,6 +52,7 @@ public class CopPatrolBehavior : MonoBehaviour
     void Start()
     {
         _cop = GetComponent<NavMeshAgent>();
+        _angularSpeed = _cop.angularSpeed;
     }
 
     // Update is called once per frame
@@ -68,6 +70,9 @@ public class CopPatrolBehavior : MonoBehaviour
 
             //Tell console that agent is not seeking
             _agentIsSeeking = false;
+
+            //Resetting agent's angular speed
+            _cop.angularSpeed = _angularSpeed;
 
             //Reset idle time and have agent idle
             _debugCounter = 0;
@@ -203,6 +208,8 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         //Storing direction to target
         Vector3 targetDirection = _target.transform.position - _cop.transform.position;
+        //Increasing agent's angular speed
+        _cop.angularSpeed = 200;
 
         //Storing variables needed for pursue beahvior
         float relativeHead = Vector3.Angle(_cop.transform.forward, _cop.transform.TransformVector(_target.transform.forward));

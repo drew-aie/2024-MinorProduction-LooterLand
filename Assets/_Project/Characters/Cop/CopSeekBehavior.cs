@@ -38,11 +38,8 @@ public class CopSeekBehavior : MonoBehaviour
     {
         //Checking if agent is rotating
         if (RotationCheck())
-        {
             //Scaling agent's angular speed down by it's speed value if so
             _cop.angularSpeed = MapValue(0, _cop.speed, _cop.angularSpeed, 0, 1);
-            FollowTarget();
-        }
         else
             //Resetting angular speed if not
             _cop.angularSpeed = _angularSpeed;
@@ -66,16 +63,6 @@ public class CopSeekBehavior : MonoBehaviour
             return true;
         else
             return false;
-    }
-
-    private void FollowTarget()
-    {
-        Vector3 agentPosition = _cop.transform.position;
-
-        Quaternion quatPos = Quaternion.Euler(agentPosition.x, agentPosition.y, agentPosition.z);
-        Quaternion targetFollow = Quaternion.LookRotation(_cop.desiredVelocity);
-
-        _cop.transform.rotation = Quaternion.RotateTowards(quatPos, targetFollow, _cop.angularSpeed * Time.deltaTime);
     }
 
     private void ValueMappingTutorial()
