@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "collectable_collection", menuName = "ScriptableObject/collectable_collection")]
-public class collectable_collectionSO : ScriptableObject
+[CreateAssetMenu(fileName = "Collectable_Collection", menuName = "ScriptableObject/Collectable_CollectionSO")]
+public class Collectable_CollectionSO : ScriptableObject
 {
+
     [SerializeField, Tooltip("The list of collectables that this stores.")]
     private List<GameObject> _collectableItems;
 

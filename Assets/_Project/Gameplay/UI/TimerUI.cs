@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +8,9 @@ public class TimerUI : MonoBehaviour
 {
     [SerializeField, Tooltip("The Textmesh that will display the timer countdown to the player.")]
     private TextMeshProUGUI _timerDisplay;
+
+    [SerializeField, Tooltip("The panel holding the timer and it's background image")]
+    private GameObject _timerUI;
 
     [Space]
 
@@ -39,7 +41,7 @@ public class TimerUI : MonoBehaviour
     void Update()
     {
         //Guard clause that won't run update without a timer display
-        if (!_timerDisplay)
+        if (!_timerDisplay || !_timerUI)
             return;
 
         //Countdown decrements with delta time each update call if above 0
@@ -54,6 +56,9 @@ public class TimerUI : MonoBehaviour
         _timerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         if (_countdown <= 0.0f)
+        {
             _timerDisplay.enabled = false;
+            _timerUI.SetActive(false);
+        }
     }
 }
