@@ -17,9 +17,10 @@ public class CopSeekBehavior : MonoBehaviour
     private Vector3 _lastFacing;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _cop = GetComponent<NavMeshAgent>();
+        _cop.updateRotation = false;
         _angularSpeed = _cop.angularSpeed;
     }
 
@@ -30,6 +31,8 @@ public class CopSeekBehavior : MonoBehaviour
             return;
 
         _cop.destination = _target.transform.position;
+
+        gameObject.transform.LookAt(_cop.transform.position + _cop.velocity);
 
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
@@ -44,6 +47,8 @@ public class CopSeekBehavior : MonoBehaviour
         else
             //Resetting angular speed if not
             _cop.angularSpeed = _angularSpeed;
+
+        Debug.Log(_cop.angularSpeed + "+ " + _angularSpeed);
     }
 
     //Checks if the agent is currently rotating
