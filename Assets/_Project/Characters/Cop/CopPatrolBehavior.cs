@@ -208,8 +208,6 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         //Storing direction to target
         Vector3 targetDirection = _target.transform.position - _cop.transform.position;
-        //Increasing agent's angular speed
-        _cop.angularSpeed = 200;
 
         //Storing variables needed for pursue beahvior
         float relativeHead = Vector3.Angle(_cop.transform.forward, _cop.transform.TransformVector(_target.transform.forward));
