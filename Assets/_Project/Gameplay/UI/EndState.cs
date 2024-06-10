@@ -12,18 +12,6 @@ public class EndState : MonoBehaviour
     [SerializeField, Tooltip("The UI prefab.")]
     private GameObject _ui;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void EndingCall()
     {
         //Enabling endscreenUI and disabling UI prefab
