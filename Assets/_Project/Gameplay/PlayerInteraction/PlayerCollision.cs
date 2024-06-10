@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -96,6 +94,8 @@ public class PlayerCollision : MonoBehaviour
             //then
             //reduce the current score by the reduce score value.
             _scoreSystem.ReduceScore();
+
+            
 
             //if the player has no score
             if (currentScore < 1)
