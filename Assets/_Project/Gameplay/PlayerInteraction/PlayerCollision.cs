@@ -77,7 +77,7 @@ public class PlayerCollision : MonoBehaviour
             //increase the current score by the cash value of item
             _scoreSystem.IncreaseScore(item.CashValue);
 
-            if(item.CashValue > 45f)
+            if(item.CashValue > 45f && !item.CompareTag("Dropped"))
             {
                 _cashEffect.Stop();
                 _cashEffect.Play();
