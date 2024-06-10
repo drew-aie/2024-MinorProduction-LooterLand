@@ -30,6 +30,7 @@ public class CopSeekBehavior : MonoBehaviour
             return;
 
         _cop.destination = _target.transform.position;
+
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
     }
