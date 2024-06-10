@@ -695,8 +695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d719bc6ba0c97884591ba841a45d6263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 2028728697}
-  _smoothTime: 0.001
+  _target: {fileID: 544673366}
+  _smoothTime: 0.0365
 --- !u!1 &374126186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1132,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455564774}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &544673366 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4139800242031188150, guid: 79e3e04756ef0b2469d2203f6c273220,
+    type: 3}
+  m_PrefabInstance: {fileID: 977191343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &684884226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8560587339551950343, guid: dc63dc9df02df714882faee190bd3d3b,
@@ -1673,6 +1679,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7466268928941657212, guid: 79e3e04756ef0b2469d2203f6c273220,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9012277366259680771, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: m_RootOrder
@@ -1956,6 +1967,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 254750943}
     m_Modifications:
+    - target: {fileID: 114574047650957365, guid: 3b9620e7820397b4090a9fbd6fb82064,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5732477195463028602, guid: 3b9620e7820397b4090a9fbd6fb82064,
         type: 3}
       propertyPath: _target
