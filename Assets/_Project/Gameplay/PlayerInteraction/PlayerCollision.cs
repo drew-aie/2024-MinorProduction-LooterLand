@@ -42,6 +42,9 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField, Tooltip("The prefab of the dropped item")]
     private GameObject _dropPrefab;
 
+    [SerializeField, Tooltip("The cash effect that is emmited on pickup of items.")]
+    private ParticleSystem _cashEffect;
+
     private void Awake()
     {
         //true by default.
@@ -52,6 +55,8 @@ public class PlayerCollision : MonoBehaviour
 
         //gets the FadePlayer component from the player.
         _playerBlink = GetComponent<PlayerBlink>();
+
+        _cashEffect.Stop();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -62,6 +67,12 @@ public class PlayerCollision : MonoBehaviour
             //then
             //increase the current score by the cash value of item
             _scoreSystem.IncreaseScore(item.CashValue);
+
+            if(item.CashValue > 45f)
+            {
+                _cashEffect.Stop();
+                _cashEffect.Play();
+            }
 
 
             if(item.EffectID != 0)
