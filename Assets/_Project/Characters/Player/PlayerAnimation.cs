@@ -27,7 +27,7 @@ public class PlayerAnimation : MonoBehaviour
 
         float currentSpeedByMax = _body.velocity.magnitude / maxVelocity.magnitude;
 
-        currentSpeedByMax = Mathf.Clamp(currentSpeedByMax, 0.1f, maxVelocity.magnitude);
+        currentSpeedByMax = Mathf.Clamp(currentSpeedByMax, 0.01f, maxVelocity.magnitude);
 
         _animator.SetFloat("Speed", currentSpeedByMax);
     }
