@@ -27,7 +27,7 @@ public class EndScoreUI : MonoBehaviour
     {
         _endScoreDisplay.enabled = true;
 
-        //Do stuff
+        _endScoreDisplay.text = "$" + _playerScore.CurrentScore;
     }
 
     private IEnumerator Wait(Action callback, float waitTime)
