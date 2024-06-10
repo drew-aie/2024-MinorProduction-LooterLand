@@ -20,6 +20,7 @@ public class CopSeekBehavior : MonoBehaviour
     void Awake()
     {
         _cop = GetComponent<NavMeshAgent>();
+        _cop.updateRotation = false;
         _angularSpeed = _cop.angularSpeed;
     }
 
@@ -31,22 +32,24 @@ public class CopSeekBehavior : MonoBehaviour
 
         _cop.destination = _target.transform.position;
 
+        gameObject.transform.LookAt(_cop.transform.position + _cop.velocity);
+
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
     }
 
-    //private void FixedUpdate()
-    //{
-    //    //Checking if agent is rotating
-    //    if (RotationCheck())
-    //        //Scaling agent's angular speed down by it's speed value if so
-    //        _cop.angularSpeed = MapValue(0, _cop.speed, _cop.angularSpeed, 0, 1);
-    //    else
-    //        //Resetting angular speed if not
-    //        _cop.angularSpeed = _angularSpeed;
+    private void FixedUpdate()
+    {
+        //Checking if agent is rotating
+        if (RotationCheck())
+            //Scaling agent's angular speed down by it's speed value if so
+            _cop.angularSpeed = MapValue(0, _cop.speed, _cop.angularSpeed, 0, 1);
+        else
+            //Resetting angular speed if not
+            _cop.angularSpeed = _angularSpeed;
 
-    //    Debug.Log(_cop.angularSpeed + "+ " + _angularSpeed);
-    //}
+        Debug.Log(_cop.angularSpeed + "+ " + _angularSpeed);
+    }
 
     //Checks if the agent is currently rotating
     private bool RotationCheck()
