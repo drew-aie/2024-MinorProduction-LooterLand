@@ -1,45 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyIndicator : MonoBehaviour
 {
-    [SerializeField, Tooltip("The GameObject that will point towards enemies.")]
-    private GameObject _indicator;
+    [SerializeField, Tooltip("The image that displays where the enemy is.")]
+    private Image _enemyIndicator;
 
-    [SerializeField, Tooltip("Who the indicator is for. (The Player)")]
-    private NavMeshAgent _target;
+    [SerializeField, Tooltip("The image that displays where the enemy is offscreen.")]
+    private Image _offScreenEnemyIndicator;
 
-    private Renderer _renderer;
+    [Space]
+
+    [SerializeField, Tooltip("The main camera.")]
+    private Camera _camera;
+
+    [SerializeField, Tooltip("")]
+    private GameObject _target;
+
+    [Space]
+
+    [SerializeField, Tooltip("")]
+    private float _outOfSightOffset = 20f;
+
+    private RectTransform _canvasTransform;
+
+    private RectTransform _rectTransform;
+
+    public float OutOfSightOffset
+    {
+        get => _outOfSightOffset;
+    }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        _renderer = GetComponent<Renderer>();
+        _rectTransform = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_renderer.isVisible)
-        {
-            if (!_indicator.activeSelf)
-                _indicator.SetActive(true);
-
-            //Store direction to target
-            Vector2 direction = _target.transform.position - transform.position;
-            //Storing 2D physics raycast
-            RaycastHit2D raycast = Physics2D.Raycast(transform.position, direction);
-
-            //If raycast collider isn't null, indicator position is set to raycast point
-            if (raycast.collider)
-                _indicator.transform.position = raycast.point;
-        }
-        else
-        {
-            if (_indicator.activeSelf)
-                _indicator.SetActive(false);
-        }
+        
     }
 }
