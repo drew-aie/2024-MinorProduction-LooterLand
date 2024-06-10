@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.Progress;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -43,7 +44,12 @@ public class PlayerCollision : MonoBehaviour
     private GameObject _dropPrefab;
 
     [SerializeField, Tooltip("The cash effect that is emmited on pickup of items.")]
-    private ParticleSystem _cashEffect;
+    private ParticleSystem _cashEffect;    
+    [SerializeField, Tooltip("The hit effect that is emmited on getting hit.")]
+    private ParticleSystem _hitEffect;
+    [SerializeField, Tooltip("The other hit effect that is emmited on getting hit.")]
+    private ParticleSystem _otherHitEffect;
+
 
     private void Awake()
     {
@@ -57,6 +63,9 @@ public class PlayerCollision : MonoBehaviour
         _playerBlink = GetComponent<PlayerBlink>();
 
         _cashEffect.Stop();
+
+        _hitEffect.Stop();
+        _otherHitEffect.Stop();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -96,6 +105,12 @@ public class PlayerCollision : MonoBehaviour
             if (!_canLoseCash)
                 return;
 
+            //emit hit particle effect.
+            _hitEffect.Stop();
+            _otherHitEffect.Stop();
+            _hitEffect.Play();
+            _otherHitEffect.Play();
+
             //begin a period where the Player cannot lose cash again for a set time.
             ProtectionPeriod();
 
@@ -120,6 +135,8 @@ public class PlayerCollision : MonoBehaviour
 
             //find the amount lost from the score.
             currentScore -= _scoreSystem.CurrentScore;
+
+            _scoreSystem.CurrentScore -= 50;
 
             //divide the score by 3.
             currentScore *= 0.3f;
