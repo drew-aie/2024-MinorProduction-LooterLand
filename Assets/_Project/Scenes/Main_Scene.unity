@@ -1770,6 +1770,11 @@ PrefabInstance:
       objectReference: {fileID: 1202359370}
     - target: {fileID: 5732477195463028602, guid: 3b9620e7820397b4090a9fbd6fb82064,
         type: 3}
+      propertyPath: _patrolSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732477195463028602, guid: 3b9620e7820397b4090a9fbd6fb82064,
+        type: 3}
       propertyPath: _navPoints.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -2780,6 +2785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PatrolCop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050240517875079578, guid: 3b9620e7820397b4090a9fbd6fb82064,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8249118498978155807, guid: 3b9620e7820397b4090a9fbd6fb82064,
         type: 3}
