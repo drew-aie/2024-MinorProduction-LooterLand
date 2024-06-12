@@ -56,7 +56,7 @@ public class CopSeekBehavior : MonoBehaviour
 
         //Storing how many degrees the agent is rotating per second
         _currentAngularVelocity = Vector3.Angle(currentFacing, _lastFacing) / Time.deltaTime;
-    
+
         _lastFacing = currentFacing;
 
         //Checking if degrees rotated per second is greater than 1
@@ -67,22 +67,6 @@ public class CopSeekBehavior : MonoBehaviour
             return true;
         else
             return false;
-    }
-
-    private void ValueMappingTutorial()
-    {
-        //Code for mapping a number between two values
-        float input_start = 0;    //The lowest number of the range input
-        float input_end = 5;      //The largest number of the range input
-        float output_start = 3;   //The lowest number of the range output
-        float output_end = 0;     //The largest number of the range output
-
-        float input = 1;  //Input value
-        float output = 0;
-
-        output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
-
-        Debug.Log(output);
     }
 
     /// <summary>
