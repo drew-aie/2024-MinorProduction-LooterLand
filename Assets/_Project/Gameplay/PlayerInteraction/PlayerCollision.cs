@@ -58,6 +58,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private AudioSource _audioSource;
 
+
     private void Awake()
     {
         //true by default.
@@ -107,7 +108,7 @@ public class PlayerCollision : MonoBehaviour
 
         //if the object that the player is colliding with is an enemy
         if (collider.gameObject.CompareTag("Enemy"))
-            HurtPlayer();
+            HurtPlayer(collider.gameObject);
 
     }
 
@@ -117,14 +118,16 @@ public class PlayerCollision : MonoBehaviour
 
         //if the object that the player is colliding with is still an enemy
         if (collision.gameObject.CompareTag("Enemy"))
-            HurtPlayer();
+            HurtPlayer(collision.gameObject);
     }
 
-    private void HurtPlayer()
+    private void HurtPlayer(GameObject enemy)
     {
         //if player cant lose cash
         if (!_canLoseCash)
             return;
+
+        enemy.GetComponent<CopAnimation>().PlayAttack();
 
         //emit hit particle effect.
         _hitEffect.Stop();

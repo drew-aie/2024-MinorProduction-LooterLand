@@ -21,6 +21,9 @@ public class EndScoreUI : MonoBehaviour
     {
         _endScoreDisplay.enabled = true;
 
-        _endScoreDisplay.text = "$" + _playerScore.CurrentScore;
+        if (_playerScore.CurrentScore <= 0)
+            _endScoreDisplay.text = "$0";
+        else
+            _endScoreDisplay.text = "$" + _playerScore.CurrentScore;
     }
 }
