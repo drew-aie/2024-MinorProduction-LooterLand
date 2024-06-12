@@ -47,8 +47,6 @@ public class CopSeekBehavior : MonoBehaviour
         else
             //Resetting angular speed if not
             _cop.angularSpeed = _angularSpeed;
-
-        Debug.Log(_cop.angularSpeed + "+ " + _angularSpeed);
     }
 
     //Checks if the agent is currently rotating
