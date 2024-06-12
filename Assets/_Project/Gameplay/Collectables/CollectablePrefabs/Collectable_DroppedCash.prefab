@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1529184882121269868}
   m_Layer: 0
   m_Name: Collectable_DroppedCash
-  m_TagString: Untagged
+  m_TagString: Dropped
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
