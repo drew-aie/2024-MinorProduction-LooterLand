@@ -56,7 +56,7 @@ public class CopSeekBehavior : MonoBehaviour
 
         //Storing how many degrees the agent is rotating per second
         _currentAngularVelocity = Vector3.Angle(currentFacing, _lastFacing) / Time.deltaTime;
-    
+
         _lastFacing = currentFacing;
 
         //Checking if degrees rotated per second is greater than 1
