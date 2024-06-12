@@ -22,11 +22,11 @@ public class Region : MonoBehaviour
 
 
     [SerializeField, Tooltip("Group of common items.")]
-    private collectable_collectionSO _common;
+    private Collectable_CollectionSO _common;
     [SerializeField, Tooltip("Group of uncommon items.")]
-    private collectable_collectionSO _uncommon;
+    private Collectable_CollectionSO _uncommon;
     [SerializeField, Tooltip("Group of rare items.")]
-    private collectable_collectionSO _rare;
+    private Collectable_CollectionSO _rare;
 
     [Space]
 
@@ -41,12 +41,6 @@ public class Region : MonoBehaviour
 
     //items that have be instantialized.
     private List<GameObject> _spawnedItems;
-
-    //spawns items when player arrives
-    public UnityEvent OnPlayerEnter;
-
-    //despawns items when player leaves
-    public UnityEvent OnPlayerExit;
 
     private void Awake()
     {
@@ -69,7 +63,7 @@ public class Region : MonoBehaviour
             int randomPercentage = UnityEngine.Random.Range(0, 100);
 
             //creates a container to store the collection we will chose.
-            collectable_collectionSO collectionToSpawnFrom;
+            Collectable_CollectionSO collectionToSpawnFrom;
 
             //determine which group of objects to pull from based on our randomPercentage value.
             if (randomPercentage <= _commonChancePercentage)
@@ -94,6 +88,10 @@ public class Region : MonoBehaviour
 
             //container to hold our newly spawned item.
             GameObject spawnedItem;
+
+            if (!itemToInstantiate)
+                return;
+
             //instantiates that item at the position of the spawn area and store it.
             spawnedItem = Instantiate(itemToInstantiate, _regionData.SpawnAreas[i].transform.position, _regionData.SpawnAreas[i].transform.rotation);
             //add the instantialized item to our list of _spawnedItems.
@@ -129,8 +127,6 @@ public class Region : MonoBehaviour
             Refresh();
             //add this region to the list of regions the player is in
             playerRegion.Regions.Add(this);
-            //invoke OnPlayerEnter
-            OnPlayerEnter.Invoke();
         }
     }
 
@@ -143,8 +139,6 @@ public class Region : MonoBehaviour
             DespawnItems();
             //remove this region to the player's region list
             playerRegion.Regions.Remove(this);
-            //invoke OnPlayerExit
-            OnPlayerExit.Invoke();
         }
     }
 

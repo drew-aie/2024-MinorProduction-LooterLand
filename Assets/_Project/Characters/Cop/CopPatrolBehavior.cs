@@ -30,6 +30,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private int _navIter;
     private float _debugCounter = 0;
     private float _bufferTime = 0;
+    private float _angularSpeed;
 
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
@@ -51,72 +52,73 @@ public class CopPatrolBehavior : MonoBehaviour
     void Start()
     {
         _cop = GetComponent<NavMeshAgent>();
+        _angularSpeed = _cop.angularSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_cop.enabled != false)
+        if (!_cop.enabled)
+            return;
+
+        //Check if player has moved far enough away from agent when seeking
+        if (_agentIsSeeking && _cop.remainingDistance > 15)
         {
-            //Check if player has moved far enough away from agent when seeking
-            if (_agentIsSeeking && _cop.remainingDistance > 15)
-            {
-                //Reset agent path back to patrol path
-                _cop.ResetPath();
-                _cop.path = _patrolPath;
+            //Reset agent path back to patrol path
+            _cop.ResetPath();
+            _cop.path = _patrolPath;
 
-                //Tell console that agent is not seeking
-                _agentIsSeeking = false;
+            //Tell console that agent is not seeking
+            _agentIsSeeking = false;
 
-                //Reset idle time and have agent idle
-                _debugCounter = 0;
-                TransitionTo(EState.IDLE);
-            }
+            //Resetting agent's angular speed
+            _cop.angularSpeed = _angularSpeed;
 
-            //Checking if player is within agro range before seeking
-            if (RadiusCheck() && _patrolStarted)
-                TransitionTo(EState.PURSUE);
-
-            //If statements that check agent's current state
-            if (_currentState == EState.IDLE)
-            {
-                _debugCounter += Time.deltaTime;
-
-                //Stop idling after 2 seconds
-                if (_debugCounter >= _idleTime)
-                    TransitionTo(EState.PATROL);
-
-                return;
-            }
-            else if (_currentState == EState.PATROL)
-            {
-                //Resetting idle timer
-                _debugCounter = 0;
-
-                PatrolPath();
-                MotionCheck();
-
-                return;
-            }
-            else if (_currentState == EState.PURSUE)
-                return;
-            else
-                return;
+            //Reset idle time and have agent idle
+            _debugCounter = 0;
+            TransitionTo(EState.IDLE);
         }
+
+        //Checking if player is within agro range before seeking
+        if (RadiusCheck() && _patrolStarted)
+            TransitionTo(EState.PURSUE);
+
+        //If statements that check agent's current state
+        if (_currentState == EState.IDLE)
+        {
+            _debugCounter += Time.deltaTime;
+
+            //Stop idling after 2 seconds
+            if (_debugCounter >= _idleTime)
+                TransitionTo(EState.PATROL);
+
+            return;
+        }
+        else if (_currentState == EState.PATROL)
+        {
+            //Resetting idle timer
+            _debugCounter = 0;
+
+            PatrolPath();
+            MotionCheck();
+
+            return;
+        }
+        else if (_currentState == EState.PURSUE)
+            return;
+        else
+            return;
     }
 
     private void FixedUpdate()
     {
-        if (_cop.enabled != false)
-        {
-            if (!_agentIsSeeking)
-                return;
+        if (!_cop.enabled || !_agentIsSeeking)
+            return;
 
-            Pursue();
+        Pursue();
 
-            //Smoothing agent's velocity
-            _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
-        }
+        //Smoothing agent's velocity
+        _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
     }
 
     /// <summary>

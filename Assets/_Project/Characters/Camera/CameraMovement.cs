@@ -7,6 +7,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Transform _target;
 
+
+
+    //  [SerializeField]
+    // private Transform _lookAtTarget;
+
     [SerializeField, Range(0,0.1f)]
     public float _smoothTime = 0.1f;
 
@@ -25,11 +30,12 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
+        
         Vector3 velocity = Vector3.zero;
         transform.position = Vector3.SmoothDamp(transform.position, _target.position - _offset, ref velocity, _smoothTime);
 
         ///this adjusts the camera always keep the target of the camera in view.
-       // transform.LookAt(_target);
+      //  transform.LookAt(_lookAtTarget);
     }
 
 

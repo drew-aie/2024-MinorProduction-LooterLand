@@ -49,7 +49,7 @@ public class PauseMenu : MonoBehaviour
             Pause();
     }
 
-    private void Pause()
+    public void Pause()
     {
         //Activating pause menu
         _pauseMenuUI.SetActive(true);
@@ -84,6 +84,7 @@ public class PauseMenu : MonoBehaviour
         //SetActive options UI
     }
 
+    //Loads the first scene in the index (Main Menu)
     public void QuitMenu()
     {
         //Restoring game time and loading main menu
