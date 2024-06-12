@@ -69,22 +69,6 @@ public class CopSeekBehavior : MonoBehaviour
             return false;
     }
 
-    private void ValueMappingTutorial()
-    {
-        //Code for mapping a number between two values
-        float input_start = 0;    //The lowest number of the range input
-        float input_end = 5;      //The largest number of the range input
-        float output_start = 3;   //The lowest number of the range output
-        float output_end = 0;     //The largest number of the range output
-
-        float input = 1;  //Input value
-        float output = 0;
-
-        output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
-
-        Debug.Log(output);
-    }
-
     /// <summary>
     /// Returns a number between two values/ranges.
     /// </summary>
