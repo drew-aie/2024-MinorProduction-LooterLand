@@ -312,7 +312,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
-  _moveEffect: {fileID: 0}
+  OnStartMoving:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStopMoving:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &19500105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5669,7 +5674,7 @@ PrefabInstance:
     - target: {fileID: 4849785146200832365, guid: 46309d146ec9a2d448b21f1eb4940b32,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0037351
+      value: 3.024
       objectReference: {fileID: 0}
     - target: {fileID: 4849785146200832365, guid: 46309d146ec9a2d448b21f1eb4940b32,
         type: 3}
