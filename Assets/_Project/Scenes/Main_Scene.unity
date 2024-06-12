@@ -1877,6 +1877,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
+--- !u!136 &977191344 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 6408880524028981836, guid: 79e3e04756ef0b2469d2203f6c273220,
+    type: 3}
+  m_PrefabInstance: {fileID: 977191343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1116815660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2354,6 +2360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379772589}
     m_Modifications:
+    - target: {fileID: 2322642555780154141, guid: 3ca914ce195669742bb67b75c81ba9ca,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 977191344}
     - target: {fileID: 4305399268646230375, guid: 3ca914ce195669742bb67b75c81ba9ca,
         type: 3}
       propertyPath: m_Name
@@ -2414,6 +2425,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5857570454095268843, guid: 3ca914ce195669742bb67b75c81ba9ca,
+        type: 3}
+      propertyPath: _playerScore
+      value: 
+      objectReference: {fileID: 1135320778}
     - target: {fileID: 6027755744995422983, guid: 3ca914ce195669742bb67b75c81ba9ca,
         type: 3}
       propertyPath: m_IsActive
@@ -2695,12 +2711,12 @@ PrefabInstance:
     - target: {fileID: 4127896054622093243, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
       propertyPath: _minutes
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4127896054622093243, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
       propertyPath: _seconds
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4127896055070878396, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
