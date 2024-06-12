@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3182382846334706482}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0.05
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -601,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1
+    maxNumParticles: 4
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -661,15 +661,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 19
+    type: 10
     angle: 4.29
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: 0, z: -0.81}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.6, y: 0.6, z: 0.18}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -746,7 +746,7 @@ ParticleSystem:
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 0
     sphericalDirectionAmount: 0
-    randomPositionAmount: 0
+    randomPositionAmount: 1
     radius:
       value: 1
       mode: 0
@@ -806,8 +806,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -4794,8 +4794,8 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MinParticleSize: 0.05
+  m_MaxParticleSize: 0.05
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
