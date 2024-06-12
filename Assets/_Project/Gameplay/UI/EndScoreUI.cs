@@ -17,22 +17,10 @@ public class EndScoreUI : MonoBehaviour
     [SerializeField, Tooltip("The game's Score System, holds the cash amount that will go into Score Display.")]
     private ScoreSystem _playerScore;
 
-    // Update is called once per frame
-    void Update()
-    {
-        StartCoroutine(Wait(() => ShowResults(), _waitTime));
-    }
-
-    private void ShowResults()
+    public void ShowResults()
     {
         _endScoreDisplay.enabled = true;
 
         _endScoreDisplay.text = "$" + _playerScore.CurrentScore;
-    }
-
-    private IEnumerator Wait(Action callback, float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        callback();
     }
 }

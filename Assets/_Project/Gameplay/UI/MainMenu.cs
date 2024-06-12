@@ -73,8 +73,8 @@ public class MainMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         FadeOutCanvas(1f);
-        yield return new WaitForSeconds(3f);
-        FadeImage(1f, 1f);
-        //callback();
+        yield return new WaitForSeconds(1f);
+        //FadeImage(1f, 1f);
+        callback();
     }
 }

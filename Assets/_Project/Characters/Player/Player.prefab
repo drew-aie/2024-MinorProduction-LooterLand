@@ -65,7 +65,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4350751843136854642}
   m_Material: {fileID: 13400000, guid: d40277d752de2d545a9bc169f48eeaff, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.76565516
   m_Height: 2
   m_Direction: 1
@@ -123,7 +123,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!114 &-7138361249872786017
 MonoBehaviour:
