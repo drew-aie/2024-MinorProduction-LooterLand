@@ -8,6 +8,7 @@ using static UnityEngine.Rendering.DebugUI.Table;
 using UnityEngine.TextCore.Text;
 using UnityEngine.Windows;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class Input : MonoBehaviour
 {
@@ -18,8 +19,6 @@ public class Input : MonoBehaviour
     [SerializeField, Tooltip("The speed of the player.")]
     [Range(1, 100)]
     private float _speed;
-
-    private Vector3 _playerNextPosition;
 
     //property for _speed.
     public float MaxSpeed
@@ -34,6 +33,12 @@ public class Input : MonoBehaviour
     //the player's rigidbody
     private Rigidbody _playerRigidbody;
 
+    public UnityEvent OnStartMoving;
+
+    public UnityEvent OnStopMoving;
+
+    private bool _isMoving;
+
     private void Awake()
     {
         //defines _playerActions before start is called.
@@ -44,7 +49,7 @@ public class Input : MonoBehaviour
         if (_playerRigidbody == null)
             Debug.LogError("Rigidbody is NULL");
 
-        _playerNextPosition = Vector3.zero;
+        _isMoving = false;
     }
 
     private void OnEnable()
@@ -90,7 +95,21 @@ public class Input : MonoBehaviour
         //dont update rotation if we arent moving.
         if (move.magnitude < 0.1f)
         {
+            if (_isMoving)
+            {
+                _isMoving = false;
+
+                OnStopMoving.Invoke();
+            }
+
             return;
+        }
+        //else if we just began moving
+        else if(!_isMoving)
+        {
+            _isMoving = true;
+
+            OnStartMoving.Invoke();
         }
 
 
