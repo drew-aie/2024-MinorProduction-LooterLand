@@ -74,6 +74,8 @@ public class CopPatrolBehavior : MonoBehaviour
             //Tell console that agent is not seeking
             _agentIsSeeking = false;
 
+            _cop.speed *= 5;
+
             //Reset idle time and have agent idle
             _debugCounter = 0;
             TransitionTo(EState.IDLE);
@@ -194,7 +196,7 @@ public class CopPatrolBehavior : MonoBehaviour
             //Incrementing each time PatrolPath is called
             _navIter++;
 
-        if (_cop.speed == _maxSpeed)
+        if (_cop.speed >= _maxSpeed)
             _cop.speed = _patrolSpeed;
 
         //Setting agents destination to be position of current patrol point
