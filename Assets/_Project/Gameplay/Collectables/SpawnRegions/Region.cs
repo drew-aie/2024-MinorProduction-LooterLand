@@ -88,6 +88,10 @@ public class Region : MonoBehaviour
 
             //container to hold our newly spawned item.
             GameObject spawnedItem;
+
+            if (!_regionData.SpawnAreas[i])
+                return;
+
             //instantiates that item at the position of the spawn area and store it.
             spawnedItem = Instantiate(itemToInstantiate, _regionData.SpawnAreas[i].transform.position, _regionData.SpawnAreas[i].transform.rotation);
             //add the instantialized item to our list of _spawnedItems.

@@ -22,6 +22,12 @@ public class Effect_SpeedBoost : Effect
         get { return _active; }
     }
 
+    [SerializeField]
+    private AudioContainerSO _speedClips;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     public override void Awake()
     {
         //get the Input component.
@@ -44,6 +50,12 @@ public class Effect_SpeedBoost : Effect
 
         //sets active to true.
         _active = true;
+
+        AudioClip clip = _speedClips.Clips[Random.Range(0, _speedClips.Clips.Count)];
+
+        _audioSource.GetComponent<AudioSource>().clip = clip;
+
+        _audioSource.Play();
 
         //set the timer and invoke event.
         base.Apply();

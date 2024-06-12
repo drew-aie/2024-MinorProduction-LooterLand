@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,6 +25,19 @@ public class CopAnimation : MonoBehaviour
         float currentSpeedByMax = _nav.velocity.magnitude / maxVelocity.magnitude;
 
         _animator.SetFloat("Speed", currentSpeedByMax);
+    }
+
+
+    public void PlayAttack()
+    {
+        _animator.SetBool("CopAttack", true);
+
+        Invoke("StopAttacking", 0.2f);
+    }
+
+    private void StopAttacking()
+    {
+        _animator.SetBool("CopAttack", false);
     }
 
 }
