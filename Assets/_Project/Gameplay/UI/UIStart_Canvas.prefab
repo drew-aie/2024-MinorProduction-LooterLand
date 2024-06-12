@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3888862414071360847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515441645518650127}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -346,8 +346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c3078e33164c345b210652de1bd2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenuCanvas: {fileID: 5486840667309130200}
   _transitionTime: 7
   _loadingImages:
+  - {fileID: 637933048342449659}
+  - {fileID: 637933048342449659}
+  - {fileID: 637933048342449659}
+  - {fileID: 637933048342449659}
   - {fileID: 637933048342449659}
 --- !u!1 &1588151184560216799
 GameObject:
@@ -361,6 +366,7 @@ GameObject:
   - component: {fileID: 1588151184560216770}
   - component: {fileID: 1588151184560216769}
   - component: {fileID: 1588151184560216768}
+  - component: {fileID: 5486840667309130200}
   m_Layer: 5
   m_Name: UIStart_Canvas
   m_TagString: Untagged
@@ -452,6 +458,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &5486840667309130200
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588151184560216799}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1588151185172399420
 GameObject:
   m_ObjectHideFlags: 0
