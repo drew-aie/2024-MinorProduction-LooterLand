@@ -5584,6 +5584,16 @@ PrefabInstance:
       propertyPath: SubModule.subEmitters.Array.data[0].emitter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4849785145789513300, guid: 46309d146ec9a2d448b21f1eb4940b32,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849785145789513300, guid: 46309d146ec9a2d448b21f1eb4940b32,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.782
+      objectReference: {fileID: 0}
     - target: {fileID: 4849785146200832364, guid: 46309d146ec9a2d448b21f1eb4940b32,
         type: 3}
       propertyPath: m_Name
