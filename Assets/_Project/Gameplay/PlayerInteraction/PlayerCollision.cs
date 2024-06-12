@@ -42,6 +42,23 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField, Tooltip("The prefab of the dropped item")]
     private GameObject _dropPrefab;
 
+    [SerializeField, Tooltip("The cash effect that is emmited on pickup of items.")]
+    private ParticleSystem _cashEffect;    
+    [SerializeField, Tooltip("The hit effect that is emmited on getting hit.")]
+    private ParticleSystem _hitEffect;
+    [SerializeField, Tooltip("The other hit effect that is emmited on getting hit.")]
+    private ParticleSystem _otherHitEffect;
+
+    [SerializeField]
+    private AudioContainerSO _happyAudio;
+
+    [SerializeField]
+    private AudioContainerSO _hurtAudio;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
+
     private void Awake()
     {
         //true by default.
@@ -72,6 +89,10 @@ public class PlayerCollision : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+        //if the object that the player is colliding with is an enemy
+        if (collider.gameObject.CompareTag("Enemy"))
+            HurtPlayer(collider.gameObject);
+
     }
 
 
@@ -80,6 +101,43 @@ public class PlayerCollision : MonoBehaviour
 
         //if the object that the player is colliding with is an enemy
         if (collision.gameObject.CompareTag("Enemy"))
+            HurtPlayer(collision.gameObject);
+    }
+
+    private void HurtPlayer(GameObject enemy)
+    {
+        //if player cant lose cash
+        if (!_canLoseCash)
+            return;
+
+        enemy.GetComponent<CopAnimation>().PlayAttack();
+
+        //emit hit particle effect.
+        _hitEffect.Stop();
+        _otherHitEffect.Stop();
+        _hitEffect.Play();
+        _otherHitEffect.Play();
+
+        AudioClip clip = _hurtAudio.Clips[Random.Range(0, _hurtAudio.Clips.Count)];
+
+        _audioSource.GetComponent<AudioSource>().clip = clip;
+
+        _audioSource.Play();
+
+        //begin a period where the Player cannot lose cash again for a set time.
+        ProtectionPeriod();
+
+        //get the score before its reduced
+        float currentScore = _scoreSystem.CurrentScore;
+
+        //then
+        //reduce the current score by the reduce score value.
+        _scoreSystem.ReduceScore();
+
+
+
+        //if the player has no score
+        if (currentScore < 1)
         {
             //if player cant lose cash
             if (!_canLoseCash)
