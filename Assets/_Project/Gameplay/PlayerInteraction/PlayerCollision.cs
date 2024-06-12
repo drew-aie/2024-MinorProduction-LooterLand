@@ -49,6 +49,14 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField, Tooltip("The other hit effect that is emmited on getting hit.")]
     private ParticleSystem _otherHitEffect;
 
+    [SerializeField]
+    private AudioContainerSO _happyAudio;
+
+    [SerializeField]
+    private AudioContainerSO _hurtAudio;
+
+    [SerializeField]
+    private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -80,6 +88,12 @@ public class PlayerCollision : MonoBehaviour
             {
                 _cashEffect.Stop();
                 _cashEffect.Play();
+
+                AudioClip clip = _happyAudio.Clips[Random.Range(0, _happyAudio.Clips.Count)];
+
+                _audioSource.GetComponent<AudioSource>().clip = clip;
+
+                _audioSource.Play();
             }
 
 
@@ -117,6 +131,12 @@ public class PlayerCollision : MonoBehaviour
         _otherHitEffect.Stop();
         _hitEffect.Play();
         _otherHitEffect.Play();
+
+        AudioClip clip = _hurtAudio.Clips[Random.Range(0, _hurtAudio.Clips.Count)];
+
+        _audioSource.GetComponent<AudioSource>().clip = clip;
+
+        _audioSource.Play();
 
         //begin a period where the Player cannot lose cash again for a set time.
         ProtectionPeriod();
