@@ -12,13 +12,34 @@ public class EndState : MonoBehaviour
     [SerializeField, Tooltip("The UI prefab.")]
     private GameObject _ui;
 
+    [SerializeField, Tooltip("The player's collider.")]
+    private CapsuleCollider _player;
+
+    [SerializeField]
+    private EndScoreUI _score;
+
+    private float _scoreValue;
+
+    private bool _called;
+
+    private void Awake()
+    {
+        _called = false;
+    }
+
     public void EndingCall()
     {
+        if (_called)
+            return;
+
+        _called = true;
+
         //Enabling endscreenUI and disabling UI prefab
         _endScreenUI.SetActive(true);
         _ui.SetActive(false);
 
-        //Freezing game world
+        _score.ShowResults();
+
         Time.timeScale = 0f;
     }
 
