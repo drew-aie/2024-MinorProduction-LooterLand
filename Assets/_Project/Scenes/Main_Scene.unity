@@ -1834,6 +1834,18 @@ Transform:
   m_Father: {fileID: 446797412}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836980770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6060331110495351428, guid: 79e3e04756ef0b2469d2203f6c273220,
+    type: 3}
+  m_PrefabInstance: {fileID: 977191343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d703e09f31549b41bb8eb0e81878353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &904318717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +1955,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4758908365649732342, guid: 3b9620e7820397b4090a9fbd6fb82064,
+        type: 3}
+      propertyPath: _dropletParticleSystems
+      value: 
+      objectReference: {fileID: 836980770}
     - target: {fileID: 5732477195463028602, guid: 3b9620e7820397b4090a9fbd6fb82064,
         type: 3}
       propertyPath: _target
@@ -2296,6 +2313,11 @@ PrefabInstance:
       propertyPath: _effectMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 610700192573fbf4fab027fab6f064eb, type: 2}
+    - target: {fileID: 2900827153589419005, guid: 79e3e04756ef0b2469d2203f6c273220,
+        type: 3}
+      propertyPath: _dropletParticleSystems
+      value: 
+      objectReference: {fileID: 836980770}
     - target: {fileID: 3635516393972728936, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: ShapeModule.type
@@ -2650,6 +2672,11 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1202359370}
+    - target: {fileID: 938431325500642024, guid: 2aa8a938a08093c4cae9ed76f2ef7220,
+        type: 3}
+      propertyPath: _dropletParticleSystems
+      value: 
+      objectReference: {fileID: 836980770}
     - target: {fileID: 2087477879802816900, guid: 2aa8a938a08093c4cae9ed76f2ef7220,
         type: 3}
       propertyPath: m_Name
@@ -3032,6 +3059,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4758908365649732342, guid: 3b9620e7820397b4090a9fbd6fb82064,
+        type: 3}
+      propertyPath: _dropletParticleSystems
+      value: 
+      objectReference: {fileID: 836980770}
     - target: {fileID: 5732477195463028602, guid: 3b9620e7820397b4090a9fbd6fb82064,
         type: 3}
       propertyPath: _target
