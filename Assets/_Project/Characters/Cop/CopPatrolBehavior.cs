@@ -46,7 +46,7 @@ public class CopPatrolBehavior : MonoBehaviour
         IDLE,
         PATROL,
         PURSUE,
-        END
+        END 
     };
 
     // Start is called before the first frame update
@@ -72,9 +72,6 @@ public class CopPatrolBehavior : MonoBehaviour
             //Tell console that agent is not seeking and patrol hasn't started
             _agentIsSeeking = false;
             _patrolStarted = false;
-
-            //Increasing agent speed so it gets back to patrol sooner
-            _cop.speed *= 5;
 
             //Reset idle time and have agent idle
             _debugCounter = 0;
@@ -196,6 +193,9 @@ public class CopPatrolBehavior : MonoBehaviour
         else
             //Incrementing each time PatrolPath is called
             _navIter++;
+
+        if (_cop.speed == _maxSpeed)
+            _cop.speed = _patrolSpeed;
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;

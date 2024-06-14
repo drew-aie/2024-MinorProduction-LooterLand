@@ -7,7 +7,6 @@ TagManager:
   - PatrolPoint
   - Enemy
   - Collectible
-  - Dropped
   layers:
   - Default
   - TransparentFX
