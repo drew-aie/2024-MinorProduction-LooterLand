@@ -56,7 +56,16 @@ public class PlayerCollision : MonoBehaviour
     private AudioContainerSO _hurtAudio;
 
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioClip _normalPickup;
+    
+    [SerializeField]
+    private AudioClip _valuablePickup;
+
+    [SerializeField]
+    private AudioSource _speakAudioSource;
+
+    [SerializeField]
+    private AudioSource _pickupAudioSource;
 
 
     private void Awake()
@@ -85,17 +94,20 @@ public class PlayerCollision : MonoBehaviour
             //increase the current score by the cash value of item
             _scoreSystem.IncreaseScore(item.CashValue);
 
-            if(item.CashValue > 45f && !item.CompareTag("Dropped"))
+            if (item.CashValue > 45f && !item.CompareTag("Dropped"))
             {
                 _cashEffect.Stop();
                 _cashEffect.Play();
 
                 AudioClip clip = _happyAudio.Clips[Random.Range(0, _happyAudio.Clips.Count)];
 
-                _audioSource.GetComponent<AudioSource>().clip = clip;
+                _speakAudioSource.GetComponent<AudioSource>().clip = clip;
 
-                _audioSource.Play();
-            }
+                _speakAudioSource.Play();
+            }    
+            _pickupAudioSource.GetComponent<AudioSource>().clip = _normalPickup;
+   
+            _pickupAudioSource.Play();
 
 
             if(item.EffectID != 0)
@@ -123,9 +135,9 @@ public class PlayerCollision : MonoBehaviour
 
         AudioClip clip = _hurtAudio.Clips[Random.Range(0, _hurtAudio.Clips.Count)];
 
-        _audioSource.GetComponent<AudioSource>().clip = clip;
+        _speakAudioSource.GetComponent<AudioSource>().clip = clip;
 
-        _audioSource.Play();
+        _speakAudioSource.Play();
 
         //begin a period where the Player cannot lose cash again for a set time.
         ProtectionPeriod();
