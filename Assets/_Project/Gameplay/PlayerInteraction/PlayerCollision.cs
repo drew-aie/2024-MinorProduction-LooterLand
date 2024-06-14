@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Progress;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -50,6 +49,15 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField, Tooltip("The other hit effect that is emmited on getting hit.")]
     private ParticleSystem _otherHitEffect;
 
+    [SerializeField]
+    private AudioContainerSO _happyAudio;
+
+    [SerializeField]
+    private AudioContainerSO _hurtAudio;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
 
     private void Awake()
     {
@@ -81,6 +89,12 @@ public class PlayerCollision : MonoBehaviour
             {
                 _cashEffect.Stop();
                 _cashEffect.Play();
+
+                AudioClip clip = _happyAudio.Clips[Random.Range(0, _happyAudio.Clips.Count)];
+
+                _audioSource.GetComponent<AudioSource>().clip = clip;
+
+                _audioSource.Play();
             }
 
 
@@ -94,7 +108,7 @@ public class PlayerCollision : MonoBehaviour
 
         //if the object that the player is colliding with is an enemy
         if (collider.gameObject.CompareTag("Enemy"))
-            HurtPlayer();
+            HurtPlayer(collider.gameObject);
 
     }
 
@@ -104,20 +118,28 @@ public class PlayerCollision : MonoBehaviour
 
         //if the object that the player is colliding with is still an enemy
         if (collision.gameObject.CompareTag("Enemy"))
-            HurtPlayer();
+            HurtPlayer(collision.gameObject);
     }
 
-    private void HurtPlayer()
+    private void HurtPlayer(GameObject enemy)
     {
         //if player cant lose cash
         if (!_canLoseCash)
             return;
+
+        enemy.GetComponent<CopAnimation>().PlayAttack();
 
         //emit hit particle effect.
         _hitEffect.Stop();
         _otherHitEffect.Stop();
         _hitEffect.Play();
         _otherHitEffect.Play();
+
+        AudioClip clip = _hurtAudio.Clips[Random.Range(0, _hurtAudio.Clips.Count)];
+
+        _audioSource.GetComponent<AudioSource>().clip = clip;
+
+        _audioSource.Play();
 
         //begin a period where the Player cannot lose cash again for a set time.
         ProtectionPeriod();
