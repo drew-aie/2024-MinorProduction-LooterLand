@@ -109,13 +109,11 @@ public class PlayerCollision : MonoBehaviour
     }
 
 
-    public void HurtPlayer(GameObject enemy)
+    public void HurtPlayer()
     {
         //if player cant lose cash
         if (!_canLoseCash)
             return;
-
-        enemy.GetComponent<CopAnimation>().PlayAttack();
 
         //emit hit particle effect.
         _hitEffect.Stop();

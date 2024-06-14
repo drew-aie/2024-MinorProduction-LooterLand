@@ -37,8 +37,10 @@ public class CopCollision : MonoBehaviour
 
     private void PlayerCollided(GameObject obj)
     {
+        GetComponent<CopAnimation>().PlayAttack();
+
         //hurt the player
-        obj.gameObject.GetComponent<PlayerCollision>().HurtPlayer(gameObject);
+        obj.gameObject.GetComponent<PlayerCollision>().HurtPlayer();
 
         //Storing player's Player Collision component
         PlayerCollision targetCollide = obj.gameObject.GetComponent<PlayerCollision>();
