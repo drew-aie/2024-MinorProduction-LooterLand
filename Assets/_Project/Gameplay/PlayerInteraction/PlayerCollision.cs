@@ -106,22 +106,10 @@ public class PlayerCollision : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        //if the object that the player is colliding with is an enemy
-        if (collider.gameObject.CompareTag("Enemy"))
-            HurtPlayer(collider.gameObject);
-
     }
 
 
-    private void OnCollisionStay(Collision collision)
-    {
-
-        //if the object that the player is colliding with is still an enemy
-        if (collision.gameObject.CompareTag("Enemy"))
-            HurtPlayer(collision.gameObject);
-    }
-
-    private void HurtPlayer(GameObject enemy)
+    public void HurtPlayer(GameObject enemy)
     {
         //if player cant lose cash
         if (!_canLoseCash)
