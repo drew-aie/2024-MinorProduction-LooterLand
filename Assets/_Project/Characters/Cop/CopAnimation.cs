@@ -27,14 +27,12 @@ public class CopAnimation : MonoBehaviour
         _animator.SetFloat("Speed", currentSpeedByMax);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            _animator.SetBool("CopAttack", true);
 
-            Invoke("StopAttacking", 0.2f);
-        }
+    public void PlayAttack()
+    {
+        _animator.SetBool("CopAttack", true);
+
+        Invoke("StopAttacking", 0.2f);
     }
 
     private void StopAttacking()
