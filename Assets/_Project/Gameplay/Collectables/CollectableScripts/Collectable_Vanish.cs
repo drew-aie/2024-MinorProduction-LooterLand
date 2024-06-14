@@ -7,9 +7,6 @@ public class Collectable_Vanish : MonoBehaviour
     [SerializeField, Tooltip("The item model.")]
     private GameObject _itemModel;
 
-    //true if the item is actively blinking.
-    private bool _currentlyBlinking = false;
-
     //flips from true to false and vice versa
     //for setting the item's active status to simulate blinking.
     private bool _renderActive;
@@ -23,9 +20,6 @@ public class Collectable_Vanish : MonoBehaviour
     //begins the blinking coroutine.
     public void Start()
     {
-        //set currently blinking to true.
-        _currentlyBlinking = false;
-
         //true because the render is currently active.
         _renderActive = true;
 
