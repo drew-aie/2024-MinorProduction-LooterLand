@@ -66,6 +66,7 @@ public class CopSeekBehavior : MonoBehaviour
 
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+
         SpeedScale();
     }
 
@@ -85,7 +86,7 @@ public class CopSeekBehavior : MonoBehaviour
     {
         float seekMagnitude = (_target.transform.position - _cop.transform.position).magnitude;
 
-        //Scaling agent speed using it's max speed and distance from player
+        //Scaling agent's speed using distance from player and it's max speed times 1.5
         _cop.speed = MapValue(0, seekMagnitude, _maxSpeed * 1.5f, 3, 1);
     }
 

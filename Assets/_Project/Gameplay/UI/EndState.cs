@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,10 +13,8 @@ public class EndState : MonoBehaviour
     [SerializeField, Tooltip("The player's collider.")]
     private CapsuleCollider _player;
 
-    [SerializeField]
+    [SerializeField, Tooltip("The EndScoreUI within the End State prefab.")]
     private EndScoreUI _score;
-
-    private float _scoreValue;
 
     private bool _called;
 
@@ -39,6 +35,7 @@ public class EndState : MonoBehaviour
         _ui.SetActive(false);
 
         _score.ShowResults();
+        _score.ScoreGrade();
 
         Time.timeScale = 0f;
     }
