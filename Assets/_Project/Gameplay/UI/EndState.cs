@@ -46,14 +46,14 @@ public class EndState : MonoBehaviour
         //Loading current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //Unfreezing game
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
     }
 
     //Loads the first scene in the index (Main Menu)
     public void QuitMenu()
     {
         //Restoring game time and loading main menu
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }
