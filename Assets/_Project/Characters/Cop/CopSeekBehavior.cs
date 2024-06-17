@@ -56,6 +56,8 @@ public class CopSeekBehavior : MonoBehaviour
             //moves the cop in its last direction
             rig.AddForce(_slipDirection * 20, ForceMode.Force);
 
+            _cop.speed = 0.1f;
+
             _moveSuppressionDuration -= Time.deltaTime;
         }
         else
