@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CharacterHazardBehavior : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class CharacterHazardBehavior : MonoBehaviour
     private bool _isSlippery;
 
     private Vector3 _slipDirection;
+
+    [SerializeField, Tooltip("The script that is responsible for playing water droplet particles.")]
+    private Liquid_Effect _characterDropletParticleSystems;
+
+    [SerializeField, Tooltip("Scales the force applied for character movement when slipping.")]
+    private float _slipSupressionScalar;
 
     private void Awake()
     {
@@ -42,13 +49,13 @@ public class CharacterHazardBehavior : MonoBehaviour
         {
             _elapsedTime += Time.fixedDeltaTime;
 
-            if (_isSlippery)
+            if (_isSlippery && gameObject.CompareTag("Player"))
                 //apply the last velocity had before becoming slippery
                 _body.AddForce(_slipDirection * Time.fixedDeltaTime);
         }
     }
 
-    public void ChangePhysics(PhysicMaterial newPhysics, float duration, bool isSlippery, float slipStrengthMagnifier)
+    public void ChangePhysics(PhysicMaterial newPhysics, float duration, bool isSlippery, float slipStrengthMagnifier, Material waterMaterial)
     {
         _elapsedTime = 0;
 
@@ -61,7 +68,33 @@ public class CharacterHazardBehavior : MonoBehaviour
         //get the characters current velocity, magnified.
         _slipDirection = _body.velocity.normalized * slipStrengthMagnifier * 10000 /*offset*/;
 
+        if (_isSlippery)
+        {
+            if (gameObject.TryGetComponent(out Input playerInput))
+            {
+                playerInput.SuppressInput(_slipSupressionScalar, duration);
+
+                gameObject.GetComponent<PlayerAnimation>().PlaySlip(duration);
+            }
+            else if (gameObject.TryGetComponent(out CopSeekBehavior copBehavior))
+            {
+                copBehavior.SuppressAcceleration(duration * 2);
+
+                gameObject.GetComponent<CopAnimation>().PlaySlip(duration * 2);
+
+                GetComponent<CopCollision>().DisableCopCollider(duration * 2);
+            }
+        }
+        else
+            if(TryGetComponent(out NavMeshAgent nav))
+            {
+                nav.enabled = false;
+            }
+
+        _characterDropletParticleSystems.Play(waterMaterial);
+
         GetComponent<CapsuleCollider>().material = newPhysics;
+
     }
 
     public void DefaultEffect()
@@ -76,5 +109,11 @@ public class CharacterHazardBehavior : MonoBehaviour
 
         GetComponent<CapsuleCollider>().material = _default;
 
+        _characterDropletParticleSystems.Stop();
+
+        if (TryGetComponent(out NavMeshAgent nav))
+        {
+            nav.enabled = true;
+        }
     }
 }

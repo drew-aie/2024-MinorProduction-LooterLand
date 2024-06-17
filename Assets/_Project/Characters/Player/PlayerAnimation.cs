@@ -21,7 +21,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        float speed = _playerInput.MaxSpeed / 3;
+        float speed = _playerInput.MaxSpeed / 7;
 
         Vector3 maxVelocity = _body.velocity.normalized * speed;
 
@@ -30,6 +30,18 @@ public class PlayerAnimation : MonoBehaviour
         currentSpeedByMax = Mathf.Clamp(currentSpeedByMax, 0.01f, maxVelocity.magnitude);
 
         _animator.SetFloat("Speed", currentSpeedByMax);
+    }
+
+    public void PlaySlip(float duration)
+    {
+        _animator.SetBool("Slipping", true);
+
+        Invoke("StopSlip", duration);
+    }
+
+    private void StopSlip()
+    {
+        _animator.SetBool("Slipping", false);
     }
 
 }
