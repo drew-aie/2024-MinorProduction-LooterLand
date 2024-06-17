@@ -78,11 +78,11 @@ public class CharacterHazardBehavior : MonoBehaviour
             }
             else if (gameObject.TryGetComponent(out CopSeekBehavior copBehavior))
             {
-                gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                copBehavior.SuppressAcceleration(duration * 2);
 
-                copBehavior.SuppressInput(_slipSupressionScalar, duration);
+                gameObject.GetComponent<CopAnimation>().PlaySlip(duration * 2);
 
-                gameObject.GetComponent<CopAnimation>().PlaySlip(duration);
+                GetComponent<CopCollision>().DisableCopCollider(duration * 2);
             }
         }
         else
@@ -114,7 +114,6 @@ public class CharacterHazardBehavior : MonoBehaviour
         if (TryGetComponent(out NavMeshAgent nav))
         {
             nav.enabled = true;
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }
