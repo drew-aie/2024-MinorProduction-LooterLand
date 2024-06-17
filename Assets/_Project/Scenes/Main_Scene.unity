@@ -2196,7 +2196,7 @@ PrefabInstance:
     - target: {fileID: -7138361249872786017, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
       propertyPath: _speed
-      value: 22
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -7138361249872786017, guid: 79e3e04756ef0b2469d2203f6c273220,
         type: 3}
@@ -2672,6 +2672,11 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1202359370}
+    - target: {fileID: 850218538893630228, guid: 2aa8a938a08093c4cae9ed76f2ef7220,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 938431325500642024, guid: 2aa8a938a08093c4cae9ed76f2ef7220,
         type: 3}
       propertyPath: _dropletParticleSystems
