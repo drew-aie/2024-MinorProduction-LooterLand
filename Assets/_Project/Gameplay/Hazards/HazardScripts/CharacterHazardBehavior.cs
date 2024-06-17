@@ -20,6 +20,10 @@ public class CharacterHazardBehavior : MonoBehaviour
 
     private Vector3 _slipDirection;
 
+    [SerializeField, Tooltip("The script that is responsible for playing water droplet particles.")]
+    private Liquid_Effect _dropletParticleSystems;
+
+
     private void Awake()
     {
         _elapsedTime = 0;
@@ -48,7 +52,7 @@ public class CharacterHazardBehavior : MonoBehaviour
         }
     }
 
-    public void ChangePhysics(PhysicMaterial newPhysics, float duration, bool isSlippery, float slipStrengthMagnifier)
+    public void ChangePhysics(PhysicMaterial newPhysics, float duration, bool isSlippery, float slipStrengthMagnifier, Material waterMaterial)
     {
         _elapsedTime = 0;
 
@@ -62,6 +66,8 @@ public class CharacterHazardBehavior : MonoBehaviour
         _slipDirection = _body.velocity.normalized * slipStrengthMagnifier * 10000 /*offset*/;
 
         GetComponent<CapsuleCollider>().material = newPhysics;
+
+        _dropletParticleSystems.Play(waterMaterial);
     }
 
     public void DefaultEffect()
@@ -76,5 +82,6 @@ public class CharacterHazardBehavior : MonoBehaviour
 
         GetComponent<CapsuleCollider>().material = _default;
 
+        _dropletParticleSystems.Stop();
     }
 }
