@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,7 +23,12 @@ public class TimerUI : MonoBehaviour
     [SerializeField, Min(0)]
     private int _seconds = 0;
 
+    [Tooltip("When the timer will begin to shake to warn the player that time is almost up.")]
+    [SerializeField, Min(0)]
+    private float _warningTime = 20f;
+
     private float _countdown;
+    private Vector3 _test = new Vector3(0.3f, 0.25f, 0f);
 
     //Property for timer countdown. [Read-Only]
     public float Countdown => _countdown;
@@ -55,10 +61,23 @@ public class TimerUI : MonoBehaviour
         //Displays the minutes and seconds in the timer ui
         _timerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+        //Shaking timer if countdown is less than warning time
+        if (_countdown <= _warningTime)
+            HurryUp();
+
         if (_countdown <= 0.0f)
         {
             _timerDisplay.enabled = false;
             _timerUI.SetActive(false);
         }
+    }
+
+    //Functionality for when the player is almost out of time
+    private void HurryUp()
+    {
+        //Making timer red
+        _timerDisplay.DOColor(Color.red, 1f);
+        //Shaking timer canvas
+        _timerUI.transform.DOShakePosition(1f, _test, 10, 75, false, true, ShakeRandomnessMode.Harmonic);
     }
 }
