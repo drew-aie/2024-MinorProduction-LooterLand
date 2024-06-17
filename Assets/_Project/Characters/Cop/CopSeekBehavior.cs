@@ -17,6 +17,12 @@ public class CopSeekBehavior : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
     private Vector3 _lastFacing;
 
+    private float _moveSuppressionDuration;
+
+    private float _moveSuppressionScalar;
+
+    private Vector3 _slipDirection;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,16 +32,40 @@ public class CopSeekBehavior : MonoBehaviour
         _maxSpeed = _cop.speed;
     }
 
+    public void SuppressInput(float scalar, float duration)
+    {
+        _moveSuppressionDuration = duration;
+
+        _moveSuppressionScalar = scalar;
+
+        _slipDirection = gameObject.transform.forward.normalized;
+    }
+
+
     // FixedUpdate is called once per fixed framerate frame
     void Update()
     {
         if (!_cop.enabled)
             return;
 
-        _cop.destination = _target.transform.position;
+
+        if (_moveSuppressionDuration > 0.0f)
+        {
+            Rigidbody rig = gameObject.GetComponent<Rigidbody>();
+
+            //moves the cop in its last direction
+            rig.AddForce(_slipDirection * 20, ForceMode.Force);
+
+            _cop.speed = 0.1f;
+
+            _moveSuppressionDuration -= Time.deltaTime;
+        }
+        else
+            _cop.destination = _target.transform.position;
 
         //Making agent face the direction it's travelling using it's position and velocity
         _cop.transform.LookAt(_cop.transform.position + _cop.velocity);
+
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
 
@@ -60,8 +90,6 @@ public class CopSeekBehavior : MonoBehaviour
 
         //Scaling agent's speed using distance from player and it's max speed times 1.5
         _cop.speed = MapValue(0, seekMagnitude, _maxSpeed * 1.5f, 3, 1);
-
-        Debug.Log("Speed " + _cop.speed + " Magni " + seekMagnitude);
     }
 
     //Checks if the agent is currently rotating

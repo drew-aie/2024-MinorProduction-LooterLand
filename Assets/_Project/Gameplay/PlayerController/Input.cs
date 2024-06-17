@@ -39,6 +39,10 @@ public class Input : MonoBehaviour
 
     private bool _isMoving;
 
+    private float _inputSupressionDuration;
+
+    private float _inputSuppressionScalar;
+
     private void Awake()
     {
         //defines _playerActions before start is called.
@@ -64,6 +68,13 @@ public class Input : MonoBehaviour
         _playerActions.Locomotion.Disable();
     }
 
+    public void SuppressInput(float scalar, float duration)
+    {
+        _inputSupressionDuration = duration;
+
+        _inputSuppressionScalar = scalar;
+    }
+
     private void Update()
     {
 
@@ -87,7 +98,14 @@ public class Input : MonoBehaviour
         //takes that Vector 2 we created previously and uses that information to make a vector 3 for our input direction. keeps y velocity from rigidbody.
         Vector3 move = new Vector3(_locomotionInput.x, 0, _locomotionInput.y).normalized;
 
-        Vector3 force = move * speedOffset * Time.deltaTime;
+        Vector3 force = move * speedOffset * Time.fixedDeltaTime;
+
+        if(_inputSupressionDuration > 0.0f)
+        {
+            force *= _inputSuppressionScalar;
+
+            _inputSupressionDuration -= Time.fixedDeltaTime;
+        }
 
         _playerRigidbody.AddForce(force, ForceMode.VelocityChange);
 
