@@ -21,7 +21,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        float speed = _playerInput.MaxSpeed / 6;
+        float speed = _playerInput.MaxSpeed / 7;
 
         Vector3 maxVelocity = _body.velocity.normalized * speed;
 
