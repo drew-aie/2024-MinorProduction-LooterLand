@@ -12,15 +12,18 @@ public class CopCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if(TryGetComponent(out NavMeshAgent agent))
-            {
-                agent.enabled = false;
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
 
-                Invoke(nameof(ReEnableAgent), _timeToWait);
-            }
-        }   
+        PlayerCollided(collision.gameObject);
+
+        if (TryGetComponent(out NavMeshAgent agent))
+        {
+           agent.enabled = false;
+
+           Invoke(nameof(ReEnableAgent), _timeToWait);
+        }
+         
     }
 
     //Using OnCollisionStay because Enter causes issues with PlayerCollision script
@@ -29,8 +32,18 @@ public class CopCollision : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
             return;
 
+        PlayerCollided(collision.gameObject);
+    }
+
+    private void PlayerCollided(GameObject obj)
+    {
+        GetComponent<CopAnimation>().PlayAttack();
+
+        //hurt the player
+        obj.gameObject.GetComponent<PlayerCollision>().HurtPlayer();
+
         //Storing player's Player Collision component
-        PlayerCollision targetCollide = collision.gameObject.GetComponent<PlayerCollision>();
+        PlayerCollision targetCollide = obj.gameObject.GetComponent<PlayerCollision>();
 
         //Disabling cop's collider for the length of the protection period duration
         DisableCopCollider(targetCollide.ProtectionPeriodDuration);
