@@ -1562,6 +1562,7 @@ MonoBehaviour:
   _timerUI: {fileID: 4127896055070878397}
   _minutes: 1
   _seconds: 30
+  _warningTime: 20
 --- !u!1 &4127896055070878397
 GameObject:
   m_ObjectHideFlags: 0

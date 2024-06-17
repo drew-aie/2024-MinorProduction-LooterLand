@@ -156,6 +156,10 @@ public class PlayerCollision : MonoBehaviour
         {
             //call OnHitWithoutCash and return early.
             OnHitWithoutCash.Invoke();
+
+            //activates fading the player at the protection duration.
+            _playerBlink.Activate(_protectionPeriodDuration);
+
             return;
         }
 
@@ -208,9 +212,9 @@ public class PlayerCollision : MonoBehaviour
         }
 
         //add directional force to the dropped items to spread them out.
-        drops[0].GetComponent<Rigidbody>().AddForce(left * _itemDropSpeed);
-        drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed);
-        drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed);
+        drops[0].GetComponent<Rigidbody>().AddForce(left * _itemDropSpeed, ForceMode.Impulse);
+        drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed, ForceMode.Impulse);
+        drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed, ForceMode.Impulse);
 
         //activates fading the player at the protection duration.
         _playerBlink.Activate(_protectionPeriodDuration);
