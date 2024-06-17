@@ -50,6 +50,8 @@ MonoBehaviour:
   _duration: 2.5
   _isSlippery: 0
   _slipperyMagnifier: 0
+  _hazardDropletSprite: {fileID: 2100000, guid: 066af4e1044855842a12f861c6cd0d08,
+    type: 2}
 --- !u!65 &1934251520536403617
 BoxCollider:
   m_ObjectHideFlags: 0
