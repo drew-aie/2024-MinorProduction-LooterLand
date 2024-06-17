@@ -27,9 +27,6 @@ public class CharacterHazardBehavior : MonoBehaviour
     [SerializeField, Tooltip("Scales the force applied for character movement when slipping.")]
     private float _slipSupressionScalar;
 
-    private float _defaultNavSpeed;
-
-
     private void Awake()
     {
         _elapsedTime = 0;
@@ -76,12 +73,16 @@ public class CharacterHazardBehavior : MonoBehaviour
             if (gameObject.TryGetComponent(out Input playerInput))
             {
                 playerInput.SuppressInput(_slipSupressionScalar, duration);
+
+                gameObject.GetComponent<PlayerAnimation>().PlaySlip(duration);
             }
             else if (gameObject.TryGetComponent(out CopSeekBehavior copBehavior))
             {
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
                 copBehavior.SuppressInput(_slipSupressionScalar, duration);
+
+                gameObject.GetComponent<CopAnimation>().PlaySlip(duration);
             }
         }
         else

@@ -49,7 +49,7 @@ MonoBehaviour:
   _physics: {fileID: 13400000, guid: 2efa5836417ca6547bba174902627305, type: 2}
   _duration: 1.5
   _isSlippery: 1
-  _slipperyMagnifier: 15
+  _slipperyMagnifier: 30
   _hazardDropletSprite: {fileID: 2100000, guid: f1dbdda60c650b249934db6ea8d18a2a,
     type: 2}
 --- !u!65 &2089204144531509936
@@ -141,6 +141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpillBlue_Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fe7e591987417b543a7ab15f9fb1bba0,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe7e591987417b543a7ab15f9fb1bba0,
         type: 3}
