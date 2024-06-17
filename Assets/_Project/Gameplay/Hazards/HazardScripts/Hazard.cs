@@ -16,11 +16,14 @@ public class Hazard : MonoBehaviour
     [SerializeField, Tooltip("The strength of the slip effect on Characters.")]
     private float _slipperyMagnifier;
 
+    [SerializeField, Tooltip("The material of the sprite that will emit from the player.")]
+    private Material _hazardDropletSprite;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out CharacterHazardBehavior hazardBehavior))
         {
-            hazardBehavior.ChangePhysics(_physics, _duration, _isSlippery, _slipperyMagnifier);
+            hazardBehavior.ChangePhysics(_physics, _duration, _isSlippery, _slipperyMagnifier, _hazardDropletSprite);
         }
     }
 }

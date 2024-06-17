@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ReduceAudioOnNewScene : MonoBehaviour
+public class ReduceAudio : MonoBehaviour
 {
     [SerializeField, Tooltip("The amount that sound will be magnified upon leaving the original scene.")]
     [Range(0, 1)]
@@ -23,5 +23,19 @@ public class ReduceAudioOnNewScene : MonoBehaviour
 
             _soundIsReduced = true;
         }
+    }
+
+    public void PauseMenu()
+    {
+        gameObject.GetComponent<AudioSource>().volume *= 0.25f;
+
+        _soundIsReduced = true;
+    }
+
+    public void StopPauseMenu()
+    {
+        gameObject.GetComponent<AudioSource>().volume *= 4;
+
+        _soundIsReduced = true;
     }
 }
