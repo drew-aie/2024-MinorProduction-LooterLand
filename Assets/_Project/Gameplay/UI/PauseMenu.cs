@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     {
         //Creating Player Controller
         _playerActions = new PlayerControls();
+        _pauseMenuUI.SetActive(false);
     }
 
     private void OnEnable()

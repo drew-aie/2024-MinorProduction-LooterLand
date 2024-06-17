@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _copDetectionRadius: 7
+  _copDetectionRadius: 8
   _idleTime: 2
   _patrolSpeed: 5
   _navPoints: []

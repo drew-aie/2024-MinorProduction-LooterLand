@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Radical
+  m_text: 'Grade:  Error'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c022c4d66f8e0424085b60979d50aa2f, type: 2}
   m_sharedMaterial: {fileID: 2441316921785919874, guid: c022c4d66f8e0424085b60979d50aa2f,

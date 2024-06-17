@@ -28,7 +28,7 @@ public class TimerUI : MonoBehaviour
     private float _warningTime = 20f;
 
     private float _countdown;
-    private Vector3 _test = new Vector3(0.3f, 0.25f, 0f);
+    private Vector3 _test = new Vector3(0.32f, 0.275f, 0f);
 
     //Property for timer countdown. [Read-Only]
     public float Countdown => _countdown;
