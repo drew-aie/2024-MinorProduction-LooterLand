@@ -5567,7 +5567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b738bee745d84e54284637eab9e0baab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropletParticleSystems: {fileID: 6060331110495351428}
+  _characterDropletParticleSystems: {fileID: 6060331110495351428}
+  _slipSupressionScalar: 0.25
 --- !u!114 &6955083122789533666
 MonoBehaviour:
   m_ObjectHideFlags: 0
