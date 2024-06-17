@@ -10,7 +10,8 @@ public class CopSeekBehavior : MonoBehaviour
     private GameObject _target;
 
     private NavMeshAgent _cop;
-    private float _angularSpeed;
+    private float _accelerationSpeed;
+    private float _maxSpeed;
     private float _currentAngularVelocity;
 
     private Vector3 _velocity = Vector3.zero;
@@ -21,7 +22,8 @@ public class CopSeekBehavior : MonoBehaviour
     {
         _cop = GetComponent<NavMeshAgent>();
         _cop.updateRotation = false;
-        _angularSpeed = _cop.angularSpeed;
+        _accelerationSpeed = _cop.acceleration;
+        _maxSpeed = _cop.speed;
     }
 
     // FixedUpdate is called once per fixed framerate frame
@@ -32,23 +34,33 @@ public class CopSeekBehavior : MonoBehaviour
 
         _cop.destination = _target.transform.position;
 
-        gameObject.transform.LookAt(_cop.transform.position + _cop.velocity);
-
+        //Making agent face the direction it's travelling using it's position and velocity
+        _cop.transform.LookAt(_cop.transform.position + _cop.velocity);
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+        SpeedScale();
     }
 
     private void FixedUpdate()
     {
         //Checking if agent is rotating
         if (RotationCheck())
-            //Scaling agent's angular speed down by it's speed value if so
-            _cop.angularSpeed = MapValue(0, _cop.speed, _cop.angularSpeed, 0, 1);
+            //Scaling agent's acceleration down by it's speed value if so
+            _cop.acceleration = MapValue(0, _cop.speed, _cop.acceleration, 20, 1);
         else
-            //Resetting angular speed if not
-            _cop.angularSpeed = _angularSpeed;
+            //Resetting acceleration if not
+            _cop.acceleration = _accelerationSpeed;
+    }
 
-        Debug.Log(_cop.angularSpeed + "+ " + _angularSpeed);
+    //Scales the agent's speed with it's distance from the player (Fast when far, slower when close)
+    private void SpeedScale()
+    {
+        float seekMagnitude = (_target.transform.position - _cop.transform.position).magnitude;
+
+        //Scaling agent speed using it's max speed and distance from player
+        _cop.speed = MapValue(0, seekMagnitude, _maxSpeed * 1.5f, 3, 1);
+
+        Debug.Log("Speed " + _cop.speed + " Magni " + seekMagnitude);
     }
 
     //Checks if the agent is currently rotating
@@ -58,7 +70,7 @@ public class CopSeekBehavior : MonoBehaviour
 
         //Storing how many degrees the agent is rotating per second
         _currentAngularVelocity = Vector3.Angle(currentFacing, _lastFacing) / Time.deltaTime;
-    
+
         _lastFacing = currentFacing;
 
         //Checking if degrees rotated per second is greater than 1
@@ -69,22 +81,6 @@ public class CopSeekBehavior : MonoBehaviour
             return true;
         else
             return false;
-    }
-
-    private void ValueMappingTutorial()
-    {
-        //Code for mapping a number between two values
-        float input_start = 0;    //The lowest number of the range input
-        float input_end = 5;      //The largest number of the range input
-        float output_start = 3;   //The lowest number of the range output
-        float output_end = 0;     //The largest number of the range output
-
-        float input = 1;  //Input value
-        float output = 0;
-
-        output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
-
-        Debug.Log(output);
     }
 
     /// <summary>

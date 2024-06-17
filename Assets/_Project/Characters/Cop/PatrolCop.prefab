@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1342028408327821266, guid: e46e80635d67bec4a90b6af74a1135af,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4683214151847544445, guid: e46e80635d67bec4a90b6af74a1135af,
         type: 3}
       propertyPath: m_Name
@@ -88,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _copDetectionRadius: 10
+  _copDetectionRadius: 7
   _idleTime: 2
+  _patrolSpeed: 5
   _navPoints: []

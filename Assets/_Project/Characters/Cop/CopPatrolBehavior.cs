@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +15,9 @@ public class CopPatrolBehavior : MonoBehaviour
     [SerializeField, Min(0), Tooltip("How long the cop will idle at a patrol point.")]
     private float _idleTime = 2;
 
+    [SerializeField, Min(1), Tooltip("How fast the cop will move when patrolling.")]
+    private float _patrolSpeed = 2;
+
     [Space]
 
     [SerializeField, Tooltip("Stores the places on the map the cop will move to. Can be objects with mesh renders and colliders turned off.")]
@@ -30,7 +31,7 @@ public class CopPatrolBehavior : MonoBehaviour
     private int _navIter;
     private float _debugCounter = 0;
     private float _bufferTime = 0;
-    private float _angularSpeed;
+    private float _maxSpeed;
 
     private bool _patrolStarted = false;
     private bool _hasReachedPath = true;
@@ -45,14 +46,14 @@ public class CopPatrolBehavior : MonoBehaviour
         IDLE,
         PATROL,
         PURSUE,
-        END 
+        END
     };
 
     // Start is called before the first frame update
     void Start()
     {
         _cop = GetComponent<NavMeshAgent>();
-        _angularSpeed = _cop.angularSpeed;
+        _maxSpeed = _cop.speed;
     }
 
     // Update is called once per frame
@@ -68,11 +69,12 @@ public class CopPatrolBehavior : MonoBehaviour
             _cop.ResetPath();
             _cop.path = _patrolPath;
 
-            //Tell console that agent is not seeking
+            //Tell console that agent is not seeking and patrol hasn't started
             _agentIsSeeking = false;
+            _patrolStarted = false;
 
-            //Resetting agent's angular speed
-            _cop.angularSpeed = _angularSpeed;
+            //Increasing agent speed so it gets back to patrol sooner
+            _cop.speed *= 5;
 
             //Reset idle time and have agent idle
             _debugCounter = 0;
@@ -139,6 +141,7 @@ public class CopPatrolBehavior : MonoBehaviour
     {
         float seekMagnitude = (_target.transform.position - _cop.transform.position).magnitude;
 
+        //Checking if seek magnitude is less than the product of the agent's avoidance radius and detection radius
         if (seekMagnitude <= _cop.radius * _copDetectionRadius)
         {
             _agentIsSeeking = true;
@@ -175,6 +178,7 @@ public class CopPatrolBehavior : MonoBehaviour
         if (!_patrolStarted)
         {
             _navIter = -1;
+            _cop.speed = _maxSpeed;
             _patrolStarted = true;
         }
 
@@ -220,6 +224,8 @@ public class CopPatrolBehavior : MonoBehaviour
             _cop.destination = _target.transform.position;
             return;
         }
+
+        _cop.speed = _maxSpeed;
 
         //Storing force to have agent look ahead of player
         float lookAhead = targetDirection.magnitude / (_cop.speed + _target.GetComponent<Input>().MaxSpeed);
