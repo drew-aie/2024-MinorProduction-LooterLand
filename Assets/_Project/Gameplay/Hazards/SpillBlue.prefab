@@ -49,7 +49,7 @@ MonoBehaviour:
   _physics: {fileID: 13400000, guid: 2efa5836417ca6547bba174902627305, type: 2}
   _duration: 1.5
   _isSlippery: 1
-  _slipperyMagnifier: 15
+  _slipperyMagnifier: 30
   _hazardDropletSprite: {fileID: 2100000, guid: f1dbdda60c650b249934db6ea8d18a2a,
     type: 2}
 --- !u!65 &2089204144531509936
