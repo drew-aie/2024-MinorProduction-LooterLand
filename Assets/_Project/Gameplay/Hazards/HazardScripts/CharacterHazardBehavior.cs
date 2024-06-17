@@ -81,6 +81,8 @@ public class CharacterHazardBehavior : MonoBehaviour
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
                 copBehavior.SuppressInput(_slipSupressionScalar, duration);
+
+                gameObject.GetComponent<CopAnimation>().PlaySlip(duration);
             }
         }
         else
