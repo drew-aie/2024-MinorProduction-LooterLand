@@ -17,11 +17,7 @@ public class CopSeekBehavior : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
     private Vector3 _lastFacing;
 
-    private float _moveSuppressionDuration;
-
-    private float _moveSuppressionScalar;
-
-    private Vector3 _slipDirection;
+    private bool _suppressed;
 
     // Start is called before the first frame update
     void Awake()
@@ -30,38 +26,36 @@ public class CopSeekBehavior : MonoBehaviour
         _cop.updateRotation = false;
         _accelerationSpeed = _cop.acceleration;
         _maxSpeed = _cop.speed;
+
+        _suppressed = false;
     }
 
-    public void SuppressInput(float scalar, float duration)
+    public void SuppressAcceleration(float duration)
     {
-        _moveSuppressionDuration = duration;
+        _cop.acceleration = 0;
 
-        _moveSuppressionScalar = scalar;
+        _suppressed = true;
 
-        _slipDirection = gameObject.transform.forward.normalized;
+        Invoke("RestoreAcceleration", duration);
+    }
+
+    private void RestoreAcceleration()
+    {
+        _suppressed = false;
+
+        _cop.acceleration = _accelerationSpeed;
     }
 
 
     // FixedUpdate is called once per fixed framerate frame
     void Update()
     {
+
         if (!_cop.enabled)
             return;
+        
+        _cop.destination = _target.transform.position;
 
-
-        if (_moveSuppressionDuration > 0.0f)
-        {
-            Rigidbody rig = gameObject.GetComponent<Rigidbody>();
-
-            //moves the cop in its last direction
-            rig.AddForce(_slipDirection * 20, ForceMode.Force);
-
-            _cop.speed = 0.1f;
-
-            _moveSuppressionDuration -= Time.deltaTime;
-        }
-        else
-            _cop.destination = _target.transform.position;
 
         //Making agent face the direction it's travelling using it's position and velocity
         _cop.transform.LookAt(_cop.transform.position + _cop.velocity);
@@ -74,6 +68,9 @@ public class CopSeekBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_suppressed)
+            return;
+
         //Checking if agent is rotating
         if (RotationCheck())
             //Scaling agent's acceleration down by it's speed value if so
