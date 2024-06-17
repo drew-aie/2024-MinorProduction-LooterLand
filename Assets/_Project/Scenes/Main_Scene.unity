@@ -2423,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 1135320778}
     - target: {fileID: 19500120, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
       propertyPath: OnHitWithoutCash.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19500120, guid: 79e3e04756ef0b2469d2203f6c273220, type: 3}
       propertyPath: OnHitWithoutCash.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
