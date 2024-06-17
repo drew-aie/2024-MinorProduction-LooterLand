@@ -78,9 +78,11 @@ public class CharacterHazardBehavior : MonoBehaviour
             }
             else if (gameObject.TryGetComponent(out CopSeekBehavior copBehavior))
             {
-                copBehavior.SuppressAcceleration(duration * 1.5f);
+                copBehavior.SuppressAcceleration(duration * 2);
 
-                gameObject.GetComponent<CopAnimation>().PlaySlip(duration);
+                gameObject.GetComponent<CopAnimation>().PlaySlip(duration * 2);
+
+                GetComponent<CopCollision>().DisableCopCollider(duration * 2);
             }
         }
         else
