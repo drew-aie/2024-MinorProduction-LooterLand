@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class EndScoreUI : MonoBehaviour
 {
-    [SerializeField, Tooltip("How many seconds the UI will wait before displaying the score.")]
-    private float _waitTime = 3;
-
-    [Space]
-
     [SerializeField, Tooltip("The TextMesh that will display the player's final score on the end screen.")]
     private TextMeshProUGUI _endScoreDisplay;
 

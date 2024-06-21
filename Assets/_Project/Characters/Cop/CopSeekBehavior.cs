@@ -63,7 +63,7 @@ public class CopSeekBehavior : MonoBehaviour
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
 
-        SpeedScale();
+        //SpeedScale();
     }
 
     private void FixedUpdate()
@@ -74,10 +74,9 @@ public class CopSeekBehavior : MonoBehaviour
         //Checking if agent is rotating
         if (RotationCheck())
             //Scaling agent's acceleration down by it's speed value if so
-            _cop.acceleration = MapValue(0, _cop.speed, _cop.acceleration, 20, 1);
-        else
-            //Resetting acceleration if not
-            _cop.acceleration = _accelerationSpeed;
+            _accelerationSpeed = MapValue(0, _cop.speed, _cop.acceleration, 20, 1) - 2;
+
+        SpeedScale();
     }
 
     //Scales the agent's speed with it's distance from the player (Fast when far, slower when close)
