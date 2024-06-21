@@ -42,8 +42,8 @@ public class EndScoreUI : MonoBehaviour
         else if (_playerScore.CurrentScore < 250f && _playerScore.CurrentScore > 0f)
             _gradeDisplay.text = "Grade: " + "C";
         else if (_playerScore.CurrentScore == 0f)
-            _gradeDisplay.text = "Grade: " + "Cowabummer!";
+            _gradeDisplay.text = "Grade: " + "D";
         else if (_playerScore.CurrentScore >= 2500f)
-            _gradeDisplay.text = "Grade: " + "Radical!";
+            _gradeDisplay.text = "Grade: " + "SSS!";
     }
 }
