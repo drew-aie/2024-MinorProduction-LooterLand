@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -71,9 +69,11 @@ public class CopPatrolBehavior : MonoBehaviour
             _cop.ResetPath();
             _cop.path = _patrolPath;
 
-            //Tell console that agent is not seeking
+            //Tell console that agent is not seeking and patrol hasn't started
             _agentIsSeeking = false;
+            _patrolStarted = false;
 
+            //Increasing agent speed so it gets back to patrol sooner
             _cop.speed *= 5;
 
             //Reset idle time and have agent idle
@@ -178,6 +178,7 @@ public class CopPatrolBehavior : MonoBehaviour
         if (!_patrolStarted)
         {
             _navIter = -1;
+            _cop.speed = _maxSpeed;
             _patrolStarted = true;
         }
 
@@ -195,9 +196,6 @@ public class CopPatrolBehavior : MonoBehaviour
         else
             //Incrementing each time PatrolPath is called
             _navIter++;
-
-        if (_cop.speed >= _maxSpeed)
-            _cop.speed = _patrolSpeed;
 
         //Setting agents destination to be position of current patrol point
         _cop.destination = _navPoints[_navIter].transform.position;
@@ -236,4 +234,3 @@ public class CopPatrolBehavior : MonoBehaviour
         _cop.destination = _target.transform.position + _target.transform.forward * lookAhead;
     }
 }
-

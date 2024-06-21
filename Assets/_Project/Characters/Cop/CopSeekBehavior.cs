@@ -10,43 +10,83 @@ public class CopSeekBehavior : MonoBehaviour
     private GameObject _target;
 
     private NavMeshAgent _cop;
-    private float _angularSpeed;
+    private float _accelerationSpeed;
+    private float _maxSpeed;
     private float _currentAngularVelocity;
 
     private Vector3 _velocity = Vector3.zero;
     private Vector3 _lastFacing;
+
+    private bool _suppressed;
 
     // Start is called before the first frame update
     void Awake()
     {
         _cop = GetComponent<NavMeshAgent>();
         _cop.updateRotation = false;
-        _angularSpeed = _cop.angularSpeed;
+        _accelerationSpeed = _cop.acceleration;
+        _maxSpeed = _cop.speed;
+
+        _suppressed = false;
     }
+
+    public void SuppressAcceleration(float duration)
+    {
+        _cop.acceleration = 0;
+
+        _suppressed = true;
+
+        Invoke("RestoreAcceleration", duration);
+    }
+
+    private void RestoreAcceleration()
+    {
+        _suppressed = false;
+
+        _cop.acceleration = _accelerationSpeed;
+    }
+
 
     // FixedUpdate is called once per fixed framerate frame
     void Update()
     {
+
         if (!_cop.enabled)
             return;
-
+        
         _cop.destination = _target.transform.position;
 
-        gameObject.transform.LookAt(_cop.transform.position + _cop.velocity);
+
+        //Making agent face the direction it's travelling using it's position and velocity
+        _cop.transform.LookAt(_cop.transform.position + _cop.velocity);
 
         //Smoothing agent movement to prevent jittering
         _cop.transform.position = Vector3.SmoothDamp(_cop.transform.position, _cop.nextPosition, ref _velocity, 0.05f);
+
+        SpeedScale();
     }
 
     private void FixedUpdate()
     {
+        if (_suppressed)
+            return;
+
         //Checking if agent is rotating
         if (RotationCheck())
-            //Scaling agent's angular speed down by it's speed value if so
-            _cop.angularSpeed = MapValue(0, _cop.speed, _cop.angularSpeed, 0, 1);
+            //Scaling agent's acceleration down by it's speed value if so
+            _cop.acceleration = MapValue(0, _cop.speed, _cop.acceleration, 20, 1);
         else
-            //Resetting angular speed if not
-            _cop.angularSpeed = _angularSpeed;
+            //Resetting acceleration if not
+            _cop.acceleration = _accelerationSpeed;
+    }
+
+    //Scales the agent's speed with it's distance from the player (Fast when far, slower when close)
+    private void SpeedScale()
+    {
+        float seekMagnitude = (_target.transform.position - _cop.transform.position).magnitude;
+
+        //Scaling agent's speed using distance from player and it's max speed times 1.5
+        _cop.speed = MapValue(0, seekMagnitude, _maxSpeed * 1.5f, 3, 1);
     }
 
     //Checks if the agent is currently rotating

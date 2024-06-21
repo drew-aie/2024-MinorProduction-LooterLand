@@ -56,7 +56,16 @@ public class PlayerCollision : MonoBehaviour
     private AudioContainerSO _hurtAudio;
 
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioClip _normalPickup;
+    
+    [SerializeField]
+    private AudioClip _valuablePickup;
+
+    [SerializeField]
+    private AudioSource _speakAudioSource;
+
+    [SerializeField]
+    private AudioSource _pickupAudioSource;
 
 
     private void Awake()
@@ -85,17 +94,20 @@ public class PlayerCollision : MonoBehaviour
             //increase the current score by the cash value of item
             _scoreSystem.IncreaseScore(item.CashValue);
 
-            if(item.CashValue > 45f && !item.CompareTag("Dropped"))
+            if (item.CashValue > 45f && !item.CompareTag("Dropped"))
             {
                 _cashEffect.Stop();
                 _cashEffect.Play();
 
                 AudioClip clip = _happyAudio.Clips[Random.Range(0, _happyAudio.Clips.Count)];
 
-                _audioSource.GetComponent<AudioSource>().clip = clip;
+                _speakAudioSource.GetComponent<AudioSource>().clip = clip;
 
-                _audioSource.Play();
-            }
+                _speakAudioSource.Play();
+            }    
+            _pickupAudioSource.GetComponent<AudioSource>().clip = _normalPickup;
+   
+            _pickupAudioSource.Play();
 
 
             if(item.EffectID != 0)
@@ -106,28 +118,14 @@ public class PlayerCollision : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        //if the object that the player is colliding with is an enemy
-        if (collider.gameObject.CompareTag("Enemy"))
-            HurtPlayer(collider.gameObject);
-
     }
 
 
-    private void OnCollisionStay(Collision collision)
-    {
-
-        //if the object that the player is colliding with is still an enemy
-        if (collision.gameObject.CompareTag("Enemy"))
-            HurtPlayer(collision.gameObject);
-    }
-
-    private void HurtPlayer(GameObject enemy)
+    public void HurtPlayer()
     {
         //if player cant lose cash
         if (!_canLoseCash)
             return;
-
-        enemy.GetComponent<CopAnimation>().PlayAttack();
 
         //emit hit particle effect.
         _hitEffect.Stop();
@@ -137,9 +135,9 @@ public class PlayerCollision : MonoBehaviour
 
         AudioClip clip = _hurtAudio.Clips[Random.Range(0, _hurtAudio.Clips.Count)];
 
-        _audioSource.GetComponent<AudioSource>().clip = clip;
+        _speakAudioSource.GetComponent<AudioSource>().clip = clip;
 
-        _audioSource.Play();
+        _speakAudioSource.Play();
 
         //begin a period where the Player cannot lose cash again for a set time.
         ProtectionPeriod();
@@ -158,6 +156,10 @@ public class PlayerCollision : MonoBehaviour
         {
             //call OnHitWithoutCash and return early.
             OnHitWithoutCash.Invoke();
+
+            //activates fading the player at the protection duration.
+            _playerBlink.Activate(_protectionPeriodDuration);
+
             return;
         }
 
@@ -210,9 +212,9 @@ public class PlayerCollision : MonoBehaviour
         }
 
         //add directional force to the dropped items to spread them out.
-        drops[0].GetComponent<Rigidbody>().AddForce(left * _itemDropSpeed);
-        drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed);
-        drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed);
+        drops[0].GetComponent<Rigidbody>().AddForce(left * _itemDropSpeed, ForceMode.Impulse);
+        drops[1].GetComponent<Rigidbody>().AddForce(right * _itemDropSpeed, ForceMode.Impulse);
+        drops[2].GetComponent<Rigidbody>().AddForce(back * _itemDropSpeed, ForceMode.Impulse);
 
         //activates fading the player at the protection duration.
         _playerBlink.Activate(_protectionPeriodDuration);

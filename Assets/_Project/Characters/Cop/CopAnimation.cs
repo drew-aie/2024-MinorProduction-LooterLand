@@ -40,4 +40,28 @@ public class CopAnimation : MonoBehaviour
         _animator.SetBool("CopAttack", false);
     }
 
+    public void PlaySlip(float duration)
+    {
+        _animator.SetBool("Slipping", true);
+
+        Invoke("StopSlip", duration);
+    }
+
+    private void StopSlip()
+    {
+        _animator.SetBool("Slipping", false);
+    }
+
+    public void PlayStick(float duration)
+    {
+        _animator.SetBool("Sticking", true);
+
+        Invoke("StopStick", duration);
+    }
+
+    private void StopStick()
+    {
+        _animator.SetBool("Sticking", false);
+    }
+
 }
