@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
     private void SelectRandomImage()
     {
         //Storing a random int
-        int rand = UnityEngine.Random.Range(0, 4);
+        int rand = UnityEngine.Random.Range(0, 8);
 
         _transitionImages.SetActive(true);
 
@@ -57,7 +57,7 @@ public class MainMenu : MonoBehaviour
     private IEnumerator Load(Action callback)
     {
         SelectRandomImage();
-        yield return new WaitForSeconds(_transitionTime);
+        yield return new WaitForSecondsRealtime(_transitionTime);
         callback();
     }
 }

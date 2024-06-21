@@ -3250,6 +3250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2667273705191493239, guid: 2aa8a938a08093c4cae9ed76f2ef7220,
         type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667273705191493239, guid: 2aa8a938a08093c4cae9ed76f2ef7220,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -5786,7 +5791,7 @@ PrefabInstance:
     - target: {fileID: 4127896054622093243, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
       propertyPath: _seconds
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4127896055070878396, guid: 6bc062238340b1248bbbe540064bed3d,
         type: 3}
