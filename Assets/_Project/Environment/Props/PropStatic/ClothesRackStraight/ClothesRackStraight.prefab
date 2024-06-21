@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2573416845527666021}
   - component: {fileID: 8619622732885197685}
   - component: {fileID: 7225797477519858829}
+  - component: {fileID: 3319463047341547769}
   m_Layer: 0
   m_Name: ClothesRackStraight_Mesh
   m_TagString: Untagged
@@ -97,6 +98,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.60499865, y: 2.0990877, z: 1.8584011}
   m_Center: {x: -0.26538077, y: 1.0495601, z: -0.9292039}
+--- !u!208 &3319463047341547769
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083410780675354121}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.30200002, y: 0.96000004, z: 0.929}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -0.26500002, y: 0.96000004, z: -0.929}
+  m_TimeToStationary: 0.5
 --- !u!1 &6246757211850133315
 GameObject:
   m_ObjectHideFlags: 0
