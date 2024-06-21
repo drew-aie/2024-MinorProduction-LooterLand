@@ -7,6 +7,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Transform _target;
 
+    Vector3 cam1;
+    Vector3 cam2;
+    Vector3 lerp;
 
 
     //  [SerializeField]
