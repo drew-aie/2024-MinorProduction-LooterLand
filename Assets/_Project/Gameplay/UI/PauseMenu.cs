@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,9 @@ public class PauseMenu : MonoBehaviour
     private InputAction _menu;
 
     public static bool _gameIsPaused = false;
+
+    public UnityEvent OnPause;
+    public UnityEvent OnUnPause;
 
     private void Awake()
     {
@@ -58,6 +62,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0.0001f;
 
         _gameIsPaused = true;
+
+        OnPause.Invoke();
+
+        ReduceAudio aud = FindObjectOfType<ReduceAudio>();
+        if (aud)
+            aud.PauseMenu();
     }
 
     //Unpauses game
@@ -69,15 +79,26 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
 
         _gameIsPaused = false;
+        OnUnPause.Invoke();
+
+
+        ReduceAudio aud = FindObjectOfType<ReduceAudio>();
+        if (aud)
+            aud.StopPauseMenu();
     }
 
     //Reloads the current scene
     public void Retry()
     {
-        //Loading current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ReduceAudio aud = FindObjectOfType<ReduceAudio>();
+        if (aud)
+            aud.StopPauseMenu();
+
+        OnUnPause.Invoke();
         //Unfreezing game
         Time.timeScale = 1.0f;
+        //Loading current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OptionsMenu()
@@ -88,6 +109,11 @@ public class PauseMenu : MonoBehaviour
     //Loads the first scene in the index (Main Menu)
     public void QuitMenu()
     {
+        ReduceAudio aud = FindObjectOfType<ReduceAudio>();
+        if (aud)
+            aud.StopPauseMenu();
+
+        OnUnPause.Invoke();
         //Restoring game time and loading main menu
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
