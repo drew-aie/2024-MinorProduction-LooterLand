@@ -89,6 +89,8 @@ public class CharacterHazardBehavior : MonoBehaviour
             if(TryGetComponent(out NavMeshAgent nav))
             {
                 nav.enabled = false;
+
+                GetComponent<CopAnimation>().PlayStick(duration);
             }
 
         _characterDropletParticleSystems.Play(waterMaterial);

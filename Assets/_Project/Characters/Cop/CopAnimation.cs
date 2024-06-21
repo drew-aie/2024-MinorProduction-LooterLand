@@ -52,4 +52,16 @@ public class CopAnimation : MonoBehaviour
         _animator.SetBool("Slipping", false);
     }
 
+    public void PlayStick(float duration)
+    {
+        _animator.SetBool("Sticking", true);
+
+        Invoke("StopStick", duration);
+    }
+
+    private void StopStick()
+    {
+        _animator.SetBool("Sticking", false);
+    }
+
 }
